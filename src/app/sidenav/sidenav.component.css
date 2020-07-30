@@ -3,10 +3,11 @@
   top: 64px;
   right: 0;
   left: 0;
-  background: #eee;
+  background: transparent;
 }
 .sidenav-list {
   width: 200px;
+  background: #eee;
 }
 
 .horizontal {
