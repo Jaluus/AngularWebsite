@@ -10,7 +10,7 @@
   </ul>
   <div class="spacer"></div>
 
-    <a mat-button class="middle">
+    <a mat-button class="middle" href="https://github.com/dudenheini/AngularWebsite">
       <img class="middle"
       src="../../assets/img/giticon.svg"
       alt="angular">
@@ -23,11 +23,10 @@
     <mat-sidenav
     class="sidenav-list"
     mode="side"
-    [opened]="navItems.length > 0"
+    [opened]="navItemArr.length > 0"
     [fixedBottomGap]="0"
     [fixedInViewport]="0"
-    [fixedTopGap]="56">
-
+    [fixedTopGap]="64">
       <mat-nav-list>
         <a mat-list-item *ngFor="let navItem of navItemArr" >{{navItem.name}}</a>
       </mat-nav-list>
@@ -43,6 +42,8 @@
         <li>Router Outlet</li>
         <li>Konaban?</li>
       </ul>
+
+      <button mat-raised-button color="primary" (click)="onClick()">Test for Sidenav</button>
     </mat-sidenav-content>
 
 </mat-sidenav-container>

@@ -7,7 +7,6 @@ import { NavItem } from "./navItem.model"
   styleUrls: ['./sidenav.component.css']
 })
 export class SidenavComponent implements OnInit {
-  navItems = ["a* Pathfinding","Blender Bilder","Telegrambot","Maze Generator","Fraktal Generator"];
   navItemArr : NavItem[] = [
     new NavItem("a* Pathfinding","https://google.com"),
     new NavItem("Blender Bilder","None Yet"),
@@ -15,9 +14,25 @@ export class SidenavComponent implements OnInit {
     new NavItem("Fraktal Generator","None Yet")
   ];
 
+  navItemArr2 : NavItem[] = [
+    new NavItem("test","https://google.com"),
+    new NavItem("Test2","None Yet"),
+    new NavItem("Test3","None Yet"),
+    new NavItem("Even More Content","None Yet")
+  ];
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onClick(){
+    if (this.navItemArr.length>0) {
+      this.navItemArr = []
+    }
+    else {
+      this.navItemArr = this.navItemArr2
+    }
   }
 
 }
