@@ -6,25 +6,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./testpage.component.css']
 })
 export class TestpageComponent implements OnInit {
-  text = "hover Here!"
-  i = 0
-  textArr = ["Stop","I said Stop!" , "AHHHHHHHHHHHHHHHHHHHHHH", "it HURTSSS", "im gonna crash if you Click again"]
+  mouseDown = false;
+  gridArr: {number:number, clicked:boolean}[] = []
+  gridSize = 28*28
   constructor() { }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
+    for (let i = 0; i < this.gridSize; i++) {
+      this.gridArr.push({number:i,clicked:false})
+    }
   }
 
-  changeTxt(){
-    this.text = "get Off!"
+  onHover(tile){
+    if (this.mouseDown){
+      tile.clicked = true;
+    }
   }
 
-  changeTxtBack(){
-    this.text = "Thanks"
-  }
-
-  warning(){
-    this.text= this.textArr[this.i]
-    this.i= this.i+1;
+  clearAll(){
+    for (let element of this.gridArr){
+      element.clicked = false
+    }
   }
 
 }
+

@@ -5,6 +5,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
+import {MatGridListModule} from '@angular/material/grid-list';
+
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -25,7 +27,8 @@ import { TestpageComponent } from './pages/testpage/testpage.component';
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

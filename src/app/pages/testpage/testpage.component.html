@@ -1,3 +1,17 @@
 <h1>THIS IS A TESTPAGE</h1>
 <br>
-<button class ="middle" mat-raised-button color="warn"> center </button>
+<button class ="middle" mat-raised-button color="warn" (click)="clearAll()"> clear </button>
+
+<br>
+
+<mat-grid-list class="pixel-container" cols="28" [gutterSize]="1">
+  <mat-grid-tile
+  class="pixel"
+  *ngFor="let tile of gridArr"
+  [ngStyle]="{'background-color': tile.clicked?'black':'white'}"
+  (mousedown)="mouseDown = true && tile.clicked = true"
+  (mouseover)="onHover(tile)"
+  (mouseup)="mouseDown = false"
+  ></mat-grid-tile>
+</mat-grid-list>
+<p>Some text</p>

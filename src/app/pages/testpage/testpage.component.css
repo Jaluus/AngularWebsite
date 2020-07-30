@@ -6,3 +6,21 @@ margin: auto;
 h1{
   text-align: center;
 }
+
+.pixel {
+  background-color: white;
+}
+
+.pixel-container {
+  width: 500px;
+  height: 500px;
+  padding-bottom: 2px !important;
+  padding-left: 1px !important;
+  padding-top: 0px !important;
+  padding-right: 1px !important;
+  margin: auto;
+  background-color: black;
+  border-style: solid;
+  border-width: 2px;
+  border-color: black;
+}
