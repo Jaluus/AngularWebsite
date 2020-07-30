@@ -1,0 +1,49 @@
+<mat-toolbar color="primary">
+  <span>
+    <a href="#" class="middle">Jan's Tests</a>
+  </span>
+  <div class="spacer2"></div>
+  <ul class="horizontal">
+    <li><a mat-button class="middle">Programmier Projekte</a></li>
+    <li><a mat-button class="middle">Machine learning</a></li>
+    <li><a mat-button class="middle">Sonstiges</a></li>
+  </ul>
+  <div class="spacer"></div>
+
+    <a mat-button class="middle">
+      <img class="middle"
+      src="../../assets/img/giticon.svg"
+      alt="angular">
+      Github
+    </a>
+</mat-toolbar>
+
+
+<mat-sidenav-container class="sidenav" >
+    <mat-sidenav
+    class="sidenav-list"
+    mode="side"
+    [opened]="navItems.length > 0"
+    [fixedBottomGap]="0"
+    [fixedInViewport]="0"
+    [fixedTopGap]="56">
+
+      <mat-nav-list>
+        <a mat-list-item *ngFor="let navItem of navItemArr" >{{navItem.name}}</a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+
+
+    <mat-sidenav-content>
+      <h1>
+        Hier kommt mehr hin
+      </h1>
+      <ul class="vertical"> <h3>TODO</h3>
+        <li>Router Outlet</li>
+        <li>Konaban?</li>
+      </ul>
+    </mat-sidenav-content>
+
+</mat-sidenav-container>
+
