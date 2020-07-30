@@ -18,6 +18,21 @@ export class SidenavComponent implements OnInit {
     new NavItem("test","https://google.com"),
     new NavItem("Test2","None Yet"),
     new NavItem("Test3","None Yet"),
+    new NavItem("Even More Content","None Yet"),
+    new NavItem("test","https://google.com"),
+    new NavItem("Test2","None Yet"),
+    new NavItem("Test3","None Yet"),
+    new NavItem("Even More Content","None Yet"),
+    new NavItem("test","https://google.com"),
+    new NavItem("Test2","None Yet"),
+    new NavItem("Test3","None Yet"),
+    new NavItem("Even More Content","None Yet"),
+    new NavItem("Test2","None Yet"),
+    new NavItem("Test3","None Yet"),
+    new NavItem("Even More Content","None Yet"),
+    new NavItem("test","https://google.com"),
+    new NavItem("Test2","None Yet"),
+    new NavItem("Test3","None Yet"),
     new NavItem("Even More Content","None Yet")
   ];
 

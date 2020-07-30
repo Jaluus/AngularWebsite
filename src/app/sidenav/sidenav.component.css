@@ -5,6 +5,15 @@
   left: 0;
   background: transparent;
 }
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 998;
+}
+
 .sidenav-list {
   width: 200px;
   background: #eee;
@@ -32,12 +41,4 @@ a {
 
 .spacer2 {
   margin-left: 5rem;
-}
-
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 998;
 }
