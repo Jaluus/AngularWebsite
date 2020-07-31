@@ -1,6 +1,6 @@
-# MyAngularWebsite
+# Jan's Tests
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.3.
+Einfach just for Fun und um Generell mal mehr zum webdev zu Lernen
 
 ## Development server
 
