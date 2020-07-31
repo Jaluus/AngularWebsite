@@ -1,0 +1,44 @@
+.sidenav {
+  position: absolute;
+  top: 64px;
+  right: 0;
+  left: 0;
+  background: transparent;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 998;
+}
+
+.sidenav-list {
+  width: 200px;
+  background: #eee;
+}
+
+.horizontal {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.middle {
+  vertical-align: middle;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.spacer2 {
+  margin-left: 5rem;
+}
