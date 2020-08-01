@@ -1,0 +1,22 @@
+.middle{
+  display: block;
+  margin: auto;
+  }
+
+h1{
+  text-align: center;
+}
+
+button{
+  margin-left: 1rem;
+  margin-right:1rem ;
+}
+
+.button-container{
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.num-input{
+  width: 40px;
+}

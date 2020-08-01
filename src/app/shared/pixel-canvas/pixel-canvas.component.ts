@@ -5,12 +5,13 @@ import { Pixel } from './pixel.model';
 @Component({
   selector: 'app-pixel-canvas',
   templateUrl: './pixel-canvas.component.html',
-  styleUrls: ['./pixel-canvas.component.css']
+  styleUrls: ['./pixel-canvas.component.css'],
+  providers:[GridManager]
 
 })
 export class PixelCanvasComponent implements OnInit{
+  @Input("enableCanvasControl") control = true;
   mouseDown = false;
-  newGridsize = 10;
 
   constructor(public gridmng :GridManager) {}
 
@@ -18,24 +19,19 @@ export class PixelCanvasComponent implements OnInit{
     this.gridmng.makeArr();
   }
 
+  colorPixel(tile:Pixel){
+    if(!this.gridmng.squareColor){
+      tile.clicked = true;
+    }else{
+      this.gridmng.colorSquare(tile)
+    }
+  }
+
   onHover(tile:Pixel){
     if (this.mouseDown && tile){
-      tile.clicked = true;
+      this.colorPixel(tile)
     }
   }
 
-  colorSquare(tile:Pixel){
-    for (let pix of this.gridmng.getAdjecent(tile)){
-      if(pix){
-        pix.clicked = true;
-      }
-    }
-  }
 
-  colorPixel(tile:Pixel){
-    tile.clicked = true;
-  }
-
-  //Build a Service for the canvas
-
-  }
+}

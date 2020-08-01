@@ -4,10 +4,9 @@ import {Injectable } from "@angular/core";
 @Injectable()
 export class GridManager{
 
-  gridArr: Pixel[] = [
-    new Pixel(1,false),
-    new Pixel(1,false)
-  ]
+  squareColor = false
+
+  gridArr: Pixel[] = []
   gridSize:number = 28
 
   makeArr(){
@@ -57,4 +56,17 @@ export class GridManager{
     }
     return AdArr;
   }
+
+  toggleSize(){
+    this.squareColor = !this.squareColor
+  }
+
+  colorSquare(tile:Pixel){
+    for (let pix of this.getAdjecent(tile)){
+      if(pix){
+        pix.clicked = true;
+      }
+    }
+  }
+
 }

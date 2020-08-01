@@ -1,0 +1,35 @@
+<mat-card style="width: 50%; margin: auto; background-color: #eee;">
+  <div class="button-container">
+    <p>Brushsize:
+      <mat-button-toggle-group>
+        <mat-button-toggle (click) = "gridmng.squareColor=false">1x1</mat-button-toggle>
+        <mat-button-toggle (click) = "gridmng.squareColor=true">3x3</mat-button-toggle>
+      </mat-button-toggle-group>
+    </p>
+  </div>
+
+  <div class="button-container">
+    <mat-form-field class="num-input">
+      <input
+        matInput
+        type = "number"
+        [(ngModel)]="newGridsize">
+    </mat-form-field>
+
+    <button
+      mat-raised-button color="primary"
+      (click) = "gridmng.setGridsize(newGridsize)"
+      >set Gridsize
+    </button>
+  </div>
+
+  <div class="button-container">
+    <button
+      mat-raised-button
+      color="warn"
+      (click) = "gridmng.clearAll()"
+      >Clear Grid
+   </button>
+  </div>
+
+</mat-card>

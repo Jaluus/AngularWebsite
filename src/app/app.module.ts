@@ -11,7 +11,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -20,6 +20,7 @@ import { HomepageComponent } from './pages/homepage/homepage.component';
 import { TestpageComponent } from './pages/testpage/testpage.component';
 import { PixelCanvasComponent } from './shared/pixel-canvas/pixel-canvas.component';
 import { GridManager } from './shared/services/gridManager.service';
+import { CanvasControlComponent } from './shared/pixel-canvas/canvas-control/canvas-control.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { GridManager } from './shared/services/gridManager.service';
     SidenavComponent,
     HomepageComponent,
     TestpageComponent,
-    PixelCanvasComponent
+    PixelCanvasComponent,
+    CanvasControlComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +42,8 @@ import { GridManager } from './shared/services/gridManager.service';
     FormsModule,
     MatCardModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

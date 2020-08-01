@@ -4,8 +4,7 @@ import { GridManager } from '../../shared/services/gridManager.service';
 @Component({
   selector: 'app-testpage',
   templateUrl: './testpage.component.html',
-  styleUrls: ['./testpage.component.css'],
-  providers:[GridManager]
+  styleUrls: ['./testpage.component.css']
 })
 export class TestpageComponent implements OnInit {
   constructor() { }

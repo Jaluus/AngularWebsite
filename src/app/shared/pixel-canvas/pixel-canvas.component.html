@@ -1,29 +1,9 @@
+
+<app-canvas-control *ngIf="control"></app-canvas-control>
+
+<br>
+
 <mat-card style="width: 50%; margin: auto; background-color: #eee;">
-  <div class="button-container">
-    <button
-    mat-raised-button
-    color="warn"
-    (click) = "gridmng.clearAll()"
-    style="margin-bottom: 1rem;"
-    > Clear Grid</button>
-    <br>
-
-    <mat-form-field class="num-input">
-      <input
-      matInput
-      type = "number"
-      [(ngModel)]="newGridsize">
-    </mat-form-field>
-
-    <button
-    mat-raised-button color="primary"
-    (click) = "gridmng.setGridsize(newGridsize)"
-    style="margin-left: 1rem;"
-    >set Gridsize</button>
-  </div>
-
-  <br>
-
   <mat-grid-list class="pixel-container"
   [cols]="gridmng.gridSize"
   [gutterSize]="1"
