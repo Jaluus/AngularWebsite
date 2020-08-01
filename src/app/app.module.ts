@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
+import { RouterModule, Routes } from "@angular/router"
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -19,8 +19,23 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { TestpageComponent } from './pages/testpage/testpage.component';
 import { PixelCanvasComponent } from './shared/pixel-canvas/pixel-canvas.component';
-import { GridManager } from './shared/services/gridManager.service';
 import { CanvasControlComponent } from './shared/pixel-canvas/canvas-control/canvas-control.component';
+import { MachineLearningHomeComponent } from './pages/machine-learning-home/machine-learning-home.component';
+import { ProgrammierProjekteHomeComponent } from './pages/programmier-projekte-home/programmier-projekte-home.component';
+import { ConwayComponent } from './pages/programmier-projekte-home/conway/conway.component';
+import { HeaderComponent } from './header/header.component';
+
+const appRoutes : Routes = [
+  { path : "" , component: HomepageComponent},
+  { path : "PP" , component: SidenavComponent, children: [
+    {path: "Start", component: ProgrammierProjekteHomeComponent},
+    { path: "Conway", component: ConwayComponent}
+  ]},
+  { path : "ML" , component: SidenavComponent,children: [
+    {path: "Start", component: MachineLearningHomeComponent}
+  ]},
+  { path : "ETC" , component: TestpageComponent}
+];
 
 @NgModule({
   declarations: [
@@ -29,7 +44,11 @@ import { CanvasControlComponent } from './shared/pixel-canvas/canvas-control/can
     HomepageComponent,
     TestpageComponent,
     PixelCanvasComponent,
-    CanvasControlComponent
+    CanvasControlComponent,
+    MachineLearningHomeComponent,
+    ProgrammierProjekteHomeComponent,
+    ConwayComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +62,8 @@ import { CanvasControlComponent } from './shared/pixel-canvas/canvas-control/can
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]

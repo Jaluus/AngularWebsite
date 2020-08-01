@@ -1,11 +1,11 @@
 
-<app-canvas-control *ngIf="control"></app-canvas-control>
+<app-canvas-control *ngIf="enableControl"></app-canvas-control>
 
 <br>
 
 <mat-card style="width: 50%; margin: auto; background-color: #eee;">
   <mat-grid-list class="pixel-container"
-  [cols]="gridmng.gridSize"
+  [cols]="gridmng.gridsize"
   [gutterSize]="1"
   (mousedown)="mouseDown = true"
   (mouseup)="mouseDown = false">
@@ -14,7 +14,7 @@
     class="pixel"
     *ngFor="let tile of gridmng.gridArr"
     [ngStyle]="{'background-color': tile.clicked?'black':'white'}"
-    (mousedown)="colorPixel(tile)"
+    (mousedown)="gridmng.colorPixel(tile)"
     (mouseover)="onHover(tile)"
     ></mat-grid-tile>
 

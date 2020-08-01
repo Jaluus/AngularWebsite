@@ -1,0 +1,8 @@
+.content-container {
+  position: absolute;
+  top: 64px;
+  right: 0;
+  left: 0;
+  background: transparent;
+  overflow: auto;
+}

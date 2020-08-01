@@ -3,15 +3,14 @@ import {Injectable } from "@angular/core";
 
 @Injectable()
 export class GridManager{
-
   squareColor = false
 
   gridArr: Pixel[] = []
-  gridSize:number = 28
+  gridsize:number = 10
 
   makeArr(){
     this.gridArr = [];
-    for (let i = 0; i < Math.pow(this.gridSize,2) ; i++) {
+    for (let i = 0; i < Math.pow(this.gridsize,2) ; i++) {
       this.gridArr.push(new Pixel(i,false))
     }
   }
@@ -23,18 +22,18 @@ export class GridManager{
   }
 
   setGridsize(newGridsize){
-    this.gridSize = newGridsize;
-    console.log(this.gridSize)
+    if(newGridsize)
+    this.gridsize = newGridsize;
     this.makeArr()
   }
 
   getAdjecent(tile:Pixel){
     let AdArr:Pixel[] = [];
 
-    if(tile.id-this.gridSize-1 >= 0){
-      AdArr.push(this.gridArr[tile.id-this.gridSize-1])
-      AdArr.push(this.gridArr[tile.id-this.gridSize])
-      AdArr.push(this.gridArr[tile.id-this.gridSize+1])
+    if(tile.id-this.gridsize-1 >= 0){
+      AdArr.push(this.gridArr[tile.id-this.gridsize-1])
+      AdArr.push(this.gridArr[tile.id-this.gridsize])
+      AdArr.push(this.gridArr[tile.id-this.gridsize+1])
     } else {
       AdArr.push(null)
       AdArr.push(null)
@@ -45,10 +44,10 @@ export class GridManager{
       AdArr.push(this.gridArr[tile.id])
       AdArr.push(this.gridArr[tile.id+1])
 
-    if(tile.id+this.gridSize < Math.pow(this.gridSize,2)){
-      AdArr.push(this.gridArr[tile.id+this.gridSize-1])
-      AdArr.push(this.gridArr[tile.id+this.gridSize])
-      AdArr.push(this.gridArr[tile.id+this.gridSize+1])
+    if(tile.id+this.gridsize < Math.pow(this.gridsize,2)){
+      AdArr.push(this.gridArr[tile.id+this.gridsize-1])
+      AdArr.push(this.gridArr[tile.id+this.gridsize])
+      AdArr.push(this.gridArr[tile.id+this.gridsize+1])
     } else {
       AdArr.push(null)
       AdArr.push(null)
@@ -66,6 +65,14 @@ export class GridManager{
       if(pix){
         pix.clicked = true;
       }
+    }
+  }
+
+  colorPixel(tile:Pixel){
+    if(!this.squareColor){
+      tile.clicked = true;
+    }else{
+      this.colorSquare(tile)
     }
   }
 

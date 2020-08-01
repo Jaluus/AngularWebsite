@@ -10,7 +10,7 @@ import { Pixel } from './pixel.model';
 
 })
 export class PixelCanvasComponent implements OnInit{
-  @Input("enableCanvasControl") control = true;
+  @Input("enableCanvasControl") enableControl = true;
   mouseDown = false;
 
   constructor(public gridmng :GridManager) {}
@@ -19,17 +19,9 @@ export class PixelCanvasComponent implements OnInit{
     this.gridmng.makeArr();
   }
 
-  colorPixel(tile:Pixel){
-    if(!this.gridmng.squareColor){
-      tile.clicked = true;
-    }else{
-      this.gridmng.colorSquare(tile)
-    }
-  }
-
   onHover(tile:Pixel){
     if (this.mouseDown && tile){
-      this.colorPixel(tile)
+      this.gridmng.colorPixel(tile)
     }
   }
 

@@ -1,21 +1,9 @@
-.sidenav {
-  position: absolute;
-  top: 64px;
-  right: 0;
-  left: 0;
+.sidenav-container {
   background: transparent;
 }
 
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 998;
-}
-
 .sidenav-list {
-  width: 200px;
+  width: 10%;
   background: #eee;
 }
 
