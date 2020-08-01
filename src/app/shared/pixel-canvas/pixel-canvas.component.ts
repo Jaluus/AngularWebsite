@@ -1,46 +1,41 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { GridManager } from '../services/gridManager.service';
+import { Pixel } from './pixel.model';
 
 @Component({
   selector: 'app-pixel-canvas',
   templateUrl: './pixel-canvas.component.html',
   styleUrls: ['./pixel-canvas.component.css']
+
 })
-export class PixelCanvasComponent implements OnInit {
-  newGridSize:number = 10
+export class PixelCanvasComponent implements OnInit{
   mouseDown = false;
-  gridArr: {number:number, clicked:boolean}[] = []
-  @Input() gridSize:number = 28
+  newGridsize = 10;
 
-  constructor() { }
+  constructor(public gridmng :GridManager) {}
 
-  ngOnInit(): void {
-    for (let i = 0; i < Math.pow(this.gridSize,2) ; i++) {
-      this.gridArr.push({number:i,clicked:false})
-    }
+  ngOnInit(){
+    this.gridmng.makeArr();
   }
 
-  makeArr(){
-    this.gridArr = [];
-    for (let i = 0; i < Math.pow(this.gridSize,2) ; i++) {
-      this.gridArr.push({number:i,clicked:false})
-    }
-  }
-
-  onHover(tile){
-    if (this.mouseDown){
+  onHover(tile:Pixel){
+    if (this.mouseDown && tile){
       tile.clicked = true;
     }
   }
 
-  clearAll(){
-    for (let element of this.gridArr){
-      element.clicked = false
+  colorSquare(tile:Pixel){
+    for (let pix of this.gridmng.getAdjecent(tile)){
+      if(pix){
+        pix.clicked = true;
+      }
     }
   }
 
-  setGridsize(){
-    this.gridSize = this.newGridSize
-    this.makeArr()
+  colorPixel(tile:Pixel){
+    tile.clicked = true;
   }
 
-}
+  //Build a Service for the canvas
+
+  }

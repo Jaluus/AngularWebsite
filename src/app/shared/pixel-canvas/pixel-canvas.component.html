@@ -1,42 +1,40 @@
-<mat-card style="width: 50%; margin: auto; margin-bottom: 1rem; background-color: #eee;">
+<mat-card style="width: 50%; margin: auto; background-color: #eee;">
   <div class="button-container">
     <button
     mat-raised-button
     color="warn"
-    (click) = "clearAll()"
+    (click) = "gridmng.clearAll()"
     style="margin-bottom: 1rem;"
     > Clear Grid</button>
     <br>
 
-    <!-- <input mat-input [(ngModel)]="newGridSize" style="width: 2rem"> -->
-
     <mat-form-field class="num-input">
       <input
       matInput
-      [(ngModel)]="newGridSize">
+      type = "number"
+      [(ngModel)]="newGridsize">
     </mat-form-field>
 
     <button
     mat-raised-button color="primary"
-    (click) = "setGridsize()"
+    (click) = "gridmng.setGridsize(newGridsize)"
     style="margin-left: 1rem;"
-    > set Gridsize</button>
+    >set Gridsize</button>
   </div>
 
-</mat-card>
+  <br>
 
-<mat-card style="width: 50%; margin: auto; margin-bottom: 1rem; background-color: #eee;">
   <mat-grid-list class="pixel-container"
-  [cols]="gridSize"
+  [cols]="gridmng.gridSize"
   [gutterSize]="1"
   (mousedown)="mouseDown = true"
   (mouseup)="mouseDown = false">
 
     <mat-grid-tile
     class="pixel"
-    *ngFor="let tile of gridArr"
+    *ngFor="let tile of gridmng.gridArr"
     [ngStyle]="{'background-color': tile.clicked?'black':'white'}"
-    (mousedown)="tile.clicked = true"
+    (mousedown)="colorPixel(tile)"
     (mouseover)="onHover(tile)"
     ></mat-grid-tile>
 

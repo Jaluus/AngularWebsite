@@ -19,6 +19,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { TestpageComponent } from './pages/testpage/testpage.component';
 import { PixelCanvasComponent } from './shared/pixel-canvas/pixel-canvas.component';
+import { GridManager } from './shared/services/gridManager.service';
 
 @NgModule({
   declarations: [
