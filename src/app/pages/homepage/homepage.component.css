@@ -1,7 +1,10 @@
 .content-container{
+  width: 100%;
+}
+.text {
+  width: 80%;
   text-align: center;
   margin: auto;
-  width: 80%;
 }
 ul {
   list-style-type: none;

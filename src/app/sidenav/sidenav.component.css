@@ -30,3 +30,7 @@ a {
 .spacer2 {
   margin-left: 5rem;
 }
+
+.content-container {
+  overflow: auto;
+}
