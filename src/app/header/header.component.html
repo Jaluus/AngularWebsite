@@ -18,15 +18,13 @@
 </mat-toolbar>
 
 <!-- Small Toolbar -->
-<mat-toolbar *ngIf="!bigScreen" color="warn" class="header">
-  <span>
-    <a routerLink="/" class="middle">Jan's Tests</a>
-  </span>
-  <div class="spacer2"></div>
-  <ul class="horizontal">
-    <li *ngFor="let link of links"><a mat-button [routerLink]="[link.route]" class="middle">{{ link.name }}</a></li>
-  </ul>
-  <div class="spacer"></div>
+<mat-toolbar *ngIf="!bigScreen" color="warn" class="mobile-header">
+  <mat-toolbar-row>
+    <span>
+      <a routerLink="/" class="middle">Jan's Tests</a>
+    </span>
+
+    <div class="spacer"></div>
 
     <a mat-button class="middle" href="https://github.com/dudenheini/AngularWebsite">
       <img class="middle"
@@ -34,4 +32,11 @@
       alt="angular">
       Github
     </a>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row class="mobile-header-row">
+    <ul class="mobile-horizontal">
+      <li *ngFor="let link of links" class="list-item"><a mat-button [routerLink]="[link.route]">{{ link.name }}</a></li>
+    </ul>
+  </mat-toolbar-row>
 </mat-toolbar>

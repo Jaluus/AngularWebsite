@@ -6,7 +6,7 @@
     [opened]="navItemArr?.length > 0"
     [fixedBottomGap]="0"
     [fixedInViewport]="0"
-    [fixedTopGap]="64">
+    [fixedTopGap]="56">
       <mat-nav-list>
         <a mat-list-item *ngFor="let navItem of navItemArr" [routerLink]="[navItem.route]" >{{navItem.name}}</a>
       </mat-nav-list>
