@@ -1,12 +1,30 @@
-<mat-toolbar color="primary" class="header">
+<!-- Big Toolbar -->
+<mat-toolbar *ngIf="bigScreen" color="primary" class="header">
   <span>
-    <a href="#" routerLink="/" class="middle">Jan's Tests</a>
+    <a routerLink="/" class="middle">Jan's Tests</a>
   </span>
   <div class="spacer2"></div>
   <ul class="horizontal">
-    <li><a mat-button routerLink="/PP/Start" class="middle">Programmier Projekte</a></li>
-    <li><a mat-button routerLink="/ML/Start" class="middle" >Machine learning</a></li>
-    <li><a mat-button routerLink="/ETC" class="middle">Sonstiges</a></li>
+    <li *ngFor="let link of links"><a mat-button [routerLink]="[link.route]" class="middle">{{ link.name }}</a></li>
+  </ul>
+  <div class="spacer"></div>
+
+    <a mat-button class="middle" href="https://github.com/dudenheini/AngularWebsite">
+      <img class="middle"
+      src="../../assets/img/giticon.svg"
+      alt="angular">
+      Github
+    </a>
+</mat-toolbar>
+
+<!-- Small Toolbar -->
+<mat-toolbar *ngIf="!bigScreen" color="warn" class="header">
+  <span>
+    <a routerLink="/" class="middle">Jan's Tests</a>
+  </span>
+  <div class="spacer2"></div>
+  <ul class="horizontal">
+    <li *ngFor="let link of links"><a mat-button [routerLink]="[link.route]" class="middle">{{ link.name }}</a></li>
   </ul>
   <div class="spacer"></div>
 

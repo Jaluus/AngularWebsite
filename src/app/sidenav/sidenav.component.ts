@@ -38,9 +38,4 @@ export class SidenavComponent implements OnInit {
         }
   })
 }
-
-  navigateTo(route){
-    this.router.navigate([route], {relativeTo:this.activeRoute})
-  }
-
 }

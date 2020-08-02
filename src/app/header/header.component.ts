@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { NavItem } from '../sidenav/navItem.model';
 
 @Component({
   selector: 'app-header',
@@ -6,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  @Input("Desktop")  bigScreen = true;
+
+  links: NavItem[] = [
+    new NavItem("Programmier Projekte","/PP/Start"),
+    new NavItem("Machine Learning","/ML/Start"),
+    new NavItem("sonstiges","/ETC"),
+  ]
 
   constructor() { }
 
