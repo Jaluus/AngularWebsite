@@ -10,7 +10,7 @@ export class HeaderComponent implements OnInit {
   @Input("Desktop")  bigScreen = true;
 
   links: NavItem[] = [
-    new NavItem("Programmier Projekte","/PP/Start"),
+    new NavItem("Programmieren","/PP/Start"),
     new NavItem("Machine Learning","/ML/Start"),
     new NavItem("sonstiges","/ETC"),
   ]

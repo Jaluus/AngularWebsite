@@ -20,6 +20,11 @@
   overflow: hidden;
 }
 
+.mobile-header-row {
+  padding: 0;
+}
+
+
 
 .middle {
   vertical-align: middle;
@@ -28,6 +33,10 @@
 a {
   text-decoration: none;
   color: white;
+}
+
+.link-button-mobile {
+  width: 100%;
 }
 
 .spacer {
@@ -46,13 +55,15 @@ a {
   width:100%;
 }
 
-.mobile-horizontal {
+.mobile-horizontal-list {
   display: table;
+  table-layout: fixed;
   list-style: none;
   padding: 0;
   margin: 0;
-  width:100%;
+  width: 100%;
 }
 .list-item {
   display:table-cell;
+  text-align: center;
 }

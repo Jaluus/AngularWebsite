@@ -18,7 +18,7 @@
 </mat-toolbar>
 
 <!-- Small Toolbar -->
-<mat-toolbar *ngIf="!bigScreen" color="warn" class="mobile-header">
+<mat-toolbar *ngIf="!bigScreen" color="primary" class="mobile-header">
   <mat-toolbar-row>
     <span>
       <a routerLink="/" class="middle">Jan's Tests</a>
@@ -35,8 +35,8 @@
   </mat-toolbar-row>
 
   <mat-toolbar-row class="mobile-header-row">
-    <ul class="mobile-horizontal">
-      <li *ngFor="let link of links" class="list-item"><a mat-button [routerLink]="[link.route]">{{ link.name }}</a></li>
+    <ul class="mobile-horizontal-list">
+      <li *ngFor="let link of links" class="list-item"><a class="link-button-mobile" mat-button [routerLink]="[link.route]">{{ link.name }}</a></li>
     </ul>
   </mat-toolbar-row>
 </mat-toolbar>
