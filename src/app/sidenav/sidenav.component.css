@@ -1,10 +1,13 @@
 .sidenav-container {
   background: transparent;
+  height: 100%;
+  width: 100%;
 }
 
 .sidenav-list {
-  width: 10%;
+  width: 200px;
   background: #eee;
+  height: 100%;
 }
 
 .horizontal {
@@ -33,4 +36,6 @@ a {
 
 .content-container {
   overflow: auto;
+  height: 100%;
+  width: 100%;
 }

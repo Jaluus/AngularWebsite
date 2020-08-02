@@ -7,3 +7,14 @@
   background: transparent;
   overflow: auto;
 }
+
+.main-content-container-mobile{
+  position: absolute;
+  top: 112px;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: transparent;
+  overflow: auto;
+}
+

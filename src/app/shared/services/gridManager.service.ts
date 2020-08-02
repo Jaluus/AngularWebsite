@@ -30,24 +30,27 @@ export class GridManager{
   getAdjecent(tile:Pixel){
     let AdArr:Pixel[] = [];
 
-    if(tile.id-this.gridsize-1 >= 0){
-      AdArr.push(this.gridArr[tile.id-this.gridsize-1])
+    //Upper Tiles
+    if(tile.id-this.gridsize >= 0){
+      if ((tile.id) % this.gridsize === 0){ AdArr.push(null) } else { AdArr.push(this.gridArr[tile.id-this.gridsize-1]) }
       AdArr.push(this.gridArr[tile.id-this.gridsize])
-      AdArr.push(this.gridArr[tile.id-this.gridsize+1])
+      if ((tile.id+1) % this.gridsize === 0){ AdArr.push(null) } else { AdArr.push(this.gridArr[tile.id-this.gridsize+1]) }
     } else {
       AdArr.push(null)
       AdArr.push(null)
       AdArr.push(null)
     }
+      //Middle Tiles
+      if ((tile.id) % this.gridsize === 0){ AdArr.push(null) } else { AdArr.push(this.gridArr[tile.id-1]) }
+      //AdArr.push(this.gridArr[tile.id])
+      AdArr.push(null) // dont push yourself
+      if ((tile.id+1) % this.gridsize === 0){ AdArr.push(null) } else { AdArr.push(this.gridArr[tile.id+1]) }
 
-      AdArr.push(this.gridArr[tile.id-1])
-      AdArr.push(this.gridArr[tile.id])
-      AdArr.push(this.gridArr[tile.id+1])
-
+      //Down Tiles
     if(tile.id+this.gridsize < Math.pow(this.gridsize,2)){
-      AdArr.push(this.gridArr[tile.id+this.gridsize-1])
+      if ((tile.id) % this.gridsize === 0){ AdArr.push(null) } else { AdArr.push(this.gridArr[tile.id+this.gridsize-1]) }
       AdArr.push(this.gridArr[tile.id+this.gridsize])
-      AdArr.push(this.gridArr[tile.id+this.gridsize+1])
+      if ((tile.id+1) % this.gridsize === 0){ AdArr.push(null) } else { AdArr.push(this.gridArr[tile.id+this.gridsize+1]) }
     } else {
       AdArr.push(null)
       AdArr.push(null)
@@ -61,6 +64,7 @@ export class GridManager{
   }
 
   colorSquare(tile:Pixel){
+    tile.clicked = true;
     for (let pix of this.getAdjecent(tile)){
       if(pix){
         pix.clicked = true;
@@ -74,6 +78,14 @@ export class GridManager{
     }else{
       this.colorSquare(tile)
     }
+  }
+
+  getAliveNeigbors(tile:Pixel){
+    let i = 0;
+    for (let n of this.getAdjecent(tile)){
+      i = n?.clicked? i+1 : i;
+    }
+    return i
   }
 
 }

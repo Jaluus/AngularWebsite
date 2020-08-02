@@ -1,0 +1,13 @@
+.middle{
+  display: block;
+  margin: auto;
+  }
+
+  h1{
+    text-align: center;
+  }
+  .canvas-container{
+    margin: auto;
+    width: 80%;
+
+  }

@@ -1,11 +1,11 @@
 <!-- Big Toolbar -->
-<mat-toolbar *ngIf="bigScreen" color="primary" class="header">
+<mat-toolbar *ngIf="WSM.DesktopMode" color="primary" class="header">
   <span>
     <a routerLink="/" class="middle">Jan's Tests</a>
   </span>
   <div class="spacer2"></div>
   <ul class="horizontal">
-    <li *ngFor="let link of links"><a mat-button [routerLink]="[link.route]" class="middle">{{ link.name }}</a></li>
+    <li *ngFor="let link of links.headerLinks"><a mat-button [routerLink]="[link.route]" class="middle">{{ link.name }}</a></li>
   </ul>
   <div class="spacer"></div>
 
@@ -18,7 +18,7 @@
 </mat-toolbar>
 
 <!-- Small Toolbar -->
-<mat-toolbar *ngIf="!bigScreen" color="primary" class="mobile-header">
+<mat-toolbar *ngIf="!WSM.DesktopMode" color="primary" class="mobile-header">
   <mat-toolbar-row>
     <span>
       <a routerLink="/" class="middle">Jan's Tests</a>
@@ -35,8 +35,12 @@
   </mat-toolbar-row>
 
   <mat-toolbar-row class="mobile-header-row">
+    <button mat-icon-button (click)="WSM.ToggleDrawer()" *ngIf="!links.onHomepage">
+      <mat-icon>menu</mat-icon>
+    </button>
+
     <ul class="mobile-horizontal-list">
-      <li *ngFor="let link of links" class="list-item"><a class="link-button-mobile" mat-button [routerLink]="[link.route]">{{ link.name }}</a></li>
+      <li *ngFor="let link of links.headerLinks" class="list-item"><a class="link-button-mobile" mat-button [routerLink]="[link.route]" >{{ link.name }}</a></li>
     </ul>
   </mat-toolbar-row>
 </mat-toolbar>

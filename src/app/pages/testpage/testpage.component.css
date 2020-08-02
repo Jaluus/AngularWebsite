@@ -6,3 +6,8 @@ margin: auto;
 h1{
   text-align: center;
 }
+.canvas-container{
+  margin: auto;
+  width: 40%;
+
+}

@@ -5,8 +5,7 @@ import { Pixel } from './pixel.model';
 @Component({
   selector: 'app-pixel-canvas',
   templateUrl: './pixel-canvas.component.html',
-  styleUrls: ['./pixel-canvas.component.css'],
-  providers:[GridManager]
+  styleUrls: ['./pixel-canvas.component.css']
 
 })
 export class PixelCanvasComponent implements OnInit{

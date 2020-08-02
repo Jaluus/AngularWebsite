@@ -1,1 +1,15 @@
-<p>conway works!</p>
+<h1>Conways Game of Life</h1>
+
+<div class="canvas-container">
+  <app-canvas-control></app-canvas-control>
+
+  <br>
+
+  <div style="text-align: center;">
+    <button mat-raised-button (click)="GOLStep()" >step</button>
+  </div>
+
+  <br>
+
+  <app-pixel-canvas [enableCanvasControl]="false"></app-pixel-canvas>
+</div>

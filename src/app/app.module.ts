@@ -12,6 +12,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatIconModule} from '@angular/material/icon';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -24,17 +25,23 @@ import { MachineLearningHomeComponent } from './pages/machine-learning-home/mach
 import { ProgrammierProjekteHomeComponent } from './pages/programmier-projekte-home/programmier-projekte-home.component';
 import { ConwayComponent } from './pages/programmier-projekte-home/conway/conway.component';
 import { HeaderComponent } from './header/header.component';
+import { WindowSizeManager } from "./shared/services/windowSizeManager.service"
+import { LinkManager } from "./shared/services/linkManager.service";
+import { SonstigesHomeComponent } from './pages/sonstiges-home/sonstiges-home.component'
 
 const appRoutes : Routes = [
   { path : "" , component: HomepageComponent},
   { path : "PP" , component: SidenavComponent, children: [
     {path: "Start", component: ProgrammierProjekteHomeComponent},
-    { path: "Conway", component: ConwayComponent}
+    {path: "Conway", component: ConwayComponent}
   ]},
   { path : "ML" , component: SidenavComponent,children: [
     {path: "Start", component: MachineLearningHomeComponent}
   ]},
-  { path : "ETC" , component: TestpageComponent}
+  { path : "ETC" , component: SidenavComponent, children:[
+    {path: "Start" , component: SonstigesHomeComponent},
+    {path: "test" , component: TestpageComponent}
+  ]}
 ];
 
 @NgModule({
@@ -48,7 +55,8 @@ const appRoutes : Routes = [
     MachineLearningHomeComponent,
     ProgrammierProjekteHomeComponent,
     ConwayComponent,
-    HeaderComponent
+    HeaderComponent,
+    SonstigesHomeComponent
   ],
   imports: [
     BrowserModule,
@@ -63,9 +71,10 @@ const appRoutes : Routes = [
     MatFormFieldModule,
     MatInputModule,
     MatButtonToggleModule,
+    MatIconModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [WindowSizeManager,LinkManager],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

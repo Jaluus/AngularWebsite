@@ -1,4 +1,8 @@
 
 <h1>Testpage for Pixelcanvas</h1>
 <br>
-<app-pixel-canvas [enableCanvasControl]="true"></app-pixel-canvas>
+ <button (click)="gridmng.getAliveNeigbors(gridmng.gridArr[10])"> test</button>
+<div class="canvas-container">
+  <app-canvas-control></app-canvas-control>
+  <app-pixel-canvas [enableCanvasControl]="false"></app-pixel-canvas>
+</div>

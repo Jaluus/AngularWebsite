@@ -1,4 +1,6 @@
-<app-header [Desktop]="bigScreen"></app-header>
-<div class="main-content-container-desktop">
+<app-header></app-header>
+
+<div [className]="WSM.DesktopMode ? 'main-content-container-desktop' : 'main-content-container-mobile' ">
   <router-outlet></router-outlet>
 </div>
+

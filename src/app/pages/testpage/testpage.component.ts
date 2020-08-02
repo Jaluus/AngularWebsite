@@ -4,10 +4,11 @@ import { GridManager } from '../../shared/services/gridManager.service';
 @Component({
   selector: 'app-testpage',
   templateUrl: './testpage.component.html',
-  styleUrls: ['./testpage.component.css']
+  styleUrls: ['./testpage.component.css'],
+  providers:[GridManager]
 })
 export class TestpageComponent implements OnInit {
-  constructor() { }
+  constructor(public gridmng: GridManager) { }
 
   ngOnInit(): void {
   }

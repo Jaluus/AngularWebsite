@@ -1,4 +1,5 @@
 import { Component, HostListener } from '@angular/core';
+import { WindowSizeManager } from './shared/services/windowSizeManager.service';
 
 @Component({
   selector: 'app-root',
@@ -6,24 +7,17 @@ import { Component, HostListener } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent{
-  screenWidth:number;
-  screenHeight:number;
-  bigScreen = true;
+
+  constructor(public WSM : WindowSizeManager) {
+    this.onResize();
+  }
+
 
   @HostListener('window:resize', ['$event'])
   onResize(event?) {
-   this.screenHeight = window.innerHeight;
-   this.screenWidth = window.innerWidth;
-   console.log(this.screenHeight, this.screenWidth);
-   if(this.screenWidth<=900){
-     this.bigScreen=false
-   } else {
-     this.bigScreen=true
-   }
-  }
-
-  constructor() {
-    this.onResize();
+   this.WSM.screenHeight = window.innerHeight;
+   this.WSM.screenWidth = window.innerWidth;
+   this.WSM.DesktopMode = (this.WSM.screenWidth <= this.WSM.screenTransitionWidth) ? false : true
   }
 
 }

@@ -1,5 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { NavItem } from '../sidenav/navItem.model';
+import { Component, OnInit} from '@angular/core';
+import { WindowSizeManager } from '../shared/services/windowSizeManager.service';
+import { LinkManager } from '../shared/services/linkManager.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,17 +9,15 @@ import { NavItem } from '../sidenav/navItem.model';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  @Input("Desktop")  bigScreen = true;
 
-  links: NavItem[] = [
-    new NavItem("Programmieren","/PP/Start"),
-    new NavItem("Machine Learning","/ML/Start"),
-    new NavItem("sonstiges","/ETC"),
-  ]
+  Mainpage = false;
 
-  constructor() { }
+  constructor(
+    public WSM: WindowSizeManager,
+    public links: LinkManager,
+    public router : Router,
+    private activeRoute : ActivatedRoute) { }
 
   ngOnInit(): void {
   }
-
 }

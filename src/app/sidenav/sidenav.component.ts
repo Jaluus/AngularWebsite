@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NavItem } from "./navItem.model"
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { WindowSizeManager } from '../shared/services/windowSizeManager.service';
+import { LinkManager } from '../shared/services/linkManager.service';
 
 @Component({
   selector: 'app-sidenav',
@@ -8,33 +10,26 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
   styleUrls: ['./sidenav.component.css']
 })
 export class SidenavComponent implements OnInit {
-  MlNavArr : NavItem[] = [
-    new NavItem("Generator Networks","/"),
-    new NavItem("Classifier Networks","/"),
-    new NavItem("Learning Agents","/"),
-    new NavItem("Deepdream","/")
-  ];
-
-  PpNavArr : NavItem[] = [
-    new NavItem("a* Pathfinding","/"),
-    new NavItem("Blender Bilder","/"),
-    new NavItem("Maze Generator","/"),
-    new NavItem("Fraktal Generator","/"),
-    new NavItem("Game of Life","Conway")
-  ];
 
   navItemArr:NavItem[];
 
-  constructor(private activeRoute : ActivatedRoute, private router : Router) { }
+  constructor(
+    private activeRoute : ActivatedRoute,
+    private router : Router,
+    public WSM : WindowSizeManager,
+    private links : LinkManager) { }
 
   ngOnInit(): void {
     this.activeRoute.url.subscribe(
       (url) => {
-        if(url[0].path ==="ML"){
-          this.navItemArr = this.MlNavArr
+        if(url[0].path === "ML"){
+          this.navItemArr = this.links.MlNavArr
         }
-        if(url[0].path ==="PP"){
-          this.navItemArr =this.PpNavArr
+        if(url[0].path === "PP"){
+          this.navItemArr =this.links.PpNavArr
+        }
+        if(url[0].path === "ETC"){
+          this.navItemArr =this.links.SNavArr
         }
   })
 }
