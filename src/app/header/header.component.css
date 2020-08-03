@@ -1,4 +1,5 @@
 .header {
+  background: #dc0000;
   position: fixed;
   top: 0;
   height: 56px !important;
@@ -10,6 +11,7 @@
 }
 
 .mobile-header {
+  background: #dc0000;
   position: fixed;
   top: 0;
   height: 112px !important;
