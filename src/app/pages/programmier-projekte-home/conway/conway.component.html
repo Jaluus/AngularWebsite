@@ -1,25 +1,39 @@
 <h1>Conways Game of Life</h1>
 
-<div class="canvas-container">
-  <mat-accordion >
+<div class="content-container">
+  <mat-accordion [multi]="true">
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title>
-          Controls
+          Canvas Controls
         </mat-panel-title>
-        <mat-panel-description></mat-panel-description>
       </mat-expansion-panel-header>
       <app-canvas-control></app-canvas-control>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Time Controls
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+        <mat-card style="text-align: center; background-color: #303030;">
+          Timestep Slider
+              <mat-slider
+              [disabled]="simulating"
+              thumbLabel
+              [(ngModel)]="timestep"
+              tickInterval="10"
+              min="10"
+              max="1000"></mat-slider>
+            <br>
+            <button [disabled]="simulating" class="control-button" mat-raised-button color="primary" (click)="StartGOL()" >Start</button>
+            <button [disabled]="!simulating" class="control-button" mat-raised-button color="warn" (click)="StopGOL()" >Stop</button>
+            <button [disabled]="simulating" class="control-button" mat-raised-button color="accent" (click)="GOLStep()" >Step</button>
+        </mat-card>
     </mat-expansion-panel>
   </mat-accordion>
 
   <br>
 
-  <div style="text-align: center;">
-    <button mat-raised-button (click)="GOLStep()" >step</button>
-  </div>
-
-  <br>
-
-  <app-pixel-canvas [enableCanvasControl]="false"></app-pixel-canvas>
+  <app-pixel-canvas></app-pixel-canvas>
 </div>

@@ -14,6 +14,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatIconModule} from '@angular/material/icon';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatSliderModule} from '@angular/material/slider';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -74,7 +76,9 @@ const appRoutes : Routes = [
     MatButtonToggleModule,
     MatIconModule,
     RouterModule.forRoot(appRoutes),
-    MatExpansionModule
+    MatExpansionModule,
+    MatSliderModule,
+    MatSnackBarModule
   ],
   providers: [WindowSizeManager,LinkManager],
   bootstrap: [AppComponent]

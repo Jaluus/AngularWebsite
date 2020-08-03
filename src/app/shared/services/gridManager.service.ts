@@ -1,22 +1,32 @@
 import {Pixel} from "../pixel-canvas/pixel.model"
 import {Injectable } from "@angular/core";
+import { JSDocTagName } from '@angular/compiler/src/output/output_ast';
 
 @Injectable()
 export class GridManager{
-  gridArr: Pixel[] = []
+  gridArr: Pixel[][] = [];
   gridsize:number = 10
   drawMode = true;
 
   makeArr(){
     this.gridArr = [];
-    for (let i = 0; i < Math.pow(this.gridsize,2) ; i++) {
-      this.gridArr.push(new Pixel(i,false))
+    for( let i = 0; i < this.gridsize; i++ ) {
+      this.gridArr.push([]);
     }
+
+    for (let ypos = 0; ypos < this.gridsize ; ypos++) {
+      for (let xpos = 0; xpos < this.gridsize ; xpos++) {
+        this.gridArr[ypos].push(new Pixel(xpos,ypos,false))
+      }
+    }
+    return this.gridArr
   }
 
   clearAll(){
-    for (let element of this.gridArr){
-      element.clicked = false
+    for (let rows of this.gridArr){
+      for (let element of rows){
+        element.clicked = false
+      }
     }
   }
 
@@ -28,35 +38,38 @@ export class GridManager{
 
   getAdjecent(tile:Pixel){
     let AdArr:Pixel[] = [];
-    let rightBoundry = (tile.id+1) % this.gridsize === 0;
-    let leftBoundry = (tile.id) % this.gridsize === 0;
-
+    let ypos = tile.y
+    let xpos = tile.x
+    let rightBoundry = (xpos === this.gridsize-1)
+    let leftBoundry = (xpos === 0)
     //Upper Tiles
-    if(tile.id-this.gridsize >= 0){
-      if (leftBoundry){ AdArr.push(null) } else { AdArr.push(this.gridArr[tile.id-this.gridsize-1]) }
-      AdArr.push(this.gridArr[tile.id-this.gridsize])
-      if (rightBoundry){ AdArr.push(null) } else { AdArr.push(this.gridArr[tile.id-this.gridsize+1]) }
+    if(ypos>0){
+      if (leftBoundry){ AdArr.push(null) } else { AdArr.push(this.gridArr[ypos-1][xpos-1]) }
+      AdArr.push(this.gridArr[ypos-1][xpos])
+      if (rightBoundry){ AdArr.push(null) } else { AdArr.push(this.gridArr[ypos-1][xpos+1]) }
     } else {
       AdArr.push(null)
       AdArr.push(null)
       AdArr.push(null)
     }
       //Middle Tiles
-      if (leftBoundry){ AdArr.push(null) } else { AdArr.push(this.gridArr[tile.id-1]) }
+      if (leftBoundry){ AdArr.push(null) } else { AdArr.push(this.gridArr[ypos][xpos-1]) }
       //AdArr.push(this.gridArr[tile.id])
       AdArr.push(null) // dont push yourself
-      if (rightBoundry){ AdArr.push(null) } else { AdArr.push(this.gridArr[tile.id+1]) }
+      if (rightBoundry){ AdArr.push(null) } else { AdArr.push(this.gridArr[ypos][xpos+1]) }
 
       //Lower Tiles
-    if(tile.id+this.gridsize < Math.pow(this.gridsize,2)){
-      if (leftBoundry){ AdArr.push(null) } else { AdArr.push(this.gridArr[tile.id+this.gridsize-1]) }
-      AdArr.push(this.gridArr[tile.id+this.gridsize])
-      if (rightBoundry){ AdArr.push(null) } else { AdArr.push(this.gridArr[tile.id+this.gridsize+1]) }
+      //
+    if(ypos < this.gridsize-1){
+      if (leftBoundry){ AdArr.push(null) } else { AdArr.push(this.gridArr[ypos+1][xpos-1]) }
+      AdArr.push(this.gridArr[ypos+1][xpos])
+      if (rightBoundry){ AdArr.push(null) } else { AdArr.push(this.gridArr[ypos+1][xpos+1]) }
     } else {
       AdArr.push(null)
       AdArr.push(null)
       AdArr.push(null)
     }
+
     return AdArr;
   }
 
@@ -66,14 +79,6 @@ export class GridManager{
     } else {
       tile.clicked = false;
     }
-  }
-
-  getAliveNeigbors(tile:Pixel){
-    let i = 0;
-    for (let n of this.getAdjecent(tile)){
-      i = n?.clicked? i+1 : i;
-    }
-    return i
   }
 
 }

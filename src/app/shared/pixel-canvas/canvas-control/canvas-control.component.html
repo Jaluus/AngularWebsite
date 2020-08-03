@@ -9,7 +9,7 @@
   </div>
 
   <div class="button-container">
-    <mat-form-field class="num-input">
+    <mat-form-field class="num-input button">
       <input
         matInput
         type = "number"
@@ -17,12 +17,14 @@
     </mat-form-field>
 
     <button
+      class="button"
       mat-raised-button color="primary"
       (click) = "gridmng.setGridsize(newGridsize)"
-      >set Gridsize
+      >Set Gridsize
     </button>
 
     <button
+      class="button"
       mat-raised-button
       color="warn"
       (click) = "gridmng.clearAll()"

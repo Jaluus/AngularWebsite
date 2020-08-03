@@ -1,3 +1,3 @@
 export class Pixel {
-  constructor(public id:number,public clicked:boolean){}
+  constructor(public x:number,public y:number,public clicked:boolean){}
 }

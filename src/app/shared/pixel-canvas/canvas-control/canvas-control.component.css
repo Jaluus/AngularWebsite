@@ -2,9 +2,9 @@ h1{
   text-align: center;
 }
 
-button{
-  margin-left: 1rem;
-  margin-right: 1rem;
+.button{
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .button-container{

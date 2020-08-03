@@ -1,13 +1,33 @@
-.middle{
-display: block;
-margin: auto;
-}
+.canvas-container {
+  position: relative;
+  background: black;
 
-h1{
-  text-align: center;
-}
-.canvas-container{
+  border-style: solid;
+  border-width: 2px;
+  border-color: black ;
+
   margin: auto;
-  width: 40%;
+  width: 50%;
+}
 
+.canvas-container:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+
+.table-canvas {
+  border-collapse: collapse;
+
+  position: absolute;
+  width: 100% ;
+  height: 100% ;
+
+}
+
+.canvas-pixel {
+  background: white;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
 }

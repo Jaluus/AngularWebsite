@@ -10,6 +10,7 @@ import { GridManager } from '../../shared/services/gridManager.service';
 export class TestpageComponent implements OnInit {
   constructor(public gridmng: GridManager) { }
 
+
   ngOnInit(): void {
   }
 

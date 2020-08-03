@@ -3,11 +3,16 @@
   margin: auto;
   }
 
-  h1{
+h1{
     text-align: center;
   }
-  .canvas-container{
+.content-container{
     margin: auto;
     width: 80%;
 
   }
+
+.control-button{
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}

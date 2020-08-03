@@ -1,15 +1,40 @@
-  <mat-grid-list class="pixel-container"
+
+
+<div
+class="canvas-container"
+[ngStyle]="{'width': WSM.DesktopMode?'49%':'100%'}"
+(mousedown)="mouseDown = true"
+(mouseup)="mouseDown = false"
+>
+  <table class="table-canvas">
+    <tr
+    class="canvas-row"
+    *ngFor="let row of gridmng.gridArr"
+    >
+      <td
+      class="canvas-pixel"
+      *ngFor="let cell of row"
+      [ngStyle]="{'background-color': cell.clicked?'black':'white'}"
+      (mousedown)="gridmng.colorPixel(cell)"
+      (mouseover)="onHover(cell)"
+      ></td>
+    </tr>
+  </table>
+</div>
+
+
+<!-- <mat-grid-list class="pixel-container"
   [cols]="gridmng.gridsize"
   [gutterSize]="1"
   (mousedown)="mouseDown = true"
   (mouseup)="mouseDown = false">
 
-    <mat-grid-tile
-    class="pixel"
-    *ngFor="let tile of gridmng.gridArr"
-    [ngStyle]="{'background-color': tile.clicked?'black':'white'}"
-    (mousedown)="gridmng.colorPixel(tile)"
-    (mouseover)="onHover(tile)"
-    ></mat-grid-tile>
+  <mat-grid-tile
+  class="pixel"
+  *ngFor="let tile of gridmng.gridArr"
+  [ngStyle]="{'background-color': tile.clicked?'black':'white'}"
+  (mousedown)="gridmng.colorPixel(tile)"
+  (mouseover)="onHover(tile)"
+  ></mat-grid-tile>
 
-  </mat-grid-list>
+</mat-grid-list> -->
