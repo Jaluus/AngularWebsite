@@ -3,10 +3,9 @@ import {Injectable } from "@angular/core";
 
 @Injectable()
 export class GridManager{
-  squareColor = false
-
   gridArr: Pixel[] = []
   gridsize:number = 10
+  drawMode = true;
 
   makeArr(){
     this.gridArr = [];
@@ -29,28 +28,30 @@ export class GridManager{
 
   getAdjecent(tile:Pixel){
     let AdArr:Pixel[] = [];
+    let rightBoundry = (tile.id+1) % this.gridsize === 0;
+    let leftBoundry = (tile.id) % this.gridsize === 0;
 
     //Upper Tiles
     if(tile.id-this.gridsize >= 0){
-      if ((tile.id) % this.gridsize === 0){ AdArr.push(null) } else { AdArr.push(this.gridArr[tile.id-this.gridsize-1]) }
+      if (leftBoundry){ AdArr.push(null) } else { AdArr.push(this.gridArr[tile.id-this.gridsize-1]) }
       AdArr.push(this.gridArr[tile.id-this.gridsize])
-      if ((tile.id+1) % this.gridsize === 0){ AdArr.push(null) } else { AdArr.push(this.gridArr[tile.id-this.gridsize+1]) }
+      if (rightBoundry){ AdArr.push(null) } else { AdArr.push(this.gridArr[tile.id-this.gridsize+1]) }
     } else {
       AdArr.push(null)
       AdArr.push(null)
       AdArr.push(null)
     }
       //Middle Tiles
-      if ((tile.id) % this.gridsize === 0){ AdArr.push(null) } else { AdArr.push(this.gridArr[tile.id-1]) }
+      if (leftBoundry){ AdArr.push(null) } else { AdArr.push(this.gridArr[tile.id-1]) }
       //AdArr.push(this.gridArr[tile.id])
       AdArr.push(null) // dont push yourself
-      if ((tile.id+1) % this.gridsize === 0){ AdArr.push(null) } else { AdArr.push(this.gridArr[tile.id+1]) }
+      if (rightBoundry){ AdArr.push(null) } else { AdArr.push(this.gridArr[tile.id+1]) }
 
-      //Down Tiles
+      //Lower Tiles
     if(tile.id+this.gridsize < Math.pow(this.gridsize,2)){
-      if ((tile.id) % this.gridsize === 0){ AdArr.push(null) } else { AdArr.push(this.gridArr[tile.id+this.gridsize-1]) }
+      if (leftBoundry){ AdArr.push(null) } else { AdArr.push(this.gridArr[tile.id+this.gridsize-1]) }
       AdArr.push(this.gridArr[tile.id+this.gridsize])
-      if ((tile.id+1) % this.gridsize === 0){ AdArr.push(null) } else { AdArr.push(this.gridArr[tile.id+this.gridsize+1]) }
+      if (rightBoundry){ AdArr.push(null) } else { AdArr.push(this.gridArr[tile.id+this.gridsize+1]) }
     } else {
       AdArr.push(null)
       AdArr.push(null)
@@ -59,24 +60,11 @@ export class GridManager{
     return AdArr;
   }
 
-  toggleSize(){
-    this.squareColor = !this.squareColor
-  }
-
-  colorSquare(tile:Pixel){
-    tile.clicked = true;
-    for (let pix of this.getAdjecent(tile)){
-      if(pix){
-        pix.clicked = true;
-      }
-    }
-  }
-
   colorPixel(tile:Pixel){
-    if(!this.squareColor){
+    if(this.drawMode){
       tile.clicked = true;
-    }else{
-      this.colorSquare(tile)
+    } else {
+      tile.clicked = false;
     }
   }
 

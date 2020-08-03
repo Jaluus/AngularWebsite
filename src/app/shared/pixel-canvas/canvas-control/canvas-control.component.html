@@ -1,9 +1,9 @@
-<mat-card style="background-color: #eee;">
+<mat-card style="background-color: #303030;">
   <div class="button-container">
-    <p>Brushsize:
+    <p>
       <mat-button-toggle-group>
-        <mat-button-toggle [checked]="true" (click) = "gridmng.squareColor=false">1x1</mat-button-toggle>
-        <mat-button-toggle (click) = "gridmng.squareColor=true">3x3</mat-button-toggle>
+        <mat-button-toggle [checked]="true" (click) = "gridmng.drawMode=true">Draw</mat-button-toggle>
+        <mat-button-toggle (click) = "gridmng.drawMode=false">Erase</mat-button-toggle>
       </mat-button-toggle-group>
     </p>
   </div>

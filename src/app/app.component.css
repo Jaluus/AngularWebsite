@@ -4,8 +4,10 @@
   right: 0;
   left: 0;
   bottom: 0;
-  background: transparent;
   overflow: auto;
+
+  background: #303030;
+  color: white;
 }
 
 .main-content-container-mobile{
@@ -14,7 +16,9 @@
   right: 0;
   left: 0;
   bottom: 0;
-  background: transparent;
   overflow: auto;
+
+  background: #303030;
+  color: white;
 }
 
