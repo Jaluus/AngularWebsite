@@ -1,0 +1,17 @@
+.subheader-container{
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 56px;
+  background: #dc0000;
+  margin:0;
+}
+
+.subheader {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}

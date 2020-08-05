@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterModule, Routes } from "@angular/router"
+import { AppRoutingModule }from"./app-routing.module"
 
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatGridListModule} from '@angular/material/grid-list';
@@ -36,26 +36,8 @@ import { BlenderBilderComponent } from './pages/sonstiges-home/blender-bilder/bl
 import { AStarPathfindingComponent } from './pages/programmier-projekte-home/a-star-pathfinding/a-star-pathfinding.component';
 import { AStarGridComponent } from './shared/a-star-grid/a-star-grid.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { SubheaderComponent } from './header/subheader/subheader.component';
 
-
-const appRoutes : Routes = [
-  { path : "" , component: HomepageComponent},
-  { path : "PP" , component: SidenavComponent, children: [
-    {path: "Start", component: ProgrammierProjekteHomeComponent},
-    {path: "Conway", component: ConwayComponent},
-    {path: "AStar", component: AStarPathfindingComponent}
-  ]},
-  { path : "ML" , component: SidenavComponent,children: [
-    {path: "Start", component: MachineLearningHomeComponent}
-  ]},
-  { path : "ETC" , component: SidenavComponent, children:[
-    {path: "Start" , component: SonstigesHomeComponent},
-    {path: "test" , component: TestpageComponent},
-    {path: "Blender" , component: BlenderBilderComponent},
-  ]},
-  {path : "404" , component : PageNotFoundComponent},
-  {path : "**" , redirectTo:"/404"}
-];
 
 @NgModule({
   declarations: [
@@ -74,7 +56,8 @@ const appRoutes : Routes = [
     BlenderBilderComponent,
     AStarPathfindingComponent,
     AStarGridComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    SubheaderComponent
   ],
   imports: [
     BrowserModule,
@@ -90,10 +73,10 @@ const appRoutes : Routes = [
     MatInputModule,
     MatButtonToggleModule,
     MatIconModule,
-    RouterModule.forRoot(appRoutes),
     MatExpansionModule,
     MatSliderModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    AppRoutingModule
   ],
   providers: [WindowSizeManager,LinkManager],
   bootstrap: [AppComponent]

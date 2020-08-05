@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GridManager } from '../../shared/services/gridManager.service';
+import { ActivatedRoute, Data } from '@angular/router';
 
 @Component({
   selector: 'app-testpage',
@@ -8,7 +9,9 @@ import { GridManager } from '../../shared/services/gridManager.service';
   providers:[GridManager]
 })
 export class TestpageComponent implements OnInit {
-  constructor(public gridmng: GridManager) { }
+  constructor(
+    public gridmng: GridManager,
+    private route: ActivatedRoute) { }
 
 
   ngOnInit(): void {
