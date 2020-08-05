@@ -1,6 +1,5 @@
-import {Pixel} from "../pixel-canvas/pixel.model"
+import {Pixel} from "../Models/pixel.model"
 import {Injectable } from "@angular/core";
-import { JSDocTagName } from '@angular/compiler/src/output/output_ast';
 
 @Injectable()
 export class GridManager{
@@ -19,7 +18,6 @@ export class GridManager{
         this.gridArr[ypos].push(new Pixel(xpos,ypos,false))
       }
     }
-    return this.gridArr
   }
 
   clearAll(){

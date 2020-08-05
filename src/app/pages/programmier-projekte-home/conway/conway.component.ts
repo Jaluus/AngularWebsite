@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GridManager } from 'src/app/shared/services/gridManager.service';
-import { Pixel } from 'src/app/shared/pixel-canvas/pixel.model';
+import { Pixel } from 'src/app/shared/Models/pixel.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
@@ -10,6 +10,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   providers:[GridManager]
 })
 export class ConwayComponent implements OnInit {
+  nMoreToDie = 3;
+  nLessToDie = 2;
+  nToLive = 3;
+
   timestep = 200;
   stepper;
   simulating = false;
@@ -50,20 +54,20 @@ export class ConwayComponent implements OnInit {
         let wasAlive = cell.clicked
         let numAlive = this.getAliveNeigbors(cell)
 
-        if (numAlive === 3 && !wasAlive){
+        if (numAlive === this.nToLive && !wasAlive){
           lifeIdArr.push([cell.x,cell.y])
         }
-        if (numAlive < 2 && wasAlive){
+        if (numAlive < this.nLessToDie && wasAlive){
           deathIdArr.push([cell.x,cell.y])
         }
-        if (numAlive > 3 && wasAlive){
+        if (numAlive > this.nMoreToDie && wasAlive){
           deathIdArr.push([cell.x,cell.y])
         }
       }
     }
     //sets cells to alive
     if( lifeIdArr.length === 0 && deathIdArr.length === 0){
-        this._snackBar.open("Stead-State Detected, Stopping Simulation", "Ok" , {duration: 3000})
+        this._snackBar.open("Steady state detected, stopping simulation", "Ok" , {duration: 3000})
       this.StopGOL();
     }
 

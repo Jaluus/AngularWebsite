@@ -30,20 +30,27 @@ import { ConwayComponent } from './pages/programmier-projekte-home/conway/conway
 import { HeaderComponent } from './header/header.component';
 import { WindowSizeManager } from "./shared/services/windowSizeManager.service"
 import { LinkManager } from "./shared/services/linkManager.service";
-import { SonstigesHomeComponent } from './pages/sonstiges-home/sonstiges-home.component'
+import { SonstigesHomeComponent } from './pages/sonstiges-home/sonstiges-home.component';
+import { GalleryComponent } from './shared/gallery/gallery.component';
+import { BlenderBilderComponent } from './pages/sonstiges-home/blender-bilder/blender-bilder.component';
+import { AStarPathfindingComponent } from './pages/programmier-projekte-home/a-star-pathfinding/a-star-pathfinding.component';
+import { AStarGridComponent } from './shared/a-star-grid/a-star-grid.component';
+
 
 const appRoutes : Routes = [
   { path : "" , component: HomepageComponent},
   { path : "PP" , component: SidenavComponent, children: [
     {path: "Start", component: ProgrammierProjekteHomeComponent},
-    {path: "Conway", component: ConwayComponent}
+    {path: "Conway", component: ConwayComponent},
+    {path: "AStar", component: AStarPathfindingComponent}
   ]},
   { path : "ML" , component: SidenavComponent,children: [
     {path: "Start", component: MachineLearningHomeComponent}
   ]},
   { path : "ETC" , component: SidenavComponent, children:[
     {path: "Start" , component: SonstigesHomeComponent},
-    {path: "test" , component: TestpageComponent}
+    {path: "test" , component: TestpageComponent},
+    {path: "Blender" , component: BlenderBilderComponent},
   ]}
 ];
 
@@ -59,7 +66,11 @@ const appRoutes : Routes = [
     ProgrammierProjekteHomeComponent,
     ConwayComponent,
     HeaderComponent,
-    SonstigesHomeComponent
+    SonstigesHomeComponent,
+    GalleryComponent,
+    BlenderBilderComponent,
+    AStarPathfindingComponent,
+    AStarGridComponent
   ],
   imports: [
     BrowserModule,

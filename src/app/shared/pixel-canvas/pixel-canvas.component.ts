@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { GridManager } from '../services/gridManager.service';
-import { Pixel } from './pixel.model';
+import { Pixel } from '../Models/pixel.model';
 import { WindowSizeManager } from '../services/windowSizeManager.service';
 
 @Component({

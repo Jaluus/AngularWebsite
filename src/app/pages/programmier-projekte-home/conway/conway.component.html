@@ -8,7 +8,9 @@
           Canvas Controls
         </mat-panel-title>
       </mat-expansion-panel-header>
+
       <app-canvas-control></app-canvas-control>
+
     </mat-expansion-panel>
     <mat-expansion-panel>
       <mat-expansion-panel-header>
@@ -36,4 +38,51 @@
   <br>
 
   <app-pixel-canvas></app-pixel-canvas>
+
+  <br>
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Additional Options
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+      <mat-card style="text-align: center; background-color: #303030;">
+        More Neighbors than
+        <mat-form-field class="num-input">
+          <input
+            matInput
+            type = "number"
+            [disabled]="simulating"
+            style="padding: 0;"
+            [(ngModel)]="nMoreToDie">
+        </mat-form-field>
+         to Die
+
+        <br>
+        Less Neighbors than
+        <mat-form-field class="num-input">
+          <input
+            matInput
+            [type]="'number'"
+            [disabled]="simulating"
+            style="padding: 0;"
+            [(ngModel)]="nLessToDie">
+        </mat-form-field>
+        to Die
+
+        <br>
+        Exact number of Neighbors to get born:
+        <mat-form-field class="num-input">
+          <input
+            matInput
+            [disabled]="simulating"
+            type = "number"
+            style="padding: 0;"
+            [(ngModel)]="nToLive">
+        </mat-form-field>
+
+      </mat-card>
+  </mat-expansion-panel>
+</mat-accordion>
 </div>

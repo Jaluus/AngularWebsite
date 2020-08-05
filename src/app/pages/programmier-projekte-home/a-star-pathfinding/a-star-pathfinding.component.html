@@ -1,0 +1,58 @@
+<h1>A* Pathfinder (Not Functional)</h1>
+
+<div class="content-container">
+
+  <mat-card style="background-color: #424242; text-align: center;">
+    <mat-button-toggle-group>
+      <mat-button-toggle  [checked]="NMG.roleMode ==='draw'" (click) = "NMG.roleMode ='draw'">Draw</mat-button-toggle>
+      <mat-button-toggle  [checked]="NMG.roleMode ==='source'" (click) = "NMG.roleMode ='source'">Set Source</mat-button-toggle>
+      <mat-button-toggle [checked]="NMG.roleMode ==='dest'" (click) = "NMG.roleMode ='dest'">Set Dest</mat-button-toggle>
+      <mat-button-toggle [checked]="NMG.roleMode ==='none'" (click) = "NMG.roleMode ='none'">Erase</mat-button-toggle>
+    </mat-button-toggle-group>
+
+    <br>
+
+    <mat-form-field class="num-input button">
+      <input
+        matInput
+        type = "number"
+        style="padding: 0;"
+        [(ngModel)]="newGridsize">
+    </mat-form-field>
+
+    <button
+      class="button"
+      mat-raised-button color="primary"
+      (click) = "NMG.setGridsize(newGridsize)"
+      >Set Gridsize
+    </button>
+
+    <button
+      class="button"
+      mat-raised-button
+      color="warn"
+      (click) = "NMG.resetNetwork()"
+      >Clear Grid
+    </button>
+
+    <br>
+
+    <button
+    class="button"
+    mat-raised-button color="primary"
+    (click) = "AStarStep()"
+    >A* Step
+  </button>
+
+  </mat-card>
+
+
+  <br>
+
+  <br>
+
+  <app-a-star-grid></app-a-star-grid>
+
+  <br>
+
+</div>

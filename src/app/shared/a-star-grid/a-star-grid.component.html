@@ -1,24 +1,23 @@
 
-
 <div
 class="canvas-container"
 [ngStyle]="{'width': WSM.DesktopMode?'49%':'100%'}"
 (mousedown)="mouseDown = true"
 (mouseup)="mouseDown = false"
-
 >
   <table class="table-canvas">
     <tr
     class="canvas-row"
-    *ngFor="let row of gridmng.gridArr"
+    *ngFor="let row of NMG.nodeArr"
     >
       <td
       class="canvas-pixel"
-      *ngFor="let cell of row"
+      *ngFor="let node of row"
       [ngStyle]="{
-        'background-color': cell.clicked?'black':'transparent'}"
-      (mousedown)="gridmng.colorPixel(cell)"
-      (mouseover)="onHover(cell)"
+        'background-color': getColor(node)
+      }"
+      (mousedown)="NMG.setRole(node)"
+      (mouseover)="onHover(node)"
       ></td>
     </tr>
   </table>

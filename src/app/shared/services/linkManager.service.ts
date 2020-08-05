@@ -18,13 +18,13 @@ export class LinkManager{
 
   PpNavArr : NavItem[] = [
     new NavItem("Game of Life","Conway"),
-    new NavItem("a* Pathfinding","/"),
+    new NavItem("A* Pathfinder","AStar"),
     new NavItem("Maze Generator","/"),
     new NavItem("Fraktal Generator","/"),
   ];
 
   SNavArr : NavItem[] = [
-    new NavItem("Blender Bilder","/"),
+    new NavItem("Blender Bilder","Blender"),
     new NavItem("Testpage","test")
   ];
 

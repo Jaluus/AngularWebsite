@@ -1,18 +1,16 @@
-<mat-card style="background-color: #303030;">
-  <div class="button-container">
-    <p>
+<mat-card style="background-color: #303030; text-align: center;">
       <mat-button-toggle-group>
-        <mat-button-toggle [checked]="true" (click) = "gridmng.drawMode=true">Draw</mat-button-toggle>
-        <mat-button-toggle (click) = "gridmng.drawMode=false">Erase</mat-button-toggle>
+        <mat-button-toggle  [checked]="gridmng.drawMode" (click) = "gridmng.drawMode = true">Draw</mat-button-toggle>
+        <mat-button-toggle [checked]="!gridmng.drawMode" (click) = "gridmng.drawMode = false">Erase</mat-button-toggle>
       </mat-button-toggle-group>
-    </p>
-  </div>
 
-  <div class="button-container">
+      <br>
+
     <mat-form-field class="num-input button">
       <input
         matInput
         type = "number"
+        style="padding: 0;"
         [(ngModel)]="newGridsize">
     </mat-form-field>
 
@@ -30,6 +28,6 @@
       (click) = "gridmng.clearAll()"
       >Clear Grid
    </button>
-  </div>
+
 
 </mat-card>
