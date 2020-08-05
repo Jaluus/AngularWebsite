@@ -1,17 +1,16 @@
 
 <div
-class="canvas-container"
+class="nodeGrid-container"
 [ngStyle]="{'width': WSM.DesktopMode?'49%':'100%'}"
 (mousedown)="mouseDown = true"
 (mouseup)="mouseDown = false"
 >
-  <table class="table-canvas">
+  <table class="nodeGrid">
     <tr
-    class="canvas-row"
     *ngFor="let row of NMG.nodeArr"
     >
       <td
-      class="canvas-pixel"
+      class="node"
       *ngFor="let node of row"
       [ngStyle]="{
         'background-color': getColor(node)

@@ -35,6 +35,7 @@ import { GalleryComponent } from './shared/gallery/gallery.component';
 import { BlenderBilderComponent } from './pages/sonstiges-home/blender-bilder/blender-bilder.component';
 import { AStarPathfindingComponent } from './pages/programmier-projekte-home/a-star-pathfinding/a-star-pathfinding.component';
 import { AStarGridComponent } from './shared/a-star-grid/a-star-grid.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 
 const appRoutes : Routes = [
@@ -51,7 +52,9 @@ const appRoutes : Routes = [
     {path: "Start" , component: SonstigesHomeComponent},
     {path: "test" , component: TestpageComponent},
     {path: "Blender" , component: BlenderBilderComponent},
-  ]}
+  ]},
+  {path : "404" , component : PageNotFoundComponent},
+  {path : "**" , redirectTo:"/404"}
 ];
 
 @NgModule({
@@ -70,7 +73,8 @@ const appRoutes : Routes = [
     GalleryComponent,
     BlenderBilderComponent,
     AStarPathfindingComponent,
-    AStarGridComponent
+    AStarGridComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

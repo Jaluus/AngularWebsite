@@ -20,6 +20,7 @@ export class AStarPathfindingComponent implements OnInit {
 
   ngOnInit(): void {
     this.NMG.setGridsize(this.newGridsize)
+    this.NMG.roleMode = "draw"
   }
 
   calcDist(node:Node){

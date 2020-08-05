@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import '@angular/material/prebuilt-themes/pink-bluegrey.css';
+@import "./Styles/Scrollbar.css";
+@import "./Styles/NodeGrid.css";
+
 
 html, body {
     height: 100%;
@@ -10,35 +13,19 @@ body {
   overflow: hidden;
 }
 
+.content-container{
+  width: 80%;
+  text-align: center;
+  margin: auto;
+}
 
-::-webkit-scrollbar {
-  width: 3px;
-  height: 3px;
+
+/* Removes arrows on Num inputs */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
-::-webkit-scrollbar-button {
-  width: 0px;
-  height: 0px;
-}
-::-webkit-scrollbar-thumb {
-  background: #e1e1e1;
-  border-radius: 100px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #ffffff;
-}
-::-webkit-scrollbar-thumb:active {
-  background: #cccccc;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-  border-radius: 100px;
-}
-::-webkit-scrollbar-track:hover {
-  background: #666666;
-}
-::-webkit-scrollbar-track:active {
-  background: #666666;
-}
-::-webkit-scrollbar-corner {
-  background: transparent;
+input[type=number] {
+  -moz-appearance: textfield;
 }
