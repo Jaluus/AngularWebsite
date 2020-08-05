@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WindowSizeManager } from 'src/app/shared/services/windowSizeManager.service';
 
 @Component({
   selector: 'app-subheader',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubheaderComponent implements OnInit {
 
-  constructor() { }
+  constructor( public WSM: WindowSizeManager ) { }
 
   ngOnInit(): void {
   }

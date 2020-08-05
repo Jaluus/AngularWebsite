@@ -1,0 +1,34 @@
+.mainHeader-container{
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 200px;
+  background: #dc0000;
+  background-image: url("../../../assets/background/cutcube.png");
+  margin:0;
+}
+
+.mainHeader {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.heading {
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 56px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.subHeading{
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 28px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}

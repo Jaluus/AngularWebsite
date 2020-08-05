@@ -37,6 +37,7 @@ import { AStarPathfindingComponent } from './pages/programmier-projekte-home/a-s
 import { AStarGridComponent } from './shared/a-star-grid/a-star-grid.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { SubheaderComponent } from './header/subheader/subheader.component';
+import { MainheaderComponent } from './header/mainheader/mainheader.component';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { SubheaderComponent } from './header/subheader/subheader.component';
     AStarPathfindingComponent,
     AStarGridComponent,
     PageNotFoundComponent,
-    SubheaderComponent
+    SubheaderComponent,
+    MainheaderComponent
   ],
   imports: [
     BrowserModule,

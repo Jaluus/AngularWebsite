@@ -10,15 +10,22 @@
         <a mat-list-item *ngFor="let navItem of navItemArr" [routerLink]="[navItem.route]" >{{navItem.name}}</a>
       </mat-nav-list>
     </mat-sidenav>
+
 <!-- Mobile Toolbar -->
     <mat-sidenav
     *ngIf="!WSM.DesktopMode"
     class="sidenav-list"
+    (openedChange)="WSM.DrawerToggle = $event"
     mode="over"
     [opened]="WSM.DrawerToggle"
     >
       <mat-nav-list>
-        <a mat-list-item *ngFor="let navItem of navItemArr" [routerLink]="[navItem.route]" (click)="WSM.ToggleDrawer()">{{navItem.name}}</a>
+        <a mat-list-item
+        *ngFor="let navItem of navItemArr"
+        [routerLink]="[navItem.route]"
+        (click)="WSM.ToggleDrawer()"
+        routerLinkActive="active-link"
+        >{{navItem.name}}</a>
       </mat-nav-list>
     </mat-sidenav>
 

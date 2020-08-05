@@ -13,6 +13,10 @@ export class SidenavComponent implements OnInit {
 
   navItemArr:NavItem[];
 
+  logit(data){
+    console.log(data)
+  }
+
   constructor(
     private activeRoute : ActivatedRoute,
     private router : Router,

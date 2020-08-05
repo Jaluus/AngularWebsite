@@ -35,12 +35,20 @@
   </mat-toolbar-row>
 
   <mat-toolbar-row class="mobile-header-row">
-    <button mat-icon-button (click)="WSM.ToggleDrawer()" *ngIf="!links.onHomepage">
-      <mat-icon>menu</mat-icon>
-    </button>
 
     <ul class="mobile-horizontal-list">
-      <li *ngFor="let link of links.headerLinks" class="list-item"><a class="link-button-mobile" mat-button [routerLink]="[link.route]" >{{ link.name }}</a></li>
+
+      <li
+      *ngFor="let link of links.headerLinks"
+      class="list-item">
+        <a
+        class="link-button-mobile"
+        mat-button
+        (click)="WSM.DrawerToggle = false"
+        [routerLink]="[link.route]"
+        >{{ link.name }}</a>
+     </li>
+
     </ul>
   </mat-toolbar-row>
 </mat-toolbar>
