@@ -32,6 +32,7 @@ export class NodeManager {
   removeTracers(){
     for (let row of this.nodeArr){
       for (let node of row){
+        node.parent = null;
         if (node.role === "open" || node.role ==="closed" || node.role ==="path" ){
           node.reset()
       }

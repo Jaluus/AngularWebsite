@@ -68,9 +68,6 @@ export class AStarPathfindingComponent implements OnInit {
     }
     let sourceNode = this.NMG.nodeArr[this.NMG.sourceNode[1]][this.NMG.sourceNode[0]]
     let destNode = this.NMG.nodeArr[this.NMG.destNode[1]][this.NMG.destNode[0]]
-
-
-
     sourceNode.gCost = 0;
     sourceNode.hCost = this.calcHorG(sourceNode,true);
     this.OPEN.push(sourceNode)
@@ -100,6 +97,8 @@ export class AStarPathfindingComponent implements OnInit {
           node.role="closed"
         }
         while (currentNode.parent){
+          console.log("get parent!")
+          console.log(currentNode)
           currentNode.parent.role = "path"
           currentNode = currentNode.parent
         }

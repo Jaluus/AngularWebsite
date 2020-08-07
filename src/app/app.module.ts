@@ -17,6 +17,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatDividerModule} from '@angular/material/divider';
 
 
 import { AppComponent } from './app.component';
@@ -83,7 +84,8 @@ import { FractalGeneratorComponent } from './pages/programmier-projekte-home/fra
     MatSliderModule,
     MatSnackBarModule,
     AppRoutingModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatDividerModule
   ],
   providers: [WindowSizeManager,LinkManager],
   bootstrap: [AppComponent]

@@ -4,7 +4,7 @@ import { Image } from "../Models/image.model";
 @Injectable()
 export class imageManager{
 
-  blenderStartPath = "https://uslu.tech/pictures/BlenderCompressed/";
+  blenderStartPath = "https://archive.uslu.tech/pictures/BlenderCompressed/";
   compressEnding = "-min.png";
 
   imageArr : Image[] = [

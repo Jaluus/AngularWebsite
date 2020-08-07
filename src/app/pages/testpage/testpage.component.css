@@ -7,3 +7,9 @@
   bottom: 0;
   right: 0;
 }
+
+.color-gradient {
+  height: 100px;
+  width: 100%;
+  background-color: rgba(var(--fg),1) !important;
+}

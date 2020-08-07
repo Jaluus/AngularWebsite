@@ -13,9 +13,9 @@ export class Node {
   }
 
   reset(){
-    this.role = "none"
-    this.gCost = Infinity
-    this.hCost = Infinity
-    parent = null;
+    this.role = "none";
+    this.gCost = Infinity;
+    this.hCost = Infinity;
+    this.parent = null;
   }
 }

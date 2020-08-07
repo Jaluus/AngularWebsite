@@ -1,12 +1,12 @@
 <mat-card style="background-color: #303030; text-align: center;">
-      <mat-button-toggle-group>
+      <mat-button-toggle-group class="button" >
         <mat-button-toggle  [checked]="gridmng.drawMode" (click) = "gridmng.drawMode = true">Draw</mat-button-toggle>
-        <mat-button-toggle [checked]="!gridmng.drawMode" (click) = "gridmng.drawMode = false">Erase</mat-button-toggle>
+        <mat-button-toggle  [checked]="!gridmng.drawMode" (click) = "gridmng.drawMode = false">Erase</mat-button-toggle>
       </mat-button-toggle-group>
 
       <br>
 
-    <mat-form-field class="num-input button">
+    <mat-form-field class="num-input">
       <input
         matInput
         type = "number"
