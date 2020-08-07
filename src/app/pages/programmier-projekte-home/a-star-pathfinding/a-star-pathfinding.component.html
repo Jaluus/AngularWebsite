@@ -1,12 +1,12 @@
-<h1>A* Pathfinder (Not Functional)</h1>
-
+<app-subheader>A* Pathfinder</app-subheader>
+<br>
 <div class="content-container">
 
   <mat-card style="background-color: #424242; text-align: center;">
     <mat-button-toggle-group>
       <mat-button-toggle  [checked]="NMG.roleMode ==='draw'" (click) = "NMG.roleMode ='draw'">Draw</mat-button-toggle>
-      <mat-button-toggle  [checked]="NMG.roleMode ==='source'" (click) = "NMG.roleMode ='source'">Set Source</mat-button-toggle>
-      <mat-button-toggle [checked]="NMG.roleMode ==='dest'" (click) = "NMG.roleMode ='dest'">Set Dest</mat-button-toggle>
+      <mat-button-toggle  [checked]="NMG.roleMode ==='source'" (click) = "NMG.roleMode ='source'">Set start</mat-button-toggle>
+      <mat-button-toggle [checked]="NMG.roleMode ==='dest'" (click) = "NMG.roleMode ='dest'">Set goal</mat-button-toggle>
       <mat-button-toggle [checked]="NMG.roleMode ==='none'" (click) = "NMG.roleMode ='none'">Erase</mat-button-toggle>
     </mat-button-toggle-group>
 
@@ -22,7 +22,7 @@
 
     <button
       class="button"
-      mat-raised-button color="primary"
+      mat-raised-button color="accent"
       (click) = "NMG.setGridsize(newGridsize)"
       >Set Gridsize
     </button>
@@ -41,17 +41,47 @@
     class="button"
     mat-raised-button color="primary"
     (click) = "AStarStep()"
-    >A* Step
+    >A* Pathfinding
   </button>
 
+  <mat-slide-toggle class="button" [(ngModel)]="onlyCardinal">Exclude diagonals</mat-slide-toggle>
+
   </mat-card>
-
-
-  <br>
 
   <br>
 
   <app-a-star-grid></app-a-star-grid>
+
+  <br>
+
+  <mat-accordion [multi]="true">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          How to use
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+        <mat-card style="text-align: center; background-color: #303030;">
+          <p>You start by placing the <span style="color: yellow;">Startnode</span> and the <span style="color: blue;">Goalnode</span>, you can only have one of each!</p>
+          <p>You can also draw a maze for the A* algorithm to solve with the DRAW button</p>
+          <p>Then hit the A* button and watch the magic happen!</p>
+          <p>You can additionaly exclude diagonal Pathfinding</p>
+        </mat-card>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Legend
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+        <mat-card style="text-align: center; background-color: #303030;">
+          <p><span style="color: green;">Green</span> nodes symbolise OPEN nodes</p>
+          <p><span style="color: red;">Red</span> nodes symbolise CLOSED nodes</p>
+          <p><span style="color: pink;">Pink</span> nodes symbolise the PATH</p>
+          <p><span style="color: black;">Black</span> nodes symbolise OBSTACLES</p>
+      </mat-card>
+    </mat-expansion-panel>
+  </mat-accordion>
 
   <br>
 

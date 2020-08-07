@@ -30,9 +30,9 @@
               min="10"
               max="1000"></mat-slider>
             <br>
-            <button [disabled]="simulating" class="control-button" mat-raised-button color="primary" (click)="StartGOL()" >Start</button>
-            <button [disabled]="!simulating" class="control-button" mat-raised-button color="warn" (click)="StopGOL()" >Stop</button>
-            <button [disabled]="simulating" class="control-button" mat-raised-button color="accent" (click)="GOLStep()" >Step</button>
+            <button [disabled]="simulating" class="button" mat-raised-button color="primary" (click)="StartGOL()" >Start</button>
+            <button [disabled]="!simulating" class="button" mat-raised-button color="warn" (click)="StopGOL()" >Stop</button>
+            <button [disabled]="simulating" class="button" mat-raised-button color="accent" (click)="GOLStep()" >Step</button>
         </mat-card>
     </mat-expansion-panel>
   </mat-accordion>

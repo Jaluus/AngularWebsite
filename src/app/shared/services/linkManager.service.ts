@@ -1,30 +1,30 @@
 import {Injectable } from "@angular/core";
-import { NavItem } from '../../sidenav/navItem.model';
+import { NavItem } from '../Models/navItem.model';
 
 @Injectable()
 export class LinkManager{
   headerLinks: NavItem[] = [
-    new NavItem("Programmieren","/PP/Start"),
+    new NavItem("Programming","/PP/Start"),
     new NavItem("Machine Learning","/ML/Start"),
-    new NavItem("Sonstiges","/ETC/Start"),
+    new NavItem("Other","/ETC/Start"),
   ];
 
   MlNavArr : NavItem[] = [
-    new NavItem("Generator Networks","404"),
-    new NavItem("Classifier Networks","404"),
-    new NavItem("Learning Agents","404"),
-    new NavItem("Deepdream","404")
+    new NavItem("Generator Networks","404",false),
+    new NavItem("Classifier Networks","404",false),
+    new NavItem("Learning Agents","404",false),
+    new NavItem("Deepdream","404",false)
   ];
 
   PpNavArr : NavItem[] = [
     new NavItem("Game of Life","Conway"),
     new NavItem("A* Pathfinder","AStar"),
-    new NavItem("Maze Generator","404"),
-    new NavItem("Fraktal Generator","404"),
+    new NavItem("Fractal Generator","Fractal"),
+    new NavItem("Maze Generator","404",false),
   ];
 
   SNavArr : NavItem[] = [
-    new NavItem("Blender Bilder","Blender"),
+    new NavItem("Blender Gallery","Blender"),
     new NavItem("Testpage","test")
   ];
 

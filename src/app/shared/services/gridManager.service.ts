@@ -4,7 +4,7 @@ import {Injectable } from "@angular/core";
 @Injectable()
 export class GridManager{
   gridArr: Pixel[][] = [];
-  gridsize:number = 10
+  gridsize:number = 15
   drawMode = true;
 
   makeArr(){

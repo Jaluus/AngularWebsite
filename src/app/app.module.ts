@@ -16,6 +16,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -38,6 +40,7 @@ import { AStarGridComponent } from './shared/a-star-grid/a-star-grid.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { SubheaderComponent } from './header/subheader/subheader.component';
 import { MainheaderComponent } from './header/mainheader/mainheader.component';
+import { FractalGeneratorComponent } from './pages/programmier-projekte-home/fractal-generator/fractal-generator.component';
 
 
 @NgModule({
@@ -59,7 +62,8 @@ import { MainheaderComponent } from './header/mainheader/mainheader.component';
     AStarGridComponent,
     PageNotFoundComponent,
     SubheaderComponent,
-    MainheaderComponent
+    MainheaderComponent,
+    FractalGeneratorComponent
   ],
   imports: [
     BrowserModule,
@@ -78,7 +82,8 @@ import { MainheaderComponent } from './header/mainheader/mainheader.component';
     MatExpansionModule,
     MatSliderModule,
     MatSnackBarModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatSlideToggleModule
   ],
   providers: [WindowSizeManager,LinkManager],
   bootstrap: [AppComponent]

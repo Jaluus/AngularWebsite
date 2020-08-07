@@ -7,7 +7,7 @@ import { GridManager } from '../../services/gridManager.service';
   styleUrls: ['./canvas-control.component.css']
 })
 export class CanvasControlComponent implements OnInit {
-  newGridsize = 10;
+  newGridsize = 15;
 
   constructor(public gridmng :GridManager) {}
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NodeManager } from '../services/nodeManager.service'
 import { Node } from '../Models/node.model';
 import { WindowSizeManager } from '../services/windowSizeManager.service';
@@ -10,6 +10,7 @@ import { WindowSizeManager } from '../services/windowSizeManager.service';
 })
 export class AStarGridComponent implements OnInit {
   mouseDown = false;
+  @Input() displayCost = ""
 
   constructor(public NMG :NodeManager,
     public WSM:WindowSizeManager) {}
@@ -18,7 +19,6 @@ export class AStarGridComponent implements OnInit {
     this.NMG.makeNetwork();
 
   }
-
 
   getColor(node : Node){
     switch (node.role) {
@@ -39,6 +39,9 @@ export class AStarGridComponent implements OnInit {
       }
       case "closed" :{
         return "red"
+      }
+      case "path" :{
+        return "pink"
       }
     }
   }

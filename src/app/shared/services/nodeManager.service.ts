@@ -3,6 +3,7 @@ import {Injectable } from "@angular/core";
 
 @Injectable()
 export class NodeManager {
+  AdArr:Node[] = [];
   nodeArr: Node[][] = [];
   gridsize:number = 10
   roleMode = "none"
@@ -25,22 +26,27 @@ export class NodeManager {
   }
 
   resetNetwork(){
-    this.sourceNode = null;
-    this.destNode = null;
-    for (let rows of this.nodeArr){
-      for (let node  of rows){
-        node.role = "none"
+    this.makeNetwork();
+  }
+
+  removeTracers(){
+    for (let row of this.nodeArr){
+      for (let node of row){
+        if (node.role === "open" || node.role ==="closed" || node.role ==="path" ){
+          node.reset()
       }
     }
   }
+}
 
   setGridsize(newGridsize){
     this.gridsize = newGridsize;
     this.makeNetwork()
   }
 
-  getAdjecent(tile:Node){
-    let AdArr:Node[] = [];
+  getAdjecent(tile:Node,wallCheck:boolean = false,onlyCardinal:boolean = false){
+    this.AdArr = [];
+    let tempArr : Node[] = [];
     let ypos = tile.y
     let xpos = tile.x
     let rightBoundry = (xpos === this.gridsize-1)
@@ -48,21 +54,36 @@ export class NodeManager {
 
     //Upper Tiles
     if(ypos>0){
-      if (!leftBoundry){ AdArr.push(this.nodeArr[ypos-1][xpos-1]) }
-      AdArr.push(this.nodeArr[ypos-1][xpos])
-      if (!rightBoundry){ AdArr.push(this.nodeArr[ypos-1][xpos+1]) }
+      if (!leftBoundry && !onlyCardinal){ this.AdArr.push(this.nodeArr[ypos-1][xpos-1]) }
+      this.AdArr.push(this.nodeArr[ypos-1][xpos])
+      if (!rightBoundry && !onlyCardinal){ this.AdArr.push(this.nodeArr[ypos-1][xpos+1]) }
     }
       //Middle Tiles
-      if (!leftBoundry){ AdArr.push(this.nodeArr[ypos][xpos-1]) }
-      if (!rightBoundry){ AdArr.push(this.nodeArr[ypos][xpos+1]) }
+    if (!leftBoundry){ this.AdArr.push(this.nodeArr[ypos][xpos-1]) }
+    if (!rightBoundry){ this.AdArr.push(this.nodeArr[ypos][xpos+1]) }
 
       //Lower Tiles
     if(ypos < this.gridsize-1){
-      if (!leftBoundry){ AdArr.push(this.nodeArr[ypos+1][xpos-1]) }
-      AdArr.push(this.nodeArr[ypos+1][xpos])
-      if (!rightBoundry){ AdArr.push(this.nodeArr[ypos+1][xpos+1]) }
+      if (!leftBoundry && !onlyCardinal){ this.AdArr.push(this.nodeArr[ypos+1][xpos-1]) }
+      this.AdArr.push(this.nodeArr[ypos+1][xpos])
+      if (!rightBoundry && !onlyCardinal){ this.AdArr.push(this.nodeArr[ypos+1][xpos+1]) }
     }
-    return AdArr;
+
+    if (wallCheck) {
+      //console.log("BEFORE :" + this.AdArr.length)
+      //console.table(this.AdArr)
+      for (let node of this.AdArr){
+        //console.log((node.role === "draw") + " " + node)
+        if (!(node.role === "draw")){
+          tempArr.push(node)
+        }
+      }
+      this.AdArr = tempArr;
+      //console.log("AFTER :" + this.AdArr.length)
+      //console.table(this.AdArr)
+    }
+
+    return this.AdArr;
   }
 
   setRole(node:Node){

@@ -4,17 +4,18 @@ import { Image } from "../Models/image.model";
 @Injectable()
 export class imageManager{
 
-  blenderStartPath = "https://uslu.tech/pictures/Blender/";
+  blenderStartPath = "https://uslu.tech/pictures/BlenderCompressed/";
+  compressEnding = "-min.png";
 
   imageArr : Image[] = [
-    new Image (this.blenderStartPath +"Fraktale/frac6.png" , "Fraktale",  1, 2 ),
-    new Image (this.blenderStartPath +"Würfel.png" , "Würfel",  1, 1 ),
-    new Image (this.blenderStartPath +"Mond.png" , "Der Mond",  1, 1 ),
-    new Image (this.blenderStartPath +"Gold.png" , "Gold Grid",  2, 1 ),
-    new Image (this.blenderStartPath +"Spiegel.png" , "Spiegel",  2, 1 ),
-    new Image (this.blenderStartPath +"Fraktale/Fractal2.png" , "Mehr Fraktale",  1, 1 ),
-    new Image (this.blenderStartPath +"Pathtracer.png" , "Pathtracing",  1, 1 ),
-    new Image (this.blenderStartPath +"Donut/DonutFinal.png" , "DonutFinal",  2, 1 ),
-    new Image (this.blenderStartPath +"Donut/DonutV1.png" , "Pathtracing",  2, 1 ),
+    new Image (this.blenderStartPath +"Fraktale/frac6"+this.compressEnding , "Fraktale",  1, 2 ),
+    new Image (this.blenderStartPath +"Würfel" +this.compressEnding , "Würfel",  1, 1 ),
+    new Image (this.blenderStartPath +"Mond" +this.compressEnding, "Der Mond",  1, 1 ),
+    new Image (this.blenderStartPath +"Gold" +this.compressEnding, "Gold Grid",  2, 1 ),
+    new Image (this.blenderStartPath +"Spiegel" +this.compressEnding, "Spiegel",  2, 1 ),
+    new Image (this.blenderStartPath +"Fraktale/Fractal2" +this.compressEnding, "Mehr Fraktale",  1, 1 ),
+    new Image (this.blenderStartPath +"Pathtracer" +this.compressEnding, "Pathtracing",  1, 1 ),
+    new Image (this.blenderStartPath +"Donut/DonutFinal" +this.compressEnding, "DonutFinal",  2, 1 ),
+    new Image (this.blenderStartPath +"Donut/DonutV1"+this.compressEnding , "Pathtracing",  2, 1 ),
   ]
 }

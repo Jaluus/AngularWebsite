@@ -21,6 +21,10 @@ body {
   margin: auto;
 }
 
+.button{
+  margin-right: 0.5rem !important;
+  margin-left: 0.5rem !important;
+}
 
 
 

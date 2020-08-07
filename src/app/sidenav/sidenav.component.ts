@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NavItem } from "./navItem.model"
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { NavItem } from "../shared/Models/navItem.model"
+import { ActivatedRoute} from '@angular/router';
 import { WindowSizeManager } from '../shared/services/windowSizeManager.service';
 import { LinkManager } from '../shared/services/linkManager.service';
 
@@ -13,13 +13,8 @@ export class SidenavComponent implements OnInit {
 
   navItemArr:NavItem[];
 
-  logit(data){
-    console.log(data)
-  }
-
   constructor(
     private activeRoute : ActivatedRoute,
-    private router : Router,
     public WSM : WindowSizeManager,
     private links : LinkManager) { }
 
