@@ -12,7 +12,7 @@ import { SonstigesHomeComponent } from './pages/sonstiges-home/sonstiges-home.co
 import { BlenderBilderComponent } from './pages/sonstiges-home/blender-bilder/blender-bilder.component';
 import { AStarPathfindingComponent } from './pages/programmier-projekte-home/a-star-pathfinding/a-star-pathfinding.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
-import { FractalGeneratorComponent } from './pages/programmier-projekte-home/fractal-generator/fractal-generator.component';
+import { TreeFractalGeneratorComponent } from './pages/programmier-projekte-home/tree-fractal-generator/tree-fractal-generator.component';
 
 
 const appRoutes : Routes = [
@@ -21,7 +21,7 @@ const appRoutes : Routes = [
     {path: "Start", component: ProgrammierProjekteHomeComponent},
     {path: "Conway", component: ConwayComponent},
     {path: "AStar", component: AStarPathfindingComponent},
-    {path: "Fractal", component: FractalGeneratorComponent}
+    {path: "Fractal", component: TreeFractalGeneratorComponent}
   ]},
   { path : "ML" , component: SidenavComponent,children: [
     {path: "Start", component: MachineLearningHomeComponent}

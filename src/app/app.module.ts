@@ -18,6 +18,8 @@ import {MatSliderModule} from '@angular/material/slider';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatTabsModule} from '@angular/material/tabs';
+
 
 
 import { AppComponent } from './app.component';
@@ -42,6 +44,8 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { SubheaderComponent } from './header/subheader/subheader.component';
 import { MainheaderComponent } from './header/mainheader/mainheader.component';
 import { FractalGeneratorComponent } from './pages/programmier-projekte-home/fractal-generator/fractal-generator.component';
+import { TesttabComponent } from './pages/testpage/testtab/testtab.component';
+import { TreeFractalGeneratorComponent } from './pages/programmier-projekte-home/tree-fractal-generator/tree-fractal-generator.component';
 
 
 @NgModule({
@@ -64,7 +68,9 @@ import { FractalGeneratorComponent } from './pages/programmier-projekte-home/fra
     PageNotFoundComponent,
     SubheaderComponent,
     MainheaderComponent,
-    FractalGeneratorComponent
+    FractalGeneratorComponent,
+    TesttabComponent,
+    TreeFractalGeneratorComponent
   ],
   imports: [
     BrowserModule,
@@ -85,7 +91,8 @@ import { FractalGeneratorComponent } from './pages/programmier-projekte-home/fra
     MatSnackBarModule,
     AppRoutingModule,
     MatSlideToggleModule,
-    MatDividerModule
+    MatDividerModule,
+    MatTabsModule
   ],
   providers: [WindowSizeManager,LinkManager],
   bootstrap: [AppComponent]

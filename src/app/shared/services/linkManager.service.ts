@@ -19,7 +19,7 @@ export class LinkManager{
   PpNavArr : NavItem[] = [
     new NavItem("Game of Life","Conway"),
     new NavItem("A* Pathfinder","AStar"),
-    new NavItem("Fractal Generator","Fractal"),
+    new NavItem("Tree Fractal Generator","Fractal"),
     new NavItem("Maze Generator","404",false),
   ];
 

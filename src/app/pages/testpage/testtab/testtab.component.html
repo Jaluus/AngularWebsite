@@ -1,0 +1,65 @@
+<app-subheader> Testtab </app-subheader>
+
+
+<div class="content-container">
+  <br>
+  <button mat-flat-button class="button" color="primary" (click)="drawRandomTree()">Draw Random</button>
+  <br />
+
+  <canvas id="Canvas" style="background-color: #424242;" #canvas></canvas>
+  <br />
+  <mat-accordion [multi]="true">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Options
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      Angle change Left:
+      <mat-slider
+        thumbLabel
+        (change)="clearAndDraw()"
+        [(ngModel)]="deltaAngleL"
+        min="0"
+        max="360"
+      ></mat-slider>
+      <br />
+      Angle change Right:
+      <mat-slider
+        thumbLabel
+        (change)="clearAndDraw()"
+        [(ngModel)]="deltaAngleR"
+        min="0"
+        max="360"
+      ></mat-slider>
+      <br />
+      Branch Length:
+      <mat-slider
+        thumbLabel
+        (change)="clearAndDraw()"
+        [(ngModel)]="treeLen"
+        min="10"
+        max="150"
+      ></mat-slider>
+      <br />
+      Iterations:
+      <mat-slider
+        thumbLabel
+        (change)="clearAndDraw()"
+        [(ngModel)]="maxIter"
+        min="1"
+        max="10"
+      ></mat-slider>
+      <br />
+      Length Change:
+      <mat-slider
+        thumbLabel
+        (ngModelChange)="clearAndDraw()"
+        [(ngModel)]="lenChange"
+        min="1"
+        max="100"
+      ></mat-slider>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <br>
+</div>

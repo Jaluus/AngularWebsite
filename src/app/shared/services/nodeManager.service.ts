@@ -26,7 +26,11 @@ export class NodeManager {
   }
 
   resetNetwork(){
-    this.makeNetwork();
+    for (let row of this.nodeArr){
+      for (let node of row){
+        node.reset()
+      }
+    }
   }
 
   removeTracers(){

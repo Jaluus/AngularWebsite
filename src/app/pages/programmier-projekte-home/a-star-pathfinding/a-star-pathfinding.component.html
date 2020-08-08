@@ -3,7 +3,7 @@
 <div class="content-container">
 
   <mat-card style="background-color: #424242; text-align: center;">
-    <mat-button-toggle-group>
+    <mat-button-toggle-group class="button">
       <mat-button-toggle  [checked]="NMG.roleMode ==='draw'" (click) = "NMG.roleMode ='draw'">Draw</mat-button-toggle>
       <mat-button-toggle  [checked]="NMG.roleMode ==='source'" (click) = "NMG.roleMode ='source'">Set start</mat-button-toggle>
       <mat-button-toggle [checked]="NMG.roleMode ==='dest'" (click) = "NMG.roleMode ='dest'">Set goal</mat-button-toggle>

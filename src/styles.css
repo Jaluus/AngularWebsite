@@ -13,7 +13,10 @@ body {
   overflow: hidden;
 }
 
-
+.num-input{
+  width: 40px;
+  text-align: center;
+  }
 
 .content-container{
   width: 80%;

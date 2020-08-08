@@ -1,10 +1,10 @@
-<app-subheader>Fractal Generator (Not Functional)</app-subheader>
+<app-subheader>Levy C curve Generator</app-subheader>
 <br>
 <div class="content-container">
 
   <mat-card style="background-color: #424242; text-align: center;">
 
-    <mat-button-toggle-group>
+    <mat-button-toggle-group class="button">
       <mat-button-toggle  [checked]="NMG.roleMode ==='draw'" (click) = "NMG.roleMode ='draw'">Draw</mat-button-toggle>
       <mat-button-toggle  [checked]="NMG.roleMode ==='source'" (click) = "NMG.roleMode ='source'">Set Rotation Point</mat-button-toggle>
       <mat-button-toggle [checked]="NMG.roleMode ==='dest'" (click) = "NMG.roleMode ='dest'">Set Anchor Point</mat-button-toggle>
@@ -13,7 +13,7 @@
 
     <br>
 
-    <mat-form-field class="num-input button">
+    <mat-form-field class="num-input">
       <input
         matInput
         type = "number"
@@ -37,7 +37,7 @@
     </button>
     <br>
 
-    <button mat-raised-button class="button" color="primary">Step</button>
+    <button mat-raised-button class="button" color="primary" (click)="fracStep()">Step</button>
   </mat-card>
 
   <br>
@@ -54,7 +54,10 @@
         </mat-panel-title>
       </mat-expansion-panel-header>
         <mat-card style="text-align: center; background-color: #303030;">
-          <p>Sample Text</p>
+          <p>Set a Rotationnode and an Anchornode.</p>
+          <p>Then draw something.</p>
+          <p>The drawn object will be rotated 90° and the Anchornode will be matched to the previous Rotation node.</p>
+          <p>This will, in turn, generate a <a href="https://en.wikipedia.org/wiki/L%C3%A9vy_C_curve">Levy C curve</a></p>
         </mat-card>
     </mat-expansion-panel>
 

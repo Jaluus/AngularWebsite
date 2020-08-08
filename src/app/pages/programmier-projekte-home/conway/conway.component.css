@@ -4,17 +4,7 @@ h1{
     text-align: center;
   }
 
-.content-container{
-    margin: auto;
-    width: 80%;
-
-  }
-
 .num-input{
   width: 40px;
   text-align: center;
-}
-
-.mat-form-field {
-  padding-bottom: 1rem !important;
 }
