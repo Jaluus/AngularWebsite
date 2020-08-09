@@ -7,6 +7,7 @@
   <br />
 
   <canvas id="Canvas" style="background-color: #424242;" #canvas></canvas>
+  <p>{{deltaAngleL}}</p>
   <br />
   <mat-accordion [multi]="true">
     <mat-expansion-panel>
@@ -23,6 +24,7 @@
         min="0"
         max="360"
       ></mat-slider>
+      <input type="range" (ngModelChange)="clearAndDraw()" [(ngModel)]="deltaAngleL">
       <br />
       Angle change Right:
       <mat-slider

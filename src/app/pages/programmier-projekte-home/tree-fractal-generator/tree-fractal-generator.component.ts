@@ -21,10 +21,10 @@ export class TreeFractalGeneratorComponent implements OnInit {
 
 
   drawRandomTree(){
-    this.deltaAngleL = Math.random() * 90
-    this.deltaAngleR = Math.random() * 90
-    this.treeLen = Math.random() * 90
-    this.lenChange = (Math.random()+2) * 30
+    this.deltaAngleL = Math.round(Math.random() * 90)
+    this.deltaAngleR = Math.round(Math.random() * 90)
+    this.treeLen = Math.round(Math.random() * 90)
+    this.lenChange = Math.round((Math.random()+2) * 30)
     this.clearAndDraw()
   }
 

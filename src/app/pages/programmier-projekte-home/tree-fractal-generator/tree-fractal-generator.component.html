@@ -1,12 +1,19 @@
 <app-subheader> Tree Fractal Generator </app-subheader>
 
-
 <div class="content-container">
-  <br>
-  <button mat-flat-button class="button" color="primary" (click)="drawRandomTree()">Draw Random</button>
+  <br />
+  <button
+    mat-flat-button
+    class="button"
+    color="accent"
+    (click)="drawRandomTree()"
+  >
+    Draw Random
+  </button>
   <br />
 
   <canvas id="Canvas" style="background-color: #424242;" #canvas></canvas>
+  <br />
   <br />
   <mat-accordion [multi]="true">
     <mat-expansion-panel>
@@ -15,51 +22,53 @@
           Options
         </mat-panel-title>
       </mat-expansion-panel-header>
-      Angle change Left:
-      <mat-slider
-        thumbLabel
-        (change)="clearAndDraw()"
-        [(ngModel)]="deltaAngleL"
-        min="0"
-        max="360"
-      ></mat-slider>
-      <br />
-      Angle change Right:
-      <mat-slider
-        thumbLabel
-        (change)="clearAndDraw()"
-        [(ngModel)]="deltaAngleR"
-        min="0"
-        max="360"
-      ></mat-slider>
-      <br />
-      Branch Length:
-      <mat-slider
-        thumbLabel
-        (change)="clearAndDraw()"
-        [(ngModel)]="treeLen"
-        min="10"
-        max="150"
-      ></mat-slider>
-      <br />
-      Iterations:
-      <mat-slider
-        thumbLabel
-        (change)="clearAndDraw()"
-        [(ngModel)]="maxIter"
-        min="1"
-        max="10"
-      ></mat-slider>
-      <br />
-      Length Change:
-      <mat-slider
-        thumbLabel
-        (ngModelChange)="clearAndDraw()"
-        [(ngModel)]="lenChange"
-        min="1"
-        max="100"
-      ></mat-slider>
+      <mat-card style="text-align: center; background-color: #303030;">
+        Angle change Left: <span style="margin-left: 0.5rem;">{{deltaAngleL}}°</span>
+        <input
+          type="range"
+          min="0"
+          max="360"
+          (ngModelChange)="clearAndDraw()"
+          [(ngModel)]="deltaAngleL"
+        />
+        <br />
+        Angle change Right: <span style="margin-left: 0.5rem;">{{deltaAngleR}}°</span>
+        <input
+          type="range"
+          min="0"
+          max="360"
+          (ngModelChange)="clearAndDraw()"
+          [(ngModel)]="deltaAngleR"
+        />
+        <br />
+        Branch Length: <span style="margin-left: 0.5rem;">{{treeLen}} px</span>
+        <input
+          type="range"
+          min="10"
+          max="150"
+          (ngModelChange)="clearAndDraw()"
+          [(ngModel)]="treeLen"
+        />
+        <br />
+        Iterations: <span style="margin-left: 0.5rem;">{{maxIter}} Iterations</span>
+        <input
+          type="range"
+          min="1"
+          max="10"
+          (ngModelChange)="clearAndDraw()"
+          [(ngModel)]="maxIter"
+        />
+        <br />
+        Length Change: <span style="margin-left: 0.5rem;">{{lenChange}} %</span>
+        <input
+          type="range"
+          min="1"
+          max="100"
+          (ngModelChange)="clearAndDraw()"
+          [(ngModel)]="lenChange"
+        />
+      </mat-card>
     </mat-expansion-panel>
   </mat-accordion>
-  <br>
+  <br />
 </div>

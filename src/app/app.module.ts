@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule }from"./app-routing.module"
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
@@ -21,9 +23,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatTabsModule} from '@angular/material/tabs';
 
 
-
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { TestpageComponent } from './pages/testpage/testpage.component';
@@ -43,9 +43,9 @@ import { AStarGridComponent } from './shared/a-star-grid/a-star-grid.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { SubheaderComponent } from './header/subheader/subheader.component';
 import { MainheaderComponent } from './header/mainheader/mainheader.component';
-import { FractalGeneratorComponent } from './pages/programmier-projekte-home/fractal-generator/fractal-generator.component';
 import { TesttabComponent } from './pages/testpage/testtab/testtab.component';
 import { TreeFractalGeneratorComponent } from './pages/programmier-projekte-home/tree-fractal-generator/tree-fractal-generator.component';
+import { ShowcaseComponentComponent } from './shared/showcase-component/showcase-component.component';
 
 
 @NgModule({
@@ -68,9 +68,9 @@ import { TreeFractalGeneratorComponent } from './pages/programmier-projekte-home
     PageNotFoundComponent,
     SubheaderComponent,
     MainheaderComponent,
-    FractalGeneratorComponent,
     TesttabComponent,
-    TreeFractalGeneratorComponent
+    TreeFractalGeneratorComponent,
+    ShowcaseComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -94,7 +94,9 @@ import { TreeFractalGeneratorComponent } from './pages/programmier-projekte-home
     MatDividerModule,
     MatTabsModule
   ],
-  providers: [WindowSizeManager,LinkManager],
+  providers: [
+    WindowSizeManager,
+    LinkManager,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

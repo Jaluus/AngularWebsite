@@ -8,6 +8,9 @@
     >
       <mat-nav-list>
         <a
+        [ngClass]="{
+          'enabled-link':navItem.active,
+          'disabled-link':!navItem.active}"
         mat-list-item
         [disableRipple] = "true"
         *ngFor="let navItem of navItemArr"
@@ -28,6 +31,9 @@
     >
       <mat-nav-list>
         <a
+        [ngClass]="{
+        'enabled-link':navItem.active,
+        'disabled-link':!navItem.active}"
         mat-list-item
         [disableRipple] = "true"
         [disabled]="!navItem.active"

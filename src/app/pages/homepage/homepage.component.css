@@ -3,6 +3,17 @@ ul {
   padding: 0;
 }
 
+li {
+  text-align: left;
+  width: 50%;
+  margin: auto;
+}
+
+li::before{
+  content: "✅";
+  color: white;
+}
+
 .mainHeader-container{
   display: block;
   position: relative;
@@ -23,6 +34,7 @@ ul {
 }
 
 .heading {
+  color:white !important;
   font-size: 56px;
   font-weight: 700;
   line-height: 56px;
@@ -31,6 +43,7 @@ ul {
 }
 
 .subHeading{
+  color:white !important;
   font-size: 20px;
   font-weight: 300;
   line-height: 28px;

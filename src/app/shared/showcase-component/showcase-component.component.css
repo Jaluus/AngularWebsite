@@ -1,0 +1,22 @@
+.showcase {
+  margin:0.5rem;
+}
+
+.card-content{
+  overflow: hidden;
+  clear: both;
+}
+
+.image {
+  float: right;
+  width: 100px;
+  height: 100px;
+  margin-top: 18px;
+  margin-bottom: 10px;
+  margin-right: 0;
+  margin-left: 10px;
+}
+
+.text {
+  color :var(--light-gray);
+}

@@ -1,6 +1,6 @@
 <app-subheader>Conways Game of Life</app-subheader>
 
-<br>
+<br />
 
 <div class="content-container">
   <mat-accordion [multi]="true">
@@ -12,7 +12,6 @@
       </mat-expansion-panel-header>
 
       <app-canvas-control></app-canvas-control>
-
     </mat-expansion-panel>
     <mat-expansion-panel>
       <mat-expansion-panel-header>
@@ -20,48 +19,74 @@
           Time Controls
         </mat-panel-title>
       </mat-expansion-panel-header>
-        <mat-card style="text-align: center; background-color: #303030;">
-          Timestep Slider
-              <mat-slider
-              [disabled]="simulating"
-              thumbLabel
-              [(ngModel)]="timestep"
-              tickInterval="10"
-              min="10"
-              max="1000"></mat-slider>
-            <br>
-            <button [disabled]="simulating" class="button" mat-raised-button color="primary" (click)="StartGOL()" >Start</button>
-            <button [disabled]="!simulating" class="button" mat-raised-button color="warn" (click)="StopGOL()" >Stop</button>
-            <button [disabled]="simulating" class="button" mat-raised-button color="accent" (click)="GOLStep()" >Step</button>
-        </mat-card>
+      <mat-card style="text-align: center; background-color: #303030;">
+        Timestep Slider
+        <mat-slider
+          [disabled]="simulating"
+          thumbLabel
+          [(ngModel)]="timestep"
+          tickInterval="10"
+          min="10"
+          max="1000"
+        ></mat-slider>
+        <br />
+        <button
+          [disabled]="simulating"
+          class="button"
+          mat-raised-button
+          color="primary"
+          (click)="StartGOL()"
+        >
+          Start
+        </button>
+        <button
+          [disabled]="!simulating"
+          class="button"
+          mat-raised-button
+          color="warn"
+          (click)="StopGOL()"
+        >
+          Stop
+        </button>
+        <button
+          [disabled]="simulating"
+          class="button"
+          mat-raised-button
+          color="accent"
+          (click)="GOLStep()"
+        >
+          Step
+        </button>
+      </mat-card>
     </mat-expansion-panel>
   </mat-accordion>
 
-  <br>
+  <br />
 
   <app-pixel-canvas></app-pixel-canvas>
 
-  <br>
-<mat-accordion>
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Additional Options
-      </mat-panel-title>
-    </mat-expansion-panel-header>
+  <br />
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Additional Options
+        </mat-panel-title>
+      </mat-expansion-panel-header>
       <mat-card style="text-align: center; background-color: #303030;">
         More Neighbors than
         <mat-form-field class="num-input">
           <input
             matInput
-            type = "number"
+            type="number"
             [disabled]="simulating"
             style="padding: 0;"
-            [(ngModel)]="nMoreToDie">
+            [(ngModel)]="nMoreToDie"
+          />
         </mat-form-field>
-         to Die
+        to Die
 
-        <br>
+        <br />
         Less Neighbors than
         <mat-form-field class="num-input">
           <input
@@ -69,23 +94,24 @@
             [type]="'number'"
             [disabled]="simulating"
             style="padding: 0;"
-            [(ngModel)]="nLessToDie">
+            [(ngModel)]="nLessToDie"
+          />
         </mat-form-field>
         to Die
 
-        <br>
+        <br />
         Exact number of Neighbors to get born:
         <mat-form-field class="num-input">
           <input
             matInput
             [disabled]="simulating"
-            type = "number"
+            type="number"
             style="padding: 0;"
-            [(ngModel)]="nToLive">
+            [(ngModel)]="nToLive"
+          />
         </mat-form-field>
-
       </mat-card>
-  </mat-expansion-panel>
-</mat-accordion>
-<br>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <br />
 </div>

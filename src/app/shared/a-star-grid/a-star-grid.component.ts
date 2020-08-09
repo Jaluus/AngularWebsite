@@ -32,7 +32,7 @@ export class AStarGridComponent implements OnInit {
         return "blue"
       }
       case "source" :{
-        return "yellow"
+        return "#00ffee"
       }
       case "open" :{
         return "green"

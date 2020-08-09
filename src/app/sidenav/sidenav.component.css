@@ -8,6 +8,24 @@
   height: 100%;
 }
 
+.enabled-link{
+  text-decoration: none;
+  color: var(--light-gray);
+  background: transparent;
+}
+
+.disabled-link{
+  text-decoration: line-through;
+  color: var(--light-gray);
+  background: transparent;
+}
+
+.active-link {
+  background: rgba(114, 114, 114, 0.281);
+  color: #ffffff;
+}
+
+
 .horizontal {
   display: flex;
   list-style: none;
@@ -19,25 +37,9 @@
   vertical-align: middle;
 }
 
-a {
-  text-decoration: none;
-}
-
-.spacer {
-  flex: 1 1 auto;
-}
-
-.spacer2 {
-  margin-left: 5rem;
-}
 
 .router-container {
   overflow: auto;
   height: 100%;
   width: 100%;
-}
-
-.active-link {
-  background: rgba(114, 114, 114, 0.281);
-  color: #ffffff;
 }

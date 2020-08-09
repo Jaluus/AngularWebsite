@@ -2,7 +2,14 @@
 @import '@angular/material/prebuilt-themes/pink-bluegrey.css';
 @import "./Styles/Scrollbar.css";
 @import "./Styles/NodeGrid.css";
+@import "./Styles/rangeSlider.css";
 
+:root {
+  --light-gray: hsla(0,0%,100%,.7);
+  --gray: #424242;
+  --dark-gray: #303030;
+  --red: #dc0000;
+}
 
 html, body {
     height: 100%;
@@ -22,50 +29,14 @@ body {
   width: 80%;
   text-align: center;
   margin: auto;
-  color: hsla(0,0%,100%,.7);
+  color: var(--light-gray);
+  font-size: large;
 }
 
 .button{
   margin-right:0.5rem !important;
   margin-left:0.5rem !important;
   margin-bottom:1rem !important;
-}
-
-:root {
-  --fg: 5, 5, 38;
-  --bg: 255, 255, 255;
-  --white: #fff;
-  --light-wash: #f7fbfb;
-  --medium-wash: #eff7f8;
-  --dark-wash: #e6f3f3;
-  --light-warm-gray: #eeedee;
-  --dark-warm-gray: #a3acb0;
-  --cool-gray-1: #c5c5d2;
-  --cool-gray-2: #8e8ea0;
-  --cool-gray-3: #6e6e80;
-  --cool-gray-4: #404452;
-  --black: #050526;
-  --pink: #e6a2e4;
-  --magenta: #dd5ce5;
-  --red: #bd1c5f;
-  --bright-red: #ef4146;
-  --orange: #e86c09;
-  --golden: #f4ac36;
-  --yellow: #ebe93d;
-  --light-green: #68de7a;
-  --dark-green: #10a37f;
-  --teal: #2ff3ce;
-  --light-blue: #27b5ea;
-  --medium-blue: #2e95d3;
-  --dark-blue: #5436da;
-  --navy-blue: #3b2479;
-  --light-purple: #6b40d8;
-  --dark-purple: #412991;
-  --light-grayish-purple: #cdc3cf;
-  --medium-grayish-purple: #9c88a3;
-  --dark-grayish-purple: #562f5f;
-  --dull-black-1: #0e0e1a;
-  --dull-black-2: #191927;
 }
 
 
@@ -78,4 +49,9 @@ input::-webkit-inner-spin-button {
 }
 input[type=number] {
   -moz-appearance: textfield;
+}
+
+a {
+  text-decoration: none;
+  color: var(--red);
 }

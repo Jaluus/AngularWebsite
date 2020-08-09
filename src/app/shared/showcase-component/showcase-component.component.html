@@ -1,0 +1,11 @@
+<mat-card class="showcase">
+  <mat-card-header style="display: unset;">
+    <mat-card-title>{{name}}</mat-card-title>
+    <mat-card-subtitle>{{subDesc}}</mat-card-subtitle>
+  </mat-card-header>
+  <div class="card-content">
+    <img class="image" [src]="imagePath" >
+    <p class="text" [innerHTML] = "description">
+    </p>
+  </div>
+</mat-card>

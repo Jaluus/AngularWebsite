@@ -12,3 +12,7 @@
   border-style: solid;
   background-color: white;
 }
+
+.spacer {
+  flex: 1 1 auto;
+}

@@ -9,18 +9,42 @@
   </div>
 </div>
 
-<div class="content-container">
-    <h1>This site needs some work!</h1>
-    <p>At the moment not much is implemented, but im working on it.</p>
-    <p>This website is just for fun and a sandbox for my ideas.</p>
+<div class="content-container" [ngStyle]="{'width' : WSM.DesktopMode? '50%' : '80%'}">
+      <p>
+        The primary idea of this website is to just be a Sandbox for my ideas, I have written some code in my freetime in Python and C++, but sadly its hard to show people.
+      </p>
+      <p>
+        A Website is the perfect way to showcase some of my stuff but to also learn some new stuff!
+      </p>
+      <p>
+        So I decided to learn Angular as the Frontend Framework and later implement my code on a Flask backend server for Python code - Mainly for the Neural Networks -
+        aswell as a NodeJs server for JavaScript related Stuff.
+      </p>
+
+    <mat-divider></mat-divider>
+
+      <p>At the moment I have written some simple algorithms like the <a routerLink="/PP/Conway">Game of life</a>, a <a routerLink="/PP/Fractal">Fractal Tree Generator</a> and the
+        <a routerLink="/PP/AStar"> A* Pathinding algorithm</a>,
+        give it a try, but please try not to break it, it might break your current tab in the browser if you try hard enough!</p>
+
+    <mat-divider></mat-divider>
+
+      <p>
+        You can also take a look at my Repo with the link in the top right hand corner,
+        the code for Angular is probably abysmal, but not as bad as the algorithms,
+        they are extremly inefficent, but they work, so hey, don't fix what's not Broken.<br>
+        Im probably gonna look into it later, but for now, it suffices.
+      </p>
 
     <mat-divider></mat-divider>
 
     <ul class="vertical"> <h3>TODO</h3>
-      <li>Porting my Neural Networks</li>
-      <li>Implementing a backend</li>
-      <li>Adjust Theming</li>
-      <li>...and much more!</li>
+      <li [ngStyle]="{'width' : WSM.DesktopMode? '50%' : '100%'}">Learning Flask</li>
+      <li [ngStyle]="{'width' : WSM.DesktopMode? '50%' : '100%'}">Implementing a backend in Flask</li>
+      <li [ngStyle]="{'width' : WSM.DesktopMode? '50%' : '100%'}">Learning how to make HTTP calls</li>
+      <li [ngStyle]="{'width' : WSM.DesktopMode? '50%' : '100%'}">Adjust Theming</li>
+      <br>
+      ...and much more!
     </ul>
 
 </div>
