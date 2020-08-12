@@ -3,7 +3,8 @@
   position: relative;
   width: 100%;
   height: 56px;
-  background: #dc0000;
+  background: var(--red);
+  background-image: url("../../../assets/background/gplay.png");
   margin:0;
 }
 

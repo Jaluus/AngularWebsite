@@ -1,5 +1,6 @@
 .header {
-  background: #dc0000;
+  background: var(--red);
+  background-image: url("../../assets/background/gplay.png");
   position: fixed;
   top: 0;
   height: 56px !important;
@@ -11,7 +12,8 @@
 }
 
 .mobile-header {
-  background: #dc0000;
+  background: var(--red);
+  background-image: url("../../assets/background/gplay.png");
   position: fixed;
   top: 0;
   height: 112px !important;

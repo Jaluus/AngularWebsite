@@ -8,15 +8,14 @@
     >
       <mat-nav-list>
         <a
+        routerLinkActive="active-link"
         [ngClass]="{
           'enabled-link':navItem.active,
           'disabled-link':!navItem.active}"
         mat-list-item
-        [disableRipple] = "true"
         *ngFor="let navItem of navItemArr"
         [disabled]="!navItem.active"
         [routerLink]="[navItem.route]"
-        routerLinkActive="active-link"
         >{{navItem.name}}</a>
       </mat-nav-list>
     </mat-sidenav>
@@ -31,16 +30,15 @@
     >
       <mat-nav-list>
         <a
+        routerLinkActive="active-link"
         [ngClass]="{
         'enabled-link':navItem.active,
         'disabled-link':!navItem.active}"
         mat-list-item
-        [disableRipple] = "true"
         [disabled]="!navItem.active"
         *ngFor="let navItem of navItemArr"
         [routerLink]="[navItem.route]"
         (click)="WSM.ToggleDrawer()"
-        routerLinkActive="active-link"
         >{{navItem.name}}</a>
       </mat-nav-list>
     </mat-sidenav>

@@ -10,27 +10,8 @@ li {
 }
 
 li::before{
-  content: "✅";
+  content: "✅ ";
   color: white;
-}
-
-.mainHeader-container{
-  display: block;
-  position: relative;
-  width: 100%;
-  height: 200px;
-  background: #dc0000;
-  background-image: url("../../../assets/background/cutcube.png");
-  margin:0;
-}
-
-.mainHeader {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
 }
 
 .heading {
