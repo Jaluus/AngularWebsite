@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule }from"./app-routing.module"
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -43,7 +44,6 @@ import { AStarGridComponent } from './shared/a-star-grid/a-star-grid.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { SubheaderComponent } from './header/subheader/subheader.component';
 import { MainheaderComponent } from './header/mainheader/mainheader.component';
-import { TesttabComponent } from './pages/testpage/testtab/testtab.component';
 import { TreeFractalGeneratorComponent } from './pages/programmier-projekte-home/tree-fractal-generator/tree-fractal-generator.component';
 import { ShowcaseComponentComponent } from './shared/showcase-component/showcase-component.component';
 
@@ -68,7 +68,6 @@ import { ShowcaseComponentComponent } from './shared/showcase-component/showcase
     PageNotFoundComponent,
     SubheaderComponent,
     MainheaderComponent,
-    TesttabComponent,
     TreeFractalGeneratorComponent,
     ShowcaseComponentComponent
   ],
@@ -92,7 +91,8 @@ import { ShowcaseComponentComponent } from './shared/showcase-component/showcase
     AppRoutingModule,
     MatSlideToggleModule,
     MatDividerModule,
-    MatTabsModule
+    MatTabsModule,
+    HttpClientModule
   ],
   providers: [
     WindowSizeManager,

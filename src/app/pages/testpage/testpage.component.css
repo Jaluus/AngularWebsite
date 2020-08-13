@@ -1,14 +1,7 @@
-#video {
-  position: absolute;
-  width: 100%;
-
-  top: 56px;
-  left: 0;
-  bottom: 0;
-  right: 0;
+li {
+  list-style: none;
 }
 
-#Canvas {
-  border-style: solid;
-  background-color: white;
+ul {
+  padding: 0;
 }
