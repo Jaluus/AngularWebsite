@@ -20,6 +20,17 @@ export class GridManager{
     }
   }
 
+  getGridArr(){
+    let TempArr = []
+    this.gridArr.forEach((row,idx) => {
+      TempArr.push([])
+      for (let cell of row){
+        TempArr[idx].push(cell.clicked? 255 : 0)
+      }
+    })
+    return TempArr
+  }
+
   clearAll(){
     for (let rows of this.gridArr){
       for (let element of rows){

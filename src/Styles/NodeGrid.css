@@ -1,19 +1,22 @@
-.nodeGrid-container {
+.reactive-container {
   position: relative;
-  background: black;
-
-  border-style: solid;
-  border-width: 2px;
-  border-color: black ;
-
   margin: auto;
-  width: 50%;
 }
 
-.nodeGrid-container:after {
+.reactive-container:after {
   content: "";
   display: block;
   padding-bottom: 100%;
+}
+
+.nodeGrid-container {
+  position: absolute;
+  background: black;
+
+  top:0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .nodeGrid {

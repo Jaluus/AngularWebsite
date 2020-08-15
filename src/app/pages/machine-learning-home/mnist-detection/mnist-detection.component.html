@@ -1,0 +1,57 @@
+<div class="content-container">
+  <mat-card class="container-card">
+    <mat-button-toggle-group class="button">
+      <mat-button-toggle
+        [checked]="gridmng.drawMode"
+        (click)="gridmng.drawMode = true"
+        >Draw</mat-button-toggle
+      >
+      <mat-button-toggle
+        [checked]="!gridmng.drawMode"
+        (click)="gridmng.drawMode = false"
+        >Erase</mat-button-toggle
+      >
+    </mat-button-toggle-group>
+
+    <br />
+
+    <button
+      class="button"
+      mat-raised-button
+      color="warn"
+      (click)="gridmng.clearAll()"
+    >
+      Clear Grid
+    </button>
+
+    <button
+    class="button"
+    mat-raised-button
+    color="primary"
+    (click)="predict()"
+  >
+    Predict
+  </button>
+  <br>
+
+  <table>
+    <tr>
+      <th>Type</th>
+      <th *ngFor="let idx of pred_vector_idx">{{idx}}</th>
+    </tr>
+    <tr>
+      <td>CNN</td>
+      <td [style.backgroundColor]="getColor(pred)" *ngFor="let pred of pred_vector_CNN">{{pred}}</td>
+    </tr>
+    <tr>
+      <td>DNN</td>
+      <td [style.backgroundColor]="getColor(pred)" *ngFor="let pred of pred_vector_DNN">{{pred}}</td>
+    </tr>
+  </table>
+
+  </mat-card>
+
+  <app-pixel-canvas></app-pixel-canvas>
+
+  <br>
+</div>

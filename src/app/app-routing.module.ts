@@ -13,6 +13,7 @@ import { BlenderBilderComponent } from './pages/sonstiges-home/blender-bilder/bl
 import { AStarPathfindingComponent } from './pages/programmier-projekte-home/a-star-pathfinding/a-star-pathfinding.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { TreeFractalGeneratorComponent } from './pages/programmier-projekte-home/tree-fractal-generator/tree-fractal-generator.component';
+import { MnistDetectionComponent } from './pages/machine-learning-home/mnist-detection/mnist-detection.component';
 
 
 const appRoutes : Routes = [
@@ -24,7 +25,8 @@ const appRoutes : Routes = [
     {path: "Fractal", component: TreeFractalGeneratorComponent}
   ]},
   { path : "ML" , component: SidenavComponent,children: [
-    {path: "Start", component: MachineLearningHomeComponent}
+    {path: "Start", component: MachineLearningHomeComponent},
+    {path: "mnist", component: MnistDetectionComponent},
   ]},
   { path : "ETC" , component: SidenavComponent, children:[
     {path: "Start" , component: SonstigesHomeComponent},

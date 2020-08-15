@@ -6,3 +6,8 @@ h1{
   text-align: center;
   width: 40px;
 }
+
+.container-card {
+  background-color: var(--dark-gray);
+  text-align: center;
+}

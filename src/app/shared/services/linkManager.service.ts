@@ -10,8 +10,8 @@ export class LinkManager{
   ];
 
   MlNavArr : NavItem[] = [
+    new NavItem("MNIST Detection","mnist"),
     new NavItem("Generator Networks","404",false),
-    new NavItem("Classifier Networks","404",false),
     new NavItem("Learning Agents","404",false),
     new NavItem("Deepdream","404",false)
   ];
