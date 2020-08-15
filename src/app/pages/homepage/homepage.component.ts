@@ -12,6 +12,13 @@ export class HomepageComponent implements OnInit , OnDestroy{
     private links : LinkManager,
     public WSM: WindowSizeManager) { }
 
+  TODO = [
+    "Adjust Colors",
+    "Implement Theme switch",
+    "Learn Unity",
+    "Embed Unity-Game"
+  ]
+
   ngOnInit(): void {
     this.links.onHomepage=true;
   }

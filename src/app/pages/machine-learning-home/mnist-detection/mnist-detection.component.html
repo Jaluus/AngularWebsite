@@ -1,3 +1,5 @@
+<app-subheader>MNIST Handwriting Detection</app-subheader>
+
 <div class="content-container">
   <mat-card class="container-card">
     <mat-button-toggle-group class="button">
@@ -32,6 +34,7 @@
   >
     Predict
   </button>
+
   <br>
 
   <table>
@@ -54,4 +57,23 @@
   <app-pixel-canvas></app-pixel-canvas>
 
   <br>
+
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          How to use
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>You start by drawing a number.</p>
+      <p>After that you can click "Predict" and the data gets send to a Backend, where it gets evaluated by two Neural Networks</p>
+      <p>After this, the table will display the predicitons of the Models</p>
+      <p>Im using a <a href="https://en.wikipedia.org/wiki/Convolutional_neural_network">Convolutional Neural Network</a> and
+         a <a href="https://en.wikipedia.org/wiki/Artificial_neural_network">Deep Neural Network</a></p>
+      <p>
+        For more infos you can take a look at my <a href="https://github.com/dudenheini/FlaskBackend">GitHub Repo</a>
+      </p>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <br />
 </div>

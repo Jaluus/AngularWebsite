@@ -40,10 +40,7 @@
     <mat-divider></mat-divider>
 
     <ul class="vertical"> <h3>TODO</h3>
-      <li [ngStyle]="{'width' : WSM.DesktopMode? '50%' : '100%'}">Learning Flask</li>
-      <li [ngStyle]="{'width' : WSM.DesktopMode? '50%' : '100%'}">Implementing a backend in Flask</li>
-      <li [ngStyle]="{'width' : WSM.DesktopMode? '50%' : '100%'}">Learning how to make HTTP calls</li>
-      <li [ngStyle]="{'width' : WSM.DesktopMode? '50%' : '100%'}">Adjust colors</li>
+      <li [ngStyle]="{'width' : WSM.DesktopMode? '50%' : '100%'}" *ngFor="let item of TODO">{{item}}</li>
       <br>
       ...and much more!
     </ul>

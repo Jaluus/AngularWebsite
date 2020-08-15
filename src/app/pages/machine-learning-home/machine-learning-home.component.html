@@ -1,14 +1,17 @@
-
 <app-subheader>Machine Learning</app-subheader>
 
 <div class="content-container">
+
   <p>
-    Nothing here yet, I have to first learn how to use Flask to be able to make calls to my Neural Networks.
+    Here im showcasing some Models i've trained. Im serving them using a Flask/uWSGI backend.
   </p>
-  <p>
-    And I'm not porting them to JavaScript again!
-  </p>
-  <p>
-    I have some on my <a href="https://archive.uslu.tech/">Old Website</a>
-  </p>
+  <mat-divider></mat-divider>
+  <app-showcase-component
+  *ngFor="let component of Components"
+  [name]="component.name"
+  [imagePath]="component.imagePath"
+  [subDesc]="component.subDesc"
+  [description]="component.description"
+  [routerLink]="['../'+component.link]"
+  ></app-showcase-component>
 </div>

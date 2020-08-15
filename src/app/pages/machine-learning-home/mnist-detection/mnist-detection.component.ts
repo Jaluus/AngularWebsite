@@ -14,7 +14,6 @@ import { WindowSizeManager } from 'src/app/shared/services/windowSizeManager.ser
 })
 export class MnistDetectionComponent implements OnInit {
 
-  BURL = environment.BACKEND_URL + "/api/ML/mnist"
   pred_vector_idx = [0,1,2,3,4,5,6,7,8,9]
   pred_vector_CNN = [0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00];
   pred_vector_DNN = [0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00];
@@ -33,7 +32,7 @@ export class MnistDetectionComponent implements OnInit {
     let data = {
       "data": Griddata
     }
-    this.http.post(this.BURL,data)
+    this.http.post(environment.MNIST_CLASSIFIER,data)
     .pipe(map(res => {  // Rounding pipe
       let CNN_pred = []
       let DNN_pred = []
