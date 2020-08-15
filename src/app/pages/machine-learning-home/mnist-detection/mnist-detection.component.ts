@@ -3,7 +3,6 @@ import { GridManager } from 'src/app/shared/services/gridManager.service';
 import { HttpClient } from '@angular/common/http';
 import { environment } from "../../../../environments/environment"
 import { map } from 'rxjs/operators';
-import { R3TargetBinder } from '@angular/compiler';
 import { WindowSizeManager } from 'src/app/shared/services/windowSizeManager.service';
 
 @Component({

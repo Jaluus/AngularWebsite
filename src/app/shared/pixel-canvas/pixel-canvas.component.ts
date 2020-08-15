@@ -11,6 +11,7 @@ import { WindowSizeManager } from '../services/windowSizeManager.service';
 })
 export class PixelCanvasComponent implements OnInit{
   mouseDown = false;
+  @Input() clickable = true
 
   constructor(public gridmng :GridManager,
     public WSM:WindowSizeManager) {}
@@ -20,9 +21,27 @@ export class PixelCanvasComponent implements OnInit{
   }
 
   onHover(tile:Pixel){
-    if (this.mouseDown && tile){
+    if (this.mouseDown && tile && this.clickable){
       this.gridmng.colorPixel(tile)
     }
+  }
+
+  onClick(tile){
+    if (tile && this.clickable){
+      this.gridmng.colorPixel(tile)
+    }
+  }
+
+  getColor(cell){
+    if (cell.clicked){
+      return "black"
+    }
+    if (cell.value === 0){
+      return "transparent"
+    }
+
+    let w = (1-cell.value) * 255
+    return "rgb(" + w + "," + w + "," + w + ")"
   }
 
 

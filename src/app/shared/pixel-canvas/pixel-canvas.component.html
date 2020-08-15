@@ -2,9 +2,6 @@
 class="reactive-container"
 [ngStyle]="{'width': WSM.DesktopMode?'49%':'100%'}"
 >
-
-  <p>Test Scentece</p>
-
   <div
   class="nodeGrid-container"
   (mousedown)="mouseDown = true"
@@ -19,8 +16,8 @@ class="reactive-container"
         class="node"
         *ngFor="let cell of row"
         [ngStyle]="{
-          'background-color': cell.clicked?'black':'transparent'}"
-        (mousedown)="gridmng.colorPixel(cell)"
+          'background-color': getColor(cell)}"
+        (mousedown)="onClick(cell)"
         (mouseover)="onHover(cell)"
         ></td>
       </tr>

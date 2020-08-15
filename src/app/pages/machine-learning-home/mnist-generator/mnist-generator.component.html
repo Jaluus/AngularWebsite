@@ -1,0 +1,126 @@
+<app-subheader>MNIST Number Generator</app-subheader>
+
+<div class="content-container">
+
+  <br>
+
+    <button
+    class="button"
+    mat-raised-button
+    color="primary"
+    (click)="getRandomNumber()"
+  >
+    Generate Random Number
+  </button>
+
+  <br>
+
+  <app-pixel-canvas [clickable]="false"></app-pixel-canvas>
+
+  <br>
+
+  <mat-accordion [multi]="true">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Latent Vector Options
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-card style="text-align: center; background-color: var(--dark-gray);">
+
+        <input
+        type="range"
+        min="0"
+        max="1"
+        [(ngModel)] = "L0"
+        (ngModelChange) = "getNumber()"
+        step = "0.01"
+        />
+        <input
+          type="range"
+          min="0"
+          max="1"
+          [(ngModel)] = "L1"
+          (ngModelChange) = "getNumber()"
+          step = "0.01"
+        />
+        <input
+          type="range"
+          min="0"
+          max="1"
+          [(ngModel)] = "L2"
+          (ngModelChange) = "getNumber()"
+          step = "0.01"
+        />
+        <input
+          type="range"
+          min="0"
+          max="1"
+          [(ngModel)] = "L3"
+          (ngModelChange) = "getNumber()"
+          step = "0.01"
+        />
+        <input
+          type="range"
+          min="0"
+          max="1"
+          [(ngModel)] = "L4"
+          (ngModelChange) = "getNumber()"
+          step = "0.01"
+        />
+        <input
+          type="range"
+          min="0"
+          max="1"
+          [(ngModel)] = "L5"
+          (ngModelChange) = "getNumber()"
+          step = "0.01"
+        />
+        <input
+          type="range"
+          min="0"
+          max="1"
+          [(ngModel)] = "L6"
+          (ngModelChange) = "getNumber()"
+          step = "0.01"
+        />
+        <input
+          type="range"
+          min="0"
+          max="1"
+          [(ngModel)] = "L7"
+          (ngModelChange) = "getNumber()"
+          step = "0.01"
+        />
+        <input
+          type="range"
+          min="0"
+          max="1"
+          [(ngModel)] = "L8"
+          (ngModelChange) = "getNumber()"
+          step = "0.01"
+        />
+        <input
+          type="range"
+          min="0"
+          max="1"
+          [(ngModel)] = "L9"
+          (ngModelChange) = "getNumber()"
+          step = "0.01"
+        />
+      </mat-card>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          How to use
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>You can either generate a random Number or play around with the Latent Space Vector values.</p>
+      <p>Each slider represents a base vector of the Latent Space which is fed into the Generator Network to generate an image.</p>
+      <p>This implementation uses a simple selfwritten <a href="https://en.wikipedia.org/wiki/Generative_adversarial_network">GAN</a> , for more info take a look inside the <a href="https://github.com/dudenheini/FlaskBackend">Github Repo</a></p>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <br />
+</div>

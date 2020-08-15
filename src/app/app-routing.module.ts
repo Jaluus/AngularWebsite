@@ -14,6 +14,7 @@ import { AStarPathfindingComponent } from './pages/programmier-projekte-home/a-s
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { TreeFractalGeneratorComponent } from './pages/programmier-projekte-home/tree-fractal-generator/tree-fractal-generator.component';
 import { MnistDetectionComponent } from './pages/machine-learning-home/mnist-detection/mnist-detection.component';
+import { MnistGeneratorComponent } from './pages/machine-learning-home/mnist-generator/mnist-generator.component';
 
 
 const appRoutes : Routes = [
@@ -26,7 +27,8 @@ const appRoutes : Routes = [
   ]},
   { path : "ML" , component: SidenavComponent,children: [
     {path: "Start", component: MachineLearningHomeComponent},
-    {path: "mnist", component: MnistDetectionComponent},
+    {path: "mnistClas", component: MnistDetectionComponent},
+    {path: "mnistGen", component: MnistGeneratorComponent},
   ]},
   { path : "ETC" , component: SidenavComponent, children:[
     {path: "Start" , component: SonstigesHomeComponent},

@@ -97,8 +97,6 @@ export class AStarPathfindingComponent implements OnInit {
           node.role="closed"
         }
         while (currentNode.parent){
-          console.log("get parent!")
-          console.log(currentNode)
           currentNode.parent.role = "path"
           currentNode = currentNode.parent
         }

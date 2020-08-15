@@ -20,6 +20,10 @@ export class GridManager{
     }
   }
 
+  setValue(tile:Pixel,value:number){
+    tile.value = value
+  }
+
   getGridArr(){
     let TempArr = []
     this.gridArr.forEach((row,idx) => {
