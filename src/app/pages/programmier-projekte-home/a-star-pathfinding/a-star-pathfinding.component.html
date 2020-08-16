@@ -2,7 +2,7 @@
 <br>
 <div class="content-container">
 
-  <mat-card style="background-color: #424242; text-align: center;">
+  <mat-card style="text-align: center;">
     <mat-button-toggle-group class="button">
       <mat-button-toggle  [checked]="NMG.roleMode ==='draw'" (click) = "NMG.roleMode ='draw'">Draw</mat-button-toggle>
       <mat-button-toggle  [checked]="NMG.roleMode ==='source'" (click) = "NMG.roleMode ='source'">Start</mat-button-toggle>
@@ -69,7 +69,7 @@
           How to use
         </mat-panel-title>
       </mat-expansion-panel-header>
-        <mat-card style="text-align: center; background-color: #303030;">
+        <mat-card style="text-align: center;">
           <p>You start by placing the <span style="color: yellow;">Startnode</span> and the <span style="color: blue;">Goalnode</span>, you can only have one of each!</p>
           <p>You can also draw a maze for the A* algorithm to solve with the DRAW button</p>
           <p>Then hit the A* button and watch the magic happen!</p>

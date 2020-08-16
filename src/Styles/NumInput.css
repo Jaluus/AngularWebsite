@@ -1,0 +1,15 @@
+/* Removes arrows on Num inputs */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+.num-input{
+  width: 40px;
+  text-align: center;
+}

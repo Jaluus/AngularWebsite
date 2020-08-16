@@ -1,0 +1,31 @@
+html, body {
+  height: 100%;
+  }
+body {
+margin: 0;
+font-family: Roboto, "Helvetica Neue", sans-serif;
+overflow: hidden;
+}
+
+.content-container{
+width: 80%;
+text-align: center;
+margin: auto;
+font-size: large;
+}
+
+.button{
+margin-right:0.5rem !important;
+margin-left:0.5rem !important;
+margin-bottom:1rem !important;
+}
+a {
+text-decoration: none;
+}
+
+/* :root {
+    --light-gray: hsla(0,0%,100%,.7);
+    --gray: #424242;
+    --dark-gray: #303030;
+    --red: #dc0000;
+} */

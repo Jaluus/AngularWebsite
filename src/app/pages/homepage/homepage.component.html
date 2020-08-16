@@ -1,11 +1,4 @@
-<app-mainheader>
-  <h1 class = "heading">
-    Jan's Tests
-  </h1>
-  <h3 class="subHeading">
-    A Sandbox Website
-  </h3>
-</app-mainheader>
+<app-mainheader [heading]="'Jan\'s Tests'" [subheading] = "'A Sandbox Website'"></app-mainheader>
 
 <div class="content-container" [ngStyle]="{'width' : WSM.DesktopMode? '50%' : '80%'}">
       <p>
@@ -44,5 +37,4 @@
       <br>
       ...and much more!
     </ul>
-
 </div>

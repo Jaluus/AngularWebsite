@@ -1,0 +1,38 @@
+@import "./Styles/Scrollbar.css";
+@import "./Styles/NodeGrid.css";
+@import "./Styles/rangeSlider.css";
+@import "./Styles/NumInput.css";
+@import "./Styles/UngroupedStyles.css";
+
+@import "./Themes/my-theme.scss";
+@import "./Themes/my-second-theme.scss";
+
+@import "./app/pages/homepage/hompage.component.cscc-theme.scss";
+@import "./app/app.component.scss-theme.scss";
+@import "./app/header/mainheader/mainheader.component.scss-theme.scss";
+@import "./app/header/subheader/subheader.component.scss-theme.scss";
+@import "./app/shared/showcase-component/showcase-component.component.scss-theme.scss";
+@import "./app/header/header.component.scss-theme.scss";
+@import "./app/sidenav/sidenav.component.scss-theme.scss";
+
+@mixin custom-components-theme($theme) {
+  @include app-homepage-theme($theme);
+  @include app-mainheader-theme($theme);
+  @include app-subheader-theme($theme);
+  @include app-showcase-component-theme($theme);
+  @include app-theme($theme);
+  @include app-header-theme($theme);
+  @include app-sidenav-theme($theme);
+}
+
+// define Theme
+.dark-theme{
+  @include angular-material-theme($my-second-theme);
+  @include custom-components-theme($my-second-theme);
+
+}
+
+.light-theme{
+  @include angular-material-theme($my-theme);
+  @include custom-components-theme($my-theme);
+}

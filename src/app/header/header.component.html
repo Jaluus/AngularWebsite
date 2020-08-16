@@ -1,54 +1,79 @@
 <!-- Big Toolbar -->
-<mat-toolbar *ngIf="WSM.DesktopMode" color="primary" class="header">
+<mat-toolbar *ngIf="WSM.DesktopMode" class="header">
   <span>
-    <a routerLink="/" class="middle">Jan's Tests</a>
+    <a routerLink="/" class="brand middle">Jan's Tests</a>
   </span>
   <div class="spacer2"></div>
   <ul class="horizontal">
-    <li *ngFor="let link of links.headerLinks"><a mat-button [routerLink]="[link.route]" class="middle">{{ link.name }}</a></li>
+    <li *ngFor="let link of links.headerLinks">
+      <a mat-button [routerLink]="[link.route]" class="middle">{{
+        link.name
+      }}</a>
+    </li>
   </ul>
   <div class="spacer"></div>
-
-    <a mat-button class="middle" href="https://github.com/dudenheini/AngularWebsite">
-      <img class="middle"
-      src="../../assets/img/giticon.svg"
-      alt="angular">
+  <p>
+    <a
+      mat-button
+      class="middle"
+      (click)="switchTheme()"
+    >
+    {{message}}
+    </a>
+  </p>
+  <p>
+    <a
+      mat-button
+      class="middle"
+      href="https://github.com/dudenheini/AngularWebsite"
+    >
+      <img class="middle" src="../../assets/img/giticon.svg" [ngStyle]="{'filter': dark? 'invert(0)' : 'invert(1)'}" alt="angular" />
       Github
     </a>
+  </p>
 </mat-toolbar>
 
 <!-- Small Toolbar -->
 <mat-toolbar *ngIf="!WSM.DesktopMode" color="primary" class="mobile-header">
-  <mat-toolbar-row>
+  <mat-toolbar-row style="height: 56px;">
     <span>
-      <a routerLink="/" class="middle">Jan's Tests</a>
+      <a routerLink="/" class="brand middle">Jan's Tests</a>
     </span>
 
     <div class="spacer"></div>
 
-    <a mat-button class="middle" href="https://github.com/dudenheini/AngularWebsite">
-      <img class="middle"
-      src="../../assets/img/giticon.svg"
-      alt="angular">
-      Github
-    </a>
+    <p>
+      <a
+        mat-button
+        class="middle"
+        (click)="switchTheme()"
+      >
+      {{message}}
+      </a>
+    </p>
+    <p>
+      <a
+        mat-button
+        class="middle"
+        href="https://github.com/dudenheini/AngularWebsite"
+      >
+        <img class="middle" src="../../assets/img/giticon.svg" [ngStyle]="{'filter': dark? 'invert(0)' : 'invert(1)'}" alt="angular" />
+        Github
+      </a>
+    </p>
   </mat-toolbar-row>
 
   <mat-toolbar-row class="mobile-header-row">
-
     <ul class="mobile-horizontal-list">
-
-      <li
-      *ngFor="let link of links.headerLinks"
-      class="list-item">
+      <li *ngFor="let link of links.headerLinks" class="list-item">
         <a
-        class="link-button-mobile"
-        mat-button
-        (click)="WSM.DrawerToggle = false"
-        [routerLink]="[link.route]"
-        >{{ link.name }}</a>
-     </li>
-
+          class="link-button-mobile"
+          mat-button
+          (click)="WSM.DrawerToggle = false"
+          [routerLink]="[link.route]"
+          >{{ link.name }}</a
+        >
+      </li>
     </ul>
   </mat-toolbar-row>
 </mat-toolbar>

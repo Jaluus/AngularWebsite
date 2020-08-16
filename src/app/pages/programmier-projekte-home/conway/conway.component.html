@@ -19,7 +19,6 @@
           Time Controls
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <mat-card style="text-align: center; background-color: #303030;">
         Timestep Slider
         <mat-slider
           [disabled]="simulating"
@@ -57,7 +56,6 @@
         >
           Step
         </button>
-      </mat-card>
     </mat-expansion-panel>
   </mat-accordion>
 
@@ -73,7 +71,6 @@
           Additional Options
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <mat-card style="text-align: center; background-color: #303030;">
         More Neighbors than
         <mat-form-field class="num-input">
           <input
@@ -110,7 +107,6 @@
             [(ngModel)]="nToLive"
           />
         </mat-form-field>
-      </mat-card>
     </mat-expansion-panel>
   </mat-accordion>
   <br />

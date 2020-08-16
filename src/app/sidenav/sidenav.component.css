@@ -16,16 +16,6 @@
   text-decoration: line-through;
 }
 
-.active-link {
-  background: hsla(0, 20%, 26%, 0.849)  !important;
-  color: hsla(0, 100%, 65%, 0.671)  !important;
-}
-
-a {
-  background:transparent !important;
-  color: var(--light-gray);
-}
-
 .horizontal {
   display: flex;
   list-style: none;
