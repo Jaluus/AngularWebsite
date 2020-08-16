@@ -1,0 +1,16 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$test-theme-primary: mat-palette($mat-red);
+$test-theme-primary: mat-palette($mat-blue, A200, A100, A400);
+$test-theme-warn: mat-palette($mat-yellow);
+
+$test-theme: mat-dark-theme((
+  color: (
+  primary : $test-theme-primary,
+  accent: $test-theme-primary,
+  warn: $test-theme-warn)
+  ));
+
+@include angular-material-theme($test-theme)

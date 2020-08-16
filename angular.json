@@ -24,7 +24,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/custom-theme.scss",
+              {
+                "input": "src/test-theme.scss"
+              },
+
               "src/styles.css"
             ],
             "scripts": []

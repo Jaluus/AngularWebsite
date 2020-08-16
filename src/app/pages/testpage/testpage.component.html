@@ -1,27 +1,6 @@
 <app-subheader> Testpage </app-subheader>
 <div class="content-container">
-
-  <br>
-  <button mat-flat-button (click)="getItems()" >send GET request</button>
-
-  <br>
-  <br>
-
-  <mat-form-field >
-    <mat-label>Item</mat-label>
-    <input matInput [(ngModel)] = "itemName" required>
-  </mat-form-field>
-  <br>
-  <mat-form-field >
-    <mat-label>Price</mat-label>
-    <input matInput [(ngModel)] = "itemPrice" type="number" required>
-  </mat-form-field>
-  <br>
-  <button mat-flat-button (click)="postItem()" >send POST request</button>
-  <br>
-  <ul>
-    <li *ngFor="let item of itemList">
-      {{item["name"]}}, {{item["price"]}}
-    </li>
-  </ul>
+  <p>direct : {{test.value}}</p>
+  <p> ngModel : {{sliderValue}}</p>
+  <mat-slider #test [(ngModel)]="sliderValue" (input)="sliderValue = $event.value"></mat-slider>
 </div>
