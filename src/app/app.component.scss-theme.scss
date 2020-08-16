@@ -1,0 +1,28 @@
+@import '~@angular/material/theming';
+
+@mixin app-theme($theme) {
+  $primary: map-get($theme , primary );
+  $accent: map-get($theme , accent );
+  $warn: map-get($theme , warn );
+  $foreground: map-get($theme , foreground );
+  $background: map-get($theme , background );
+
+  app-root {
+
+    a{  // all Anchortags are the Prim Color
+      color:mat-color($primary);
+    }
+
+    table,tr,th,td{
+      border-color: mat-color($background,background);
+    }
+
+    >div{
+      background: mat-color($background,background);
+      background-image: url("https://www.transparenttextures.com/patterns/concrete-wall.png");
+    }
+
+  }
+
+}
+

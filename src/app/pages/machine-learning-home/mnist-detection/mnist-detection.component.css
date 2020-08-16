@@ -1,5 +1,4 @@
 .container-card {
-  background-color : var(--gray);
   margin: 1rem;
 }
 
@@ -15,12 +14,10 @@ th {
   border-width: 1px;
   width: 9%;
   border-style: solid;
-  border-color: var(--dark-gray);
 }
 
 td {
   border-width: 1px;
   width: 9%;
   border-style: solid;
-  border-color: var(--dark-gray);
 }

@@ -1,5 +1,6 @@
 import { Component, HostListener } from '@angular/core';
 import { WindowSizeManager } from './shared/services/windowSizeManager.service';
+import { ThemeManager } from './shared/services/themeManager.service';
 
 @Component({
   selector: 'app-root',
@@ -7,11 +8,12 @@ import { WindowSizeManager } from './shared/services/windowSizeManager.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent{
-
-  constructor(public WSM : WindowSizeManager) {
+  theme = "dark-theme"
+  constructor(
+    public WSM : WindowSizeManager,
+    public TM : ThemeManager) {
     this.onResize();
   }
-
 
   @HostListener('window:resize', ['$event'])
   onResize(event?) {
@@ -21,4 +23,3 @@ export class AppComponent{
   }
 
 }
-

@@ -1,6 +1,5 @@
-<app-header></app-header>
+  <app-header></app-header>
 
-<div [className]="WSM.DesktopMode ? 'main-content-container-desktop' : 'main-content-container-mobile' ">
-  <router-outlet></router-outlet>
-</div>
-
+  <div [class]="WSM.DesktopMode ? 'main-content-container-desktop' : 'main-content-container-mobile' ">
+    <router-outlet></router-outlet>
+  </div>

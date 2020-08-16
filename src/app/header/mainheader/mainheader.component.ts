@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-mainheader',
@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mainheader.component.css']
 })
 export class MainheaderComponent implements OnInit {
-
+  @Input() heading = "heading"
+  @Input() subheading = "subheading"
   constructor() { }
 
   ngOnInit(): void {

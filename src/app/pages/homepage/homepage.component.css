@@ -15,7 +15,6 @@ li::before{
 }
 
 .heading {
-  color:white !important;
   font-size: 56px;
   font-weight: 700;
   line-height: 56px;
@@ -24,7 +23,6 @@ li::before{
 }
 
 .subHeading{
-  color:white !important;
   font-size: 20px;
   font-weight: 300;
   line-height: 28px;

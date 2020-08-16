@@ -1,41 +1,38 @@
 .header {
-  background: var(--red);
-  background-image: url("../../assets/background/gplay.png");
+  /* background-image: url("../../assets/background/gplay.png"); */
   position: fixed;
   top: 0;
   height: 56px !important;
   left: 0;
   right: 0;
   z-index: 998;
-  box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.75);
   overflow: hidden;
 }
 
 .mobile-header {
-  background: var(--red);
-  background-image: url("../../assets/background/gplay.png");
+  /* background-image: url("../../assets/background/gplay.png"); */
   position: fixed;
   top: 0;
   height: 112px !important;
   left: 0;
   right: 0;
   z-index: 998;
-  box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.75);
   overflow: hidden;
 }
 
 .mobile-header-row {
   padding: 0;
+  height: 56px;
 }
 
 .middle {
   vertical-align: middle;
-  color: white;
 }
 
 a {
   text-decoration: none;
-  color: white;
 }
 
 .link-button-mobile {
@@ -56,18 +53,20 @@ a {
   list-style: none;
   padding: 0;
   margin: 0;
-  width:100%;
+  width: 100%;
 }
 
 .mobile-horizontal-list {
   display: table;
   table-layout: fixed;
   list-style: none;
+  position: absolute;
+  bottom: 0;
   padding: 0;
   margin: 0;
   width: 100%;
 }
 .list-item {
-  display:table-cell;
+  display: table-cell;
   text-align: center;
 }
