@@ -26,89 +26,87 @@
           Latent Vector Options
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <mat-card style="text-align: center; background-color: var(--dark-gray);">
 
-        <input
-        type="range"
+        <mat-slider
+        [vertical] = "true"
+        [(ngModel)]="L0"
         min="0"
         max="1"
-        [(ngModel)] = "L0"
-        (ngModelChange) = "getNumber()"
+        (input)="(L0 = $event.value) && getNumber()"
         step = "0.01"
-        />
-        <input
-          type="range"
-          min="0"
-          max="1"
-          [(ngModel)] = "L1"
-          (ngModelChange) = "getNumber()"
-          step = "0.01"
-        />
-        <input
-          type="range"
-          min="0"
-          max="1"
-          [(ngModel)] = "L2"
-          (ngModelChange) = "getNumber()"
-          step = "0.01"
-        />
-        <input
-          type="range"
-          min="0"
-          max="1"
-          [(ngModel)] = "L3"
-          (ngModelChange) = "getNumber()"
-          step = "0.01"
-        />
-        <input
-          type="range"
-          min="0"
-          max="1"
-          [(ngModel)] = "L4"
-          (ngModelChange) = "getNumber()"
-          step = "0.01"
-        />
-        <input
-          type="range"
-          min="0"
-          max="1"
-          [(ngModel)] = "L5"
-          (ngModelChange) = "getNumber()"
-          step = "0.01"
-        />
-        <input
-          type="range"
-          min="0"
-          max="1"
-          [(ngModel)] = "L6"
-          (ngModelChange) = "getNumber()"
-          step = "0.01"
-        />
-        <input
-          type="range"
-          min="0"
-          max="1"
-          [(ngModel)] = "L7"
-          (ngModelChange) = "getNumber()"
-          step = "0.01"
-        />
-        <input
-          type="range"
-          min="0"
-          max="1"
-          [(ngModel)] = "L8"
-          (ngModelChange) = "getNumber()"
-          step = "0.01"
-        />
-        <input
-          type="range"
-          min="0"
-          max="1"
-          [(ngModel)] = "L9"
-          (ngModelChange) = "getNumber()"
-          step = "0.01"
-        />
-      </mat-card>
+        ></mat-slider>
+        <mat-slider
+        [vertical] = "true"
+        [(ngModel)]="L1"
+        min="0"
+        max="1"
+        (input)="(L1 = $event.value) && getNumber()"
+        step = "0.01"
+        ></mat-slider>
+        <mat-slider
+        [vertical] = "true"
+        [(ngModel)]="L2"
+        min="0"
+        max="1"
+        (input)="(L2 = $event.value) && getNumber()"
+        step = "0.01"
+        ></mat-slider>
+        <mat-slider
+        [vertical] = "true"
+        [(ngModel)]="L3"
+        min="0"
+        max="1"
+        (input)="(L3 = $event.value) && getNumber()"
+        step = "0.01"
+        ></mat-slider>
+        <mat-slider
+        [vertical] = "true"
+        [(ngModel)]="L4"
+        min="0"
+        max="1"
+        (input)="(L4 = $event.value) && getNumber()"
+        step = "0.01"
+        ></mat-slider>
+        <mat-slider
+        [vertical] = "true"
+        [(ngModel)]="L5"
+        min="0"
+        max="1"
+        (input)="(L5 = $event.value) && getNumber()"
+        step = "0.01"
+        ></mat-slider>
+        <mat-slider
+        [vertical] = "true"
+        [(ngModel)]="L6"
+        min="0"
+        max="1"
+        (input)="(L6 = $event.value) && getNumber()"
+        step = "0.01"
+        ></mat-slider>
+        <mat-slider
+        [vertical] = "true"
+        [(ngModel)]="L7"
+        min="0"
+        max="1"
+        (input)="(L7 = $event.value) && getNumber()"
+        step = "0.01"
+        ></mat-slider>
+        <mat-slider
+        [vertical] = "true"
+        [(ngModel)]="L8"
+        min="0"
+        max="1"
+        (input)="(L8 = $event.value) && getNumber()"
+        step = "0.01"
+        ></mat-slider>
+        <mat-slider
+        [vertical] = "true"
+        [(ngModel)]="L9"
+        min="0"
+        max="1"
+        (input)="(L9 = $event.value) && getNumber()"
+        step = "0.01"
+        ></mat-slider>
     </mat-expansion-panel>
 
     <mat-expansion-panel>

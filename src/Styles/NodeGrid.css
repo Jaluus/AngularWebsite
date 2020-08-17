@@ -1,6 +1,10 @@
 .reactive-container {
   position: relative;
   margin: auto;
+  border-width: 2px;
+  border-bottom-width: 3px;
+  border-color: black;
+  border-style: solid;
 }
 
 .reactive-container:after {

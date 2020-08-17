@@ -17,6 +17,16 @@
 
     <br />
 
+
+
+  <button
+    class="button"
+    mat-raised-button
+    color="primary"
+    (click)="predict()"
+  >
+    Predict
+  </button>
     <button
       class="button"
       mat-raised-button
@@ -26,18 +36,9 @@
       Clear Grid
     </button>
 
-    <button
-    class="button"
-    mat-raised-button
-    color="primary"
-    (click)="predict()"
-  >
-    Predict
-  </button>
-
   <br>
 
-  <table>
+  <table *ngIf="WSM.DesktopMode">
     <tr>
       <th>Type</th>
       <th *ngFor="let idx of pred_vector_idx">{{idx}}</th>
@@ -51,6 +52,11 @@
       <td [style.backgroundColor]="getColor(pred)" *ngFor="let pred of pred_vector_DNN">{{pred}}</td>
     </tr>
   </table>
+
+  <mat-card *ngIf="!WSM.DesktopMode">
+    <p>The DNN predictet {{DNN_max["number"]}} with a probability of {{DNN_max["probability"]}}%</p>
+    <p>The CNN predictet {{CNN_max["number"]}} with a probability of {{CNN_max["probability"]}}%</p>
+  </mat-card>
 
 
 

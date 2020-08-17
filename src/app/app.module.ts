@@ -22,6 +22,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 import { AppComponent } from './app.component';
@@ -96,7 +97,8 @@ import { MnistGeneratorComponent } from './pages/machine-learning-home/mnist-gen
     MatSlideToggleModule,
     MatDividerModule,
     MatTabsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatMenuModule
   ],
   providers: [
     WindowSizeManager,

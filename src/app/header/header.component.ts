@@ -12,30 +12,15 @@ import { ThemeManager } from '../shared/services/themeManager.service';
 export class HeaderComponent implements OnInit {
 
   Mainpage = false;
-  message = "Light mode"
-  dark = true
+  LightTheme = false;
 
   constructor(
     public WSM: WindowSizeManager,
     public links: LinkManager,
     public router : Router,
-    public TM : ThemeManager,
-    private renderer: Renderer2) { }
+    public TM : ThemeManager,) { }
 
   ngOnInit(): void {
-  }
-
-  switchTheme(){
-    if (this.dark){
-      this.renderer.removeClass(document.body,"dark-theme")
-      this.renderer.addClass(document.body,"light-theme")
-      this.message = "Dark mode"
-    } else{
-      this.renderer.removeClass(document.body,"light-theme")
-      this.renderer.addClass(document.body,"dark-theme")
-      this.message = "Light mode"
-    }
-    this.dark = !this.dark
   }
 
 }

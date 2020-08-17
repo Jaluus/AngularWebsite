@@ -15,8 +15,8 @@ export class HomepageComponent implements OnInit , OnDestroy{
     public TM: ThemeManager) { }
 
   TODO = [
-    "Adjust Colors",
-    "Implement Theme switch",
+    "Adjust Light Theme Colors",
+    "Adjusting Typography",
     "Learn Unity",
     "Embed Unity-Game"
   ]

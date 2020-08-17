@@ -5,14 +5,14 @@
   <button
     mat-flat-button
     class="button"
-    color="accent"
+    color="primary"
     (click)="drawRandomTree()"
   >
     Draw Random
   </button>
   <br />
 
-  <canvas id="Canvas" style="background-color: #424242;" #canvas></canvas>
+  <canvas id="Canvas" #canvas></canvas>
   <br />
   <br />
   <mat-accordion [multi]="true">
@@ -22,52 +22,47 @@
           Options
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <mat-card style="text-align: center; background-color: #303030;">
+      <div style="width: 50%; margin:auto;">
         Angle change Left: <span style="margin-left: 0.5rem;">{{deltaAngleL}}°</span>
-        <input
-          type="range"
-          min="0"
-          max="360"
-          (ngModelChange)="clearAndDraw()"
-          [(ngModel)]="deltaAngleL"
-        />
+        <mat-slider
+        [(ngModel)]="deltaAngleL"
+        min="0"
+        max="180"
+        (input)="(deltaAngleL = $event.value) && clearAndDraw()"
+        ></mat-slider>
         <br />
         Angle change Right: <span style="margin-left: 0.5rem;">{{deltaAngleR}}°</span>
-        <input
-          type="range"
-          min="0"
-          max="360"
-          (ngModelChange)="clearAndDraw()"
-          [(ngModel)]="deltaAngleR"
-        />
+        <mat-slider
+        [(ngModel)]="deltaAngleR"
+        min="0"
+        max="180"
+        (input)="(deltaAngleR = $event.value) && clearAndDraw()"
+        ></mat-slider>
         <br />
         Branch Length: <span style="margin-left: 0.5rem;">{{treeLen}} px</span>
-        <input
-          type="range"
-          min="10"
-          max="150"
-          (ngModelChange)="clearAndDraw()"
-          [(ngModel)]="treeLen"
-        />
+        <mat-slider
+        [(ngModel)]="treeLen"
+        min="1"
+        max="150"
+        (input)="(treeLen = $event.value) && clearAndDraw()"
+        ></mat-slider>
         <br />
-        Iterations: <span style="margin-left: 0.5rem;">{{maxIter}} Iterations</span>
-        <input
-          type="range"
-          min="1"
-          max="10"
-          (ngModelChange)="clearAndDraw()"
-          [(ngModel)]="maxIter"
-        />
+        Iterations: <span style="margin-left: 0.5rem;">{{maxIter}}</span>
+        <mat-slider
+        [(ngModel)]="maxIter"
+        min="1"
+        max="10"
+        (input)="(maxIter = $event.value) && clearAndDraw()"
+        ></mat-slider>
         <br />
         Length Change: <span style="margin-left: 0.5rem;">{{lenChange}} %</span>
-        <input
-          type="range"
-          min="1"
-          max="100"
-          (ngModelChange)="clearAndDraw()"
-          [(ngModel)]="lenChange"
-        />
-      </mat-card>
+        <mat-slider
+        [(ngModel)]="lenChange"
+        min="1"
+        max="100"
+        (input)="(lenChange = $event.value) && clearAndDraw()"
+        ></mat-slider>
+      </div>
     </mat-expansion-panel>
   </mat-accordion>
   <br />

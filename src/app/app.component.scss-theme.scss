@@ -14,12 +14,14 @@
     }
 
     table,tr,th,td{
-      border-color: mat-color($background,background);
+      border-color: black;
+    }
+    canvas{
+      background-color: mat-color($background,background);
     }
 
-    >div{
+    .main-router{ //Router Div
       background: mat-color($background,background);
-      background-image: url("https://www.transparenttextures.com/patterns/concrete-wall.png");
     }
 
   }

@@ -14,7 +14,7 @@
   /* background-image: url("../../assets/background/gplay.png"); */
   position: fixed;
   top: 0;
-  height: 112px !important;
+  height: 92px !important;
   left: 0;
   right: 0;
   z-index: 998;
@@ -24,11 +24,7 @@
 
 .mobile-header-row {
   padding: 0;
-  height: 56px;
-}
-
-.middle {
-  vertical-align: middle;
+  height: 36px;
 }
 
 a {

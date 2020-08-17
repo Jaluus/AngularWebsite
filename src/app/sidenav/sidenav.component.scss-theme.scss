@@ -10,7 +10,7 @@
   app-sidenav{
 
       .router-container{
-        background-image: url("../../assets/background/concrete-wall.png");
+        color: mat-color($foreground,text,0.7);
       }
 
       .enabled-link{

@@ -27,7 +27,7 @@ export class MachineLearningHomeComponent implements OnInit {
       imagePath:"https://archive.uslu.tech/pictures/ML/mnistGAN.PNG",
       link:this.links.MlNavArr[1].route,
       description :
-      `A simple GAN Model that i've written to generate lifelike handwritten Numbers, by learing the characteristics of the MNIST dataset.<br>
+      `A simple GAN Model that i've written to generate lifelike handwritten Numbers<br> by learing the characteristics of the MNIST dataset.<br>
       It's still a bit noisy which I want to fix in the future by adding a DCGAN option.<br>
       I added sliders to be able to manipulate the Latent Space Vector which is being fed.`,
     },

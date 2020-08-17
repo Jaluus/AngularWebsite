@@ -9,11 +9,9 @@
 
   app-header {
 
-    .header{
+    .header, .mobile-header, .brand{
       background-color: mat-color($primary);
-    }
-    a{
-      color: mat-color($primary, default-contrast);
+      color: mat-color($primary, default-contrast) !important;
     }
   }
 
