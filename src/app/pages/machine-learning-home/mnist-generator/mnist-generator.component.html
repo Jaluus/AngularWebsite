@@ -9,10 +9,17 @@
     mat-raised-button
     color="primary"
     (click)="getRandomNumber()"
-  >
-    Generate Random Number
-  </button>
+    >
+      Generate Random Number
+    </button>
 
+  <br>
+
+    <mat-radio-group [(ngModel)]="selectedModel" (change)="drawImage()">
+      <mat-radio-button style="margin-right: 1rem ;" [value]="'DCGAN'">DCGAN</mat-radio-button>
+      <mat-radio-button [value]="'GAN'">GAN</mat-radio-button>
+    </mat-radio-group>
+  <br>
   <br>
 
   <app-pixel-canvas [clickable]="false"></app-pixel-canvas>

@@ -2,9 +2,9 @@ import {Injectable, Renderer2, RendererFactory2 } from "@angular/core";
 
 @Injectable({providedIn: "root"})
 export class ThemeManager{
-  private currentTheme = "dark-theme"
-  dark = true;
-  alt = true
+  private currentTheme = "light-theme"
+  dark = true
+  alt = false
 
   private renderer : Renderer2;
 

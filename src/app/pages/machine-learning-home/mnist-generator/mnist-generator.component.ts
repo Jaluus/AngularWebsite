@@ -23,6 +23,9 @@ export class MnistGeneratorComponent implements OnInit {
   L8 = 0
   L9 = 0
 
+  selectedModel = "DCGAN"
+  DCGANImage = [];
+  GANImage = [];
   processing = false
 
   constructor(
@@ -47,6 +50,15 @@ export class MnistGeneratorComponent implements OnInit {
     this.getNumber()
   }
 
+  drawImage(){
+    let Img = this.selectedModel === "DCGAN"? this.DCGANImage : this.GANImage
+    Img.forEach((row,rowIdx) => {
+      row.forEach((PixelValue,PixelValueIdx) => {
+        this.gridmng.gridArr[rowIdx][PixelValueIdx].value = PixelValue
+      });
+    });
+  }
+
   getNumber(){
     if (!(this.processing)){
       //you can only send another request once the previous has been evaluated
@@ -57,12 +69,9 @@ export class MnistGeneratorComponent implements OnInit {
       this.http.post(environment.MNIST_GENERATOR,data)
       .subscribe( res => {
         this.processing = true
-        let GANImage = res["GANImage"]
-        GANImage.forEach((row,rowIdx) => {
-          row.forEach((PixelValue,PixelValueIdx) => {
-            this.gridmng.gridArr[rowIdx][PixelValueIdx].value = PixelValue
-          });
-        });
+        this.GANImage = res["GANImage"]
+        this.DCGANImage = res["DCGANImage"]
+        this.drawImage()
         this.processing = false
       })
   }
