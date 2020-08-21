@@ -16,8 +16,8 @@ export class MnistDetectionComponent implements OnInit {
   pred_vector_idx = [0,1,2,3,4,5,6,7,8,9]
   pred_vector_CNN = [0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00];
   pred_vector_DNN = [0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00];
-  CNN_max = { "probability" : 0, "number" : 0};
-  DNN_max = { "probability" : 0, "number" : 0};
+  CNN_pred = { "prob" : 0, "number" : 0};
+  DNN_pred = { "prob" : 0, "number" : 0};
 
   constructor(
     public gridmng : GridManager,
@@ -30,36 +30,26 @@ export class MnistDetectionComponent implements OnInit {
 
   predict(){
     let Griddata = this.gridmng.getGridArr()
-    this.CNN_max = { "probability" : 0, "number" : 0};
-    this.DNN_max = { "probability" : 0, "number" : 0};
     let data = {
       "data": Griddata
     }
     this.http.post(environment.MNIST_CLASSIFIER,data)
     .pipe(map(res => {  // Rounding pipe
-      let CNN_pred = []
-      let DNN_pred = []
+      let CNN_pred_vector = []
+      let DNN_pred_vector = []
       for (let idx in res["pred_vector_CNN"][0]){
         let prob_CNN = Math.round(res["pred_vector_CNN"][0][idx]*100) / 100
         let prob_DNN = Math.round(res["pred_vector_DNN"][0][idx]*100) / 100
-
-        if (prob_CNN*100 > this.CNN_max["probability"]){
-          this.CNN_max = { "probability" : prob_CNN*100, "number" : Number(idx)}
-        }
-
-        if (prob_DNN * 100 > this.DNN_max["probability"]){
-          this.DNN_max = { "probability" : prob_DNN * 100, "number" : Number(idx)}
-        }
-
-        CNN_pred.push(prob_CNN)
-        DNN_pred.push(prob_DNN)
+        CNN_pred_vector.push(prob_CNN)
+        DNN_pred_vector.push(prob_DNN)
       }
-      return [CNN_pred, DNN_pred]
+      return [CNN_pred_vector,res["pred_CNN"],DNN_pred_vector,res["pred_DNN"]]
     }))
     .subscribe( res => {
       this.pred_vector_CNN = res[0];
-      this.pred_vector_DNN = res[1];
-
+      this.CNN_pred = res[1]
+      this.pred_vector_DNN = res[2];
+      this.DNN_pred = res[3];
     })
   }
 

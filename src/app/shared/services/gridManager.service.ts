@@ -29,7 +29,7 @@ export class GridManager{
     this.gridArr.forEach((row,idx) => {
       TempArr.push([])
       for (let cell of row){
-        TempArr[idx].push(cell.clicked? 255 : 0)
+        TempArr[idx].push(cell.value*255)
       }
     })
     return TempArr
@@ -38,6 +38,7 @@ export class GridManager{
   clearAll(){
     for (let rows of this.gridArr){
       for (let element of rows){
+        element.value = 0
         element.clicked = false
       }
     }
@@ -88,8 +89,10 @@ export class GridManager{
 
   colorPixel(tile:Pixel){
     if(this.drawMode){
+      tile.value = 1;
       tile.clicked = true;
     } else {
+      tile.value = 0;
       tile.clicked = false;
     }
   }

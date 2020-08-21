@@ -17,16 +17,14 @@
 
     <br />
 
-
-
-  <button
-    class="button"
-    mat-raised-button
-    color="primary"
-    (click)="predict()"
-  >
-    Predict
-  </button>
+    <button
+      class="button"
+      mat-raised-button
+      color="primary"
+      (click)="predict()"
+    >
+      Predict
+    </button>
     <button
       class="button"
       mat-raised-button
@@ -36,35 +34,48 @@
       Clear Grid
     </button>
 
-  <br>
+    <br />
 
-  <table *ngIf="WSM.DesktopMode">
-    <tr>
-      <th>Type</th>
-      <th *ngFor="let idx of pred_vector_idx">{{idx}}</th>
-    </tr>
-    <tr>
-      <td>CNN</td>
-      <td [style.backgroundColor]="getColor(pred)" *ngFor="let pred of pred_vector_CNN">{{pred}}</td>
-    </tr>
-    <tr>
-      <td>DNN</td>
-      <td [style.backgroundColor]="getColor(pred)" *ngFor="let pred of pred_vector_DNN">{{pred}}</td>
-    </tr>
-  </table>
+    <table *ngIf="WSM.DesktopMode">
+      <tr>
+        <th>Type</th>
+        <th *ngFor="let idx of pred_vector_idx">{{ idx }}</th>
+      </tr>
+      <tr>
+        <td>CNN</td>
+        <td
+          [style.backgroundColor]="getColor(pred)"
+          *ngFor="let pred of pred_vector_CNN"
+        >
+          {{ pred }}
+        </td>
+      </tr>
+      <tr>
+        <td>DNN</td>
+        <td
+          [style.backgroundColor]="getColor(pred)"
+          *ngFor="let pred of pred_vector_DNN"
+        >
+          {{ pred }}
+        </td>
+      </tr>
+    </table>
 
-  <mat-card *ngIf="!WSM.DesktopMode">
-    <p>The DNN predicted {{DNN_max["number"]}} with a probability of {{DNN_max["probability"]}}%</p>
-    <p>The CNN predicted {{CNN_max["number"]}} with a probability of {{CNN_max["probability"]}}%</p>
-  </mat-card>
-
-
-
+    <mat-card *ngIf="!WSM.DesktopMode">
+      <p>
+        The CNN predicted {{ CNN_pred["number"] }} with a probability of
+        {{ CNN_pred["prob"] }}%
+      </p>
+      <p>
+        The DNN predicted {{ DNN_pred["number"] }} with a probability of
+        {{ DNN_pred["prob"] }}%
+      </p>
+    </mat-card>
   </mat-card>
 
   <app-pixel-canvas></app-pixel-canvas>
 
-  <br>
+  <br />
 
   <mat-accordion>
     <mat-expansion-panel>
@@ -74,12 +85,24 @@
         </mat-panel-title>
       </mat-expansion-panel-header>
       <p>You start by drawing a number.</p>
-      <p>After that you can click "Predict" and the data gets send to a Backend, where it gets evaluated by two Neural Networks</p>
-      <p>After this, the table will display the predicitons of the Models</p>
-      <p>Im using a <a href="https://en.wikipedia.org/wiki/Convolutional_neural_network">Convolutional Neural Network</a> and
-         a <a href="https://en.wikipedia.org/wiki/Artificial_neural_network">Deep Neural Network</a></p>
       <p>
-        For more infos you can take a look at my <a href="https://github.com/dudenheini/FlaskBackend">GitHub Repo</a>
+        After that you can click "Predict" and the data gets send to a Backend,
+        where it gets evaluated by two Neural Networks
+      </p>
+      <p>After this, the table will display the predicitons of the Models</p>
+      <p>
+        Im using a
+        <a href="https://en.wikipedia.org/wiki/Convolutional_neural_network"
+          >Convolutional Neural Network</a
+        >
+        and a
+        <a href="https://en.wikipedia.org/wiki/Artificial_neural_network"
+          >Deep Neural Network</a
+        >
+      </p>
+      <p>
+        For more infos you can take a look at my
+        <a href="https://github.com/dudenheini/FlaskBackend">GitHub Repo</a>
       </p>
     </mat-expansion-panel>
   </mat-accordion>

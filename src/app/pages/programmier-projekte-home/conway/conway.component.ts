@@ -72,10 +72,13 @@ export class ConwayComponent implements OnInit {
     }
 
     for (let pos of lifeIdArr){
+
+      this.gridmng.gridArr[pos[1]][pos[0]].value = 1
       this.gridmng.gridArr[pos[1]][pos[0]].clicked = true
     }
     //sets cells to dead
     for (let pos of deathIdArr){
+      this.gridmng.gridArr[pos[1]][pos[0]].value = 0
       this.gridmng.gridArr[pos[1]][pos[0]].clicked = false
     }
   }
