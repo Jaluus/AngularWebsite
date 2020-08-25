@@ -50,6 +50,7 @@ import { TreeFractalGeneratorComponent } from './pages/programmier-projekte-home
 import { ShowcaseComponentComponent } from './shared/showcase-component/showcase-component.component';
 import { MnistDetectionComponent } from './pages/machine-learning-home/mnist-detection/mnist-detection.component';
 import { MnistGeneratorComponent } from './pages/machine-learning-home/mnist-generator/mnist-generator.component';
+import { UnityFractalGeneratorComponent } from './pages/programmier-projekte-home/unity-fractal-generator/unity-fractal-generator.component';
 
 
 @NgModule({
@@ -75,7 +76,8 @@ import { MnistGeneratorComponent } from './pages/machine-learning-home/mnist-gen
     TreeFractalGeneratorComponent,
     ShowcaseComponentComponent,
     MnistDetectionComponent,
-    MnistGeneratorComponent
+    MnistGeneratorComponent,
+    UnityFractalGeneratorComponent
   ],
   imports: [
     BrowserModule,

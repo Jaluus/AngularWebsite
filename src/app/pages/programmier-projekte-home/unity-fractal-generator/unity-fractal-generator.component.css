@@ -1,0 +1,11 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.img-desktop {
+  width:100%;
+}
+
+.img-mobile {
+  width: 100%;
+}

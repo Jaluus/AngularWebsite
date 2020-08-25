@@ -1,0 +1,70 @@
+<app-subheader>Unity Fractal Generator</app-subheader>
+<br />
+<div class="content-container">
+  <p>
+    I created a fractal generator and explorer in Unity from scratch,<br />
+    you can make your own fractals and explore them!<br />
+    Take a look at the <a href="https://github.com/dudenheini/UnityFractal">Github repo</a> for the sourcecode
+  </p>
+  <p>
+    Here are some example images I made with the programm.
+  </p>
+
+  <mat-grid-list
+  [gutterSize]="2"
+  cols="3">
+
+  <mat-grid-tile
+  *ngFor="let img of imgArr"
+  [colspan]="img.cols"
+  [rowspan]="img.rows"
+  >
+    <img [src]="img.path" layout-fill style="height: 100%;">
+  </mat-grid-tile>
+
+  </mat-grid-list>
+
+  <br>
+  <mat-accordion [multi]="true">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          How does it work?
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p style="width: 80%;margin: auto;">
+        Im using a special technique called "Ray Marching" to render the
+        fractals.
+        Each fractal is "build" with <a href="https://en.wikipedia.org/wiki/Signed_distance_function">Signed Distance Functions (SDF)</a> , or so called
+        "Distance Estimators", to get the current distance to the fractal.
+        I use the SDFs of simple shapes to "build" more complex shapes such as
+        the <a href="https://en.wikipedia.org/wiki/Menger_sponge">Menger Sponge</a>.
+        This is a dramatic oversimplificaton of the whole process,
+        if you wish to learn more about the rendering technique of these fractals I can recommend videos of these Youtube channels
+      </p>
+      <p></p>
+      <div style="display: flex; justify-content: center;">
+        <div class="spacer"></div>
+        <a href="https://www.youtube.com/watch?v=svLzmFuSBhk">Code Parade</a>
+        <div class="spacer"></div>
+        <a href="https://www.youtube.com/watch?v=Cp5WWtMoeKg">Sebstian Lague</a>
+        <div class="spacer"></div>
+      </div>
+      <p>
+        For articles on the subject I can recommend <a href="http://blog.hvidtfeldts.net/index.php/2011/06/distance-estimated-3d-fractals-part-i/">Syntopia</a>
+      </p>
+
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Download Links
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      Windows Builds<br>
+      <a href="https://backend.uslu.tech/Downloads/FractalExplorer/FractalExplorerLOW.zip" download>Fractal Explorer 1280x720 version</a> ~24 MB<br>
+      <a href="https://backend.uslu.tech/Downloads/FractalExplorer/FractalExplorerHIGH.zip" download>Fractal Explorer 1920x1080 version</a> ~24 MB
+    </mat-expansion-panel>
+  </mat-accordion>
+  <br>
+</div>

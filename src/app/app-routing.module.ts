@@ -15,6 +15,7 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { TreeFractalGeneratorComponent } from './pages/programmier-projekte-home/tree-fractal-generator/tree-fractal-generator.component';
 import { MnistDetectionComponent } from './pages/machine-learning-home/mnist-detection/mnist-detection.component';
 import { MnistGeneratorComponent } from './pages/machine-learning-home/mnist-generator/mnist-generator.component';
+import { UnityFractalGeneratorComponent } from './pages/programmier-projekte-home/unity-fractal-generator/unity-fractal-generator.component';
 
 
 const appRoutes : Routes = [
@@ -23,7 +24,8 @@ const appRoutes : Routes = [
     {path: "Start", component: ProgrammierProjekteHomeComponent},
     {path: "Conway", component: ConwayComponent},
     {path: "AStar", component: AStarPathfindingComponent},
-    {path: "Fractal", component: TreeFractalGeneratorComponent}
+    {path: "Fractal", component: TreeFractalGeneratorComponent},
+    {path: "FractalExplorer", component: UnityFractalGeneratorComponent}
   ]},
   { path : "ML" , component: SidenavComponent,children: [
     {path: "Start", component: MachineLearningHomeComponent},
