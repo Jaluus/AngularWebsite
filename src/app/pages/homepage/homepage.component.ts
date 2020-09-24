@@ -17,8 +17,7 @@ export class HomepageComponent implements OnInit , OnDestroy{
   TODO = [
     "Adjust Light Theme Colors",
     "Adjusting Typography",
-    "Learn Unity",
-    "Embed Unity-Game"
+    "Add a DeepDream Network"
   ]
 
   ngOnInit(): void {

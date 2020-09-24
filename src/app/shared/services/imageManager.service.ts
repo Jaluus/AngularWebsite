@@ -1,21 +1,26 @@
-import {Injectable } from "@angular/core";
-import { Image } from "../Models/image.model";
+import { Injectable } from '@angular/core';
+import { Image } from '../Models/image.model';
 
 @Injectable()
-export class imageManager{
+export class imageManager {
+  BackendPath = 'https://backend.uslu.tech/pictures';
+  compressEnding = '-min.png';
 
-  blenderStartPath = "https://archive.uslu.tech/pictures/BlenderCompressed/";
-  compressEnding = "-min.png";
+  imageArr: Image[] = [
+    new Image(this.getBlenderLink('Fraktale/frac6'), 'Fraktale', 1, 2),
+    new Image(this.getBlenderLink('Würfel'), 'Würfel', 1, 1),
+    new Image(this.getBlenderLink('Mond'), 'Der Mond', 1, 1),
+    new Image(this.getBlenderLink('Gold'), 'Gold Grid', 2, 1),
+    new Image(this.getBlenderLink('Spiegel'), 'Spiegel', 2, 1),
+    new Image(this.getBlenderLink('Fraktale/Fractal2'), 'Mehr Fraktale', 1, 1),
+    new Image(this.getBlenderLink('Pathtracer'), 'Pathtracing', 1, 1),
+    new Image(this.getBlenderLink('Donut/DonutFinal'), 'DonutFinal', 2, 1),
+    new Image(this.getBlenderLink('Donut/DonutV1'), 'Pathtracing', 2, 1),
+  ];
 
-  imageArr : Image[] = [
-    new Image (this.blenderStartPath +"Fraktale/frac6"+this.compressEnding , "Fraktale",  1, 2 ),
-    new Image (this.blenderStartPath +"Würfel" +this.compressEnding , "Würfel",  1, 1 ),
-    new Image (this.blenderStartPath +"Mond" +this.compressEnding, "Der Mond",  1, 1 ),
-    new Image (this.blenderStartPath +"Gold" +this.compressEnding, "Gold Grid",  2, 1 ),
-    new Image (this.blenderStartPath +"Spiegel" +this.compressEnding, "Spiegel",  2, 1 ),
-    new Image (this.blenderStartPath +"Fraktale/Fractal2" +this.compressEnding, "Mehr Fraktale",  1, 1 ),
-    new Image (this.blenderStartPath +"Pathtracer" +this.compressEnding, "Pathtracing",  1, 1 ),
-    new Image (this.blenderStartPath +"Donut/DonutFinal" +this.compressEnding, "DonutFinal",  2, 1 ),
-    new Image (this.blenderStartPath +"Donut/DonutV1"+this.compressEnding , "Pathtracing",  2, 1 ),
-  ]
+  getBlenderLink(filePath: string) {
+    return (
+      this.BackendPath + '/BlenderCompressed/' + filePath + this.compressEnding
+    );
+  }
 }

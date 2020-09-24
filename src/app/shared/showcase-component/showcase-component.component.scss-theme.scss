@@ -1,28 +1,31 @@
-@import '~@angular/material/theming';
+@import "~@angular/material/theming";
 
 @mixin app-showcase-component-theme($theme) {
-  $primary: map-get($theme , primary );
-  $accent: map-get($theme , accent );
-  $warn: map-get($theme , warn );
-  $foreground: map-get($theme , foreground );
-  $background: map-get($theme , background );
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background);
 
   app-showcase-component {
     .showcase {
-      background-color: mat-color($background,background-contrast);
+      background-color: mat-color($background, background-contrast);
+      color: mat-color($foreground, text);
+    }
+    .showcase:hover {
+      background-color: mat-color($primary, darker, 0.1);
       color: mat-color($foreground, text);
     }
   }
-
 }
 
 .showcase {
-  margin:0.5rem;
+  margin: 0.5rem;
 }
 
-.card-content{
-overflow: hidden;
-clear: both;
+.card-content {
+  overflow: hidden;
+  clear: both;
 }
 
 .image {
@@ -34,4 +37,3 @@ clear: both;
   margin-right: 0;
   margin-left: 10px;
 }
-

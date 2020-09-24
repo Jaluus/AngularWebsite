@@ -1,6 +1,20 @@
 <app-subheader> Testpage </app-subheader>
-<div class="content-container">
-  <p>direct : {{test.value}}</p>
-  <p> ngModel : {{sliderValue}}</p>
-  <mat-slider #test [(ngModel)]="sliderValue" (input)="sliderValue = $event.value"></mat-slider>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>Welcome to Noise testing</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <p>Randomness is cute</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="sketch-container">
+        <div id="sketch-holder"></div>
+      </div>
+    </div>
+  </div>
 </div>

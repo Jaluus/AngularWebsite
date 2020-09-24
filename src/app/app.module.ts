@@ -1,30 +1,30 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { AppRoutingModule }from"./app-routing.module"
+import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
-
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatButtonModule} from '@angular/material/button';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatListModule} from '@angular/material/list';
-import {MatGridListModule} from '@angular/material/grid-list';
-import {MatCardModule} from '@angular/material/card';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {MatButtonToggleModule} from '@angular/material/button-toggle';
-import {MatIconModule} from '@angular/material/icon';
-import {MatExpansionModule} from '@angular/material/expansion';
-import {MatSliderModule} from '@angular/material/slider';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatTabsModule} from '@angular/material/tabs';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatRadioModule} from '@angular/material/radio';
-
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatIconModule } from '@angular/material/icon';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatRippleModule } from '@angular/material/core';
 
 import { AppComponent } from './app.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
@@ -36,8 +36,8 @@ import { MachineLearningHomeComponent } from './pages/machine-learning-home/mach
 import { ProgrammierProjekteHomeComponent } from './pages/programmier-projekte-home/programmier-projekte-home.component';
 import { ConwayComponent } from './pages/programmier-projekte-home/conway/conway.component';
 import { HeaderComponent } from './header/header.component';
-import { WindowSizeManager } from "./shared/services/windowSizeManager.service"
-import { LinkManager } from "./shared/services/linkManager.service";
+import { WindowSizeManager } from './shared/services/windowSizeManager.service';
+import { LinkManager } from './shared/services/linkManager.service';
 import { SonstigesHomeComponent } from './pages/sonstiges-home/sonstiges-home.component';
 import { GalleryComponent } from './shared/gallery/gallery.component';
 import { BlenderBilderComponent } from './pages/sonstiges-home/blender-bilder/blender-bilder.component';
@@ -51,7 +51,7 @@ import { ShowcaseComponentComponent } from './shared/showcase-component/showcase
 import { MnistDetectionComponent } from './pages/machine-learning-home/mnist-detection/mnist-detection.component';
 import { MnistGeneratorComponent } from './pages/machine-learning-home/mnist-generator/mnist-generator.component';
 import { UnityFractalGeneratorComponent } from './pages/programmier-projekte-home/unity-fractal-generator/unity-fractal-generator.component';
-
+import { MainhaderP5Component } from './header/mainhader-p5/mainhader-p5.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +77,8 @@ import { UnityFractalGeneratorComponent } from './pages/programmier-projekte-hom
     ShowcaseComponentComponent,
     MnistDetectionComponent,
     MnistGeneratorComponent,
-    UnityFractalGeneratorComponent
+    UnityFractalGeneratorComponent,
+    MainhaderP5Component,
   ],
   imports: [
     BrowserModule,
@@ -102,11 +103,11 @@ import { UnityFractalGeneratorComponent } from './pages/programmier-projekte-hom
     MatTabsModule,
     HttpClientModule,
     MatMenuModule,
-    MatRadioModule
+    MatRadioModule,
+    MatProgressSpinnerModule,
+    MatRippleModule,
   ],
-  providers: [
-    WindowSizeManager,
-    LinkManager,],
-  bootstrap: [AppComponent]
+  providers: [WindowSizeManager, LinkManager],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

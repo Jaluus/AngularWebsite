@@ -1,45 +1,70 @@
-<app-mainheader [heading]="'Jan\'s Tests'" [subheading] = "'A Sandbox Website'"></app-mainheader>
+<app-mainheader
+  [heading]="'Jan\'s Tests'"
+  [subheading]="'A Sandbox Website'"
+></app-mainheader>
 
-<div class="content-container" [ngStyle]="{'width' : WSM.DesktopMode? '50%' : '80%'}">
-      <p>
-        The primary idea of this website is to just be a sandbox for my ideas.
-      </p>
-      <p>
-        I have written some code in my freetime in Python and C++, but sadly it's difficult to show some of it.
-      </p>
-      <p>
-        I thought a website is the perfect way to showcase some of my stuff but to also learn some new skills!
-      </p>
-      <p>
-        So I decided to learn Angular as the Frontend Framework and later implement my code on a Flask backend server for Python code - mainly for the Neural Networks -
-        as well as a NodeJs server for JavaScript related stuff.
-      </p>
+<div
+  class="content-container"
+  [ngStyle]="{ width: WSM.DesktopMode ? '50%' : '80%' }"
+>
+  <p>The primary idea of this website is to just be a sandbox for my ideas.</p>
+  <p>
+    I have written some code in my freetime in Python and C++, but sadly it's
+    difficult to show some of it.
+  </p>
+  <p>
+    I thought a website is the perfect way to showcase some of my stuff but to
+    also learn some new skills!
+  </p>
+  <p>
+    So I decided to learn Angular as the Frontend Framework and later implement
+    my code on a Flask backend server for Python code - mainly for the Neural
+    Networks - as well as a NodeJs server for JavaScript related stuff.
+  </p>
 
-    <mat-divider></mat-divider>
+  <mat-divider></mat-divider>
 
-      <p>
-        At the moment I have written some simple algorithms like the <a routerLink="/PP/Conway">Game of life</a>, a <a routerLink="/PP/Fractal">Fractal Tree Generator</a> and the
-        <a routerLink="/PP/AStar"> A* Pathfinding algorithm</a>,
-        give it a try, but please try not to break it, it might break your current tab in the browser if you try hard enough!
-      </p>
-      <p>
-        Two of my Neural Networks have also been implemented, give them a try!
-      </p>
+  <p>
+    At the moment I have written some simple algorithms like the
+    <a routerLink="/PP/Conway">Game of life</a>, a
+    <a routerLink="/PP/Fractal">Fractal Tree Generator</a> and the
+    <a routerLink="/PP/AStar"> A* Pathfinding algorithm</a>, give it a try, but
+    please try not to break it, it might break your current tab in the browser
+    if you try hard enough!
+  </p>
+  <p>
+    If you are into fractals you can also try my own implementation of the
+    <a href="https://en.wikipedia.org/wiki/Volume_ray_casting"
+      >Raymarching Algorithm</a
+    >
+    to render
+    <a href="/PP/FractalExplorer">high quality fast running fractals</a>!
+  </p>
+  <p>
+    Three of my Neural Networks have also been implemented, give them a try!
+  </p>
 
-    <mat-divider></mat-divider>
+  <mat-divider></mat-divider>
 
-      <p>
-        You can also take a look at my Repo with the link in the top right hand corner,
-        the code for Angular is probably abysmal, but not as bad as the algorithms,
-        they are extremely inefficient, but they work, so hey, don't fix what's not broken.<br>
-        Im probably gonna look into it later, but for now, it suffices.
-      </p>
+  <p>
+    You can also take a look at my Repo with the link in the top right hand
+    corner, the code for Angular is probably abysmal, but not as bad as the
+    algorithms, they are extremely inefficient, but they work, so hey, don't fix
+    what's not broken.<br />
+    Im probably gonna look into it later, but for now, it suffices.
+  </p>
 
-    <mat-divider></mat-divider>
+  <mat-divider></mat-divider>
 
-    <ul class="vertical"> <h3>TODO</h3>
-      <li [ngStyle]="{'width' : WSM.DesktopMode? '50%' : '100%'}" *ngFor="let item of TODO">{{item}}</li>
-      <br>
-      ...and much more!
-    </ul>
+  <ul class="vertical">
+    <h3>TODO</h3>
+    <li
+      [ngStyle]="{ width: WSM.DesktopMode ? '50%' : '100%' }"
+      *ngFor="let item of TODO"
+    >
+      {{ item }}
+    </li>
+    <br />
+    ...and much more!
+  </ul>
 </div>
