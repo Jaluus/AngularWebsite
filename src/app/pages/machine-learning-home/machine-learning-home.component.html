@@ -1,17 +1,18 @@
 <app-subheader [heading]="'Machine Learning'">Machine Learning</app-subheader>
 
 <div class="content-container">
-
   <p>
-    Here im showcasing some Models i've trained. Im serving them using a Flask/uWSGI backend.
+    Here im showcasing some Models i've trained. Im serving them using a
+    Flask/uWSGI backend. <br />
+    More to come in the future as I port them!
   </p>
   <mat-divider></mat-divider>
   <app-showcase-component
-  *ngFor="let component of Components"
-  [name]="component.name"
-  [imagePath]="component.imagePath"
-  [subDesc]="component.subDesc"
-  [description]="component.description"
-  [routerLink]="['../'+component.link]"
+    *ngFor="let component of Components"
+    [name]="component.name"
+    [imagePath]="component.imagePath"
+    [subDesc]="component.subDesc"
+    [description]="component.description"
+    [routerLink]="['../' + component.link]"
   ></app-showcase-component>
 </div>

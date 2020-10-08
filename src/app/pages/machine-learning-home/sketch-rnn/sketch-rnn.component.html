@@ -1,0 +1,66 @@
+<app-subheader>Sketch RNN</app-subheader>
+<div class="content-container">
+  <mat-accordion [multi]="true">
+    <mat-expansion-panel
+      style="margin: auto; margin-top: 1em; margin-bottom: 1em"
+    >
+      <mat-expansion-panel-header>
+        <mat-panel-title> How does it work? </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>
+        I am using pretrained Models of&nbsp;
+        <a href="https://en.wikipedia.org/wiki/Recursive_neural_network">
+          Recursive neural networks (RNN) </a
+        >&nbsp; by Google, which take in the lines you drew, to finish the
+        drawings it was trained on.
+      </p>
+      <p>
+        Google itself has a way better implementation of these networks, which
+        can be found&nbsp;
+        <a href="https://magenta.tensorflow.org/assets/sketch_rnn_demo">
+          here</a
+        >
+      </p>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <mat-card
+    style="margin: auto"
+    [ngStyle]="{ width: WSM.DesktopMode ? '50%' : '80%' }"
+  >
+    <div #sketchRNNref class="canvas" id="NoiseHolder"></div>
+  </mat-card>
+  <button
+    [disabled]="!modelReady"
+    style="margin: 1em"
+    mat-raised-button
+    color="primary"
+    (click)="restartRNN()"
+  >
+    Try it again!
+  </button>
+  <button
+    [disabled]="!modelReady"
+    style="margin: 1em"
+    mat-raised-button
+    color="warn"
+    (click)="newDrawing()"
+  >
+    Clear Drawing
+  </button>
+  <br />
+  <mat-form-field>
+    <mat-label>Selected Model</mat-label>
+    <mat-select (selectionChange)="swapModel()" [(value)]="activeModel">
+      <mat-option *ngFor="let model of models" [value]="model">
+        {{ model }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div *ngIf="modelReady" style="text-align: center">
+    <p>Model loaded!</p>
+  </div>
+  <div *ngIf="!modelReady" style="text-align: center">
+    <p>Loading model...</p>
+    <mat-spinner style="margin: auto"></mat-spinner>
+  </div>
+</div>

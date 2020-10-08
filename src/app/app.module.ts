@@ -25,6 +25,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatRippleModule } from '@angular/material/core';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSelectModule } from '@angular/material/select';
 
 import { AppComponent } from './app.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
@@ -52,6 +54,9 @@ import { MnistDetectionComponent } from './pages/machine-learning-home/mnist-det
 import { MnistGeneratorComponent } from './pages/machine-learning-home/mnist-generator/mnist-generator.component';
 import { UnityFractalGeneratorComponent } from './pages/programmier-projekte-home/unity-fractal-generator/unity-fractal-generator.component';
 import { MainhaderP5Component } from './header/mainhader-p5/mainhader-p5.component';
+import { MainheaderColorfulComponent } from './header/mainheader-colorful/mainheader-colorful.component';
+import { P5NoiseComponent } from './pages/programmier-projekte-home/p5-noise/p5-noise.component';
+import { SketchRnnComponent } from './pages/machine-learning-home/sketch-rnn/sketch-rnn.component';
 
 @NgModule({
   declarations: [
@@ -79,6 +84,9 @@ import { MainhaderP5Component } from './header/mainhader-p5/mainhader-p5.compone
     MnistGeneratorComponent,
     UnityFractalGeneratorComponent,
     MainhaderP5Component,
+    MainheaderColorfulComponent,
+    P5NoiseComponent,
+    SketchRnnComponent,
   ],
   imports: [
     BrowserModule,
@@ -106,6 +114,8 @@ import { MainhaderP5Component } from './header/mainhader-p5/mainhader-p5.compone
     MatRadioModule,
     MatProgressSpinnerModule,
     MatRippleModule,
+    MatCheckboxModule,
+    MatSelectModule,
   ],
   providers: [WindowSizeManager, LinkManager],
   bootstrap: [AppComponent],

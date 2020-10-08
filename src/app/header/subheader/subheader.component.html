@@ -1,8 +1,17 @@
 <div class="subheader-container">
   <div class="subheader">
-    <button mat-icon-button (click)="WSM.ToggleDrawer()" *ngIf="!WSM.DesktopMode">
+    <button
+      mat-icon-button
+      (click)="WSM.ToggleDrawer()"
+      *ngIf="!WSM.DesktopMode"
+    >
       <mat-icon>menu</mat-icon>
     </button>
-    <h3 style="display:inline; vertical-align: middle;"><ng-content></ng-content></h3>
+    <h3
+      style="display: inline; vertical-align: middle"
+      class="fade-in headerAnimation"
+    >
+      <ng-content></ng-content>
+    </h3>
   </div>
 </div>

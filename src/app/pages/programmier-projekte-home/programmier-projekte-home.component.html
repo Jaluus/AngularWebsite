@@ -1,17 +1,17 @@
 <app-subheader>Programming projects</app-subheader>
 <div class="content-container">
-
   <p>
-    On these pages im showcasing some small algorithms i've written.
+    On these pages im showcasing some small algorithms and programms i've
+    written.
   </p>
   <mat-divider></mat-divider>
   <app-showcase-component
-  *ngFor="let component of Components"
-  [name]="component.name"
-  [imagePath]="component.imagePath"
-  [subDesc]="component.subDesc"
-  [description]="component.description"
-  [routerLink]="['../'+component.link]"
+    *ngFor="let component of Components"
+    [name]="component.name"
+    [imagePath]="component.imagePath"
+    [subDesc]="component.subDesc"
+    [description]="component.description"
+    [routerLink]="['../' + component.link]"
   ></app-showcase-component>
   <!-- <span style='font-size: xx-small;'>(Mathematicians who call that a tree have probably never seen one)</span> -->
 </div>

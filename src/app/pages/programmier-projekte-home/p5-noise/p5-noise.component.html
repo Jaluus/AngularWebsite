@@ -1,0 +1,101 @@
+<app-subheader>p5.js Noise Art</app-subheader>
+<mat-tab-group
+  mat-stretch-tabs
+  [(selectedIndex)]="selectedTabIndex"
+  (selectedTabChange)="changeCanvas($event)"
+  mat-align-tabs="start"
+  backgroundColor="primary"
+>
+  <mat-tab label="Map Generator">
+    <div class="content-container">
+      <mat-card
+        style="margin: auto"
+        [ngStyle]="{ width: WSM.DesktopMode ? '50%' : '80%' }"
+      >
+        <div #Banner class="canvas" id="sketch-holder"></div>
+      </mat-card>
+      <br />
+      <mat-form-field class="inputfield" (change)="redraw()">
+        <mat-label>Seed</mat-label>
+        <input matInput type="number" [(ngModel)]="seed" />
+      </mat-form-field>
+
+      <mat-form-field class="inputfield" (change)="redraw()">
+        <mat-label>Scale</mat-label>
+        <input matInput type="number" [(ngModel)]="inc" />
+      </mat-form-field>
+
+      <mat-form-field class="inputfield" (change)="redraw()">
+        <mat-label>XY-Position</mat-label>
+        <input matInput type="number" [(ngModel)]="start" />
+      </mat-form-field>
+      <br />
+
+      <mat-radio-group [(ngModel)]="selectedNoise" (change)="redraw()">
+        <mat-radio-button
+          style="margin-right: 1rem; margin-bottom: 1em"
+          [value]="'perlin'"
+          >Perlin</mat-radio-button
+        >
+        <mat-radio-button [value]="'simplex'">Simplex</mat-radio-button>
+      </mat-radio-group>
+
+      <br />
+      <button
+        class="button"
+        mat-raised-button
+        color="accent"
+        (click)="randomRedraw()"
+      >
+        Draw Random
+      </button>
+    </div>
+  </mat-tab>
+  <mat-tab label="Dancing Triangles">
+    <div class="content-container">
+      <mat-card
+        style="margin: auto"
+        [ngStyle]="{ width: WSM.DesktopMode ? '50%' : '80%' }"
+      >
+        <div #DancingTrianglesRef class="canvas" id="DancingTriangles"></div>
+      </mat-card>
+      <div style="text-align: center">
+        <mat-form-field class="inputfield">
+          <mat-label>Cohesion</mat-label>
+          <input matInput type="number" [(ngModel)]="cohesion" />
+        </mat-form-field>
+
+        <mat-form-field class="inputfield">
+          <mat-label>Points</mat-label>
+          <input matInput type="number" [(ngModel)]="points" />
+        </mat-form-field>
+        <br />
+        <mat-checkbox class="checkbox" [(ngModel)]="closedEnds"
+          >Closed Loop</mat-checkbox
+        >
+        <mat-checkbox class="checkbox" [(ngModel)]="neighbor"
+          >Closest Neighborns</mat-checkbox
+        >
+      </div>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="Walking through Simplex">
+    <div class="content-container">
+      <p>Trippy</p>
+
+      <mat-card
+        style="margin: auto"
+        [ngStyle]="{ width: WSM.DesktopMode ? '50%' : '80%' }"
+      >
+        <div #CanvasRef2 class="canvas" id="NoiseHolder"></div>
+      </mat-card>
+      <div style="text-align: center">
+        <mat-form-field class="inputfield">
+          <mat-label>Scale</mat-label>
+          <input matInput type="number" [(ngModel)]="scale" />
+        </mat-form-field>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>

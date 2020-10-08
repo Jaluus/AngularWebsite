@@ -1,5 +1,5 @@
 import { Routes, RouterModule } from '@angular/router';
-import { NgModule } from "@angular/core";
+import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
@@ -16,40 +16,53 @@ import { TreeFractalGeneratorComponent } from './pages/programmier-projekte-home
 import { MnistDetectionComponent } from './pages/machine-learning-home/mnist-detection/mnist-detection.component';
 import { MnistGeneratorComponent } from './pages/machine-learning-home/mnist-generator/mnist-generator.component';
 import { UnityFractalGeneratorComponent } from './pages/programmier-projekte-home/unity-fractal-generator/unity-fractal-generator.component';
+import { P5NoiseComponent } from './pages/programmier-projekte-home/p5-noise/p5-noise.component';
+import { SketchRnnComponent } from './pages/machine-learning-home/sketch-rnn/sketch-rnn.component';
 
-
-const appRoutes : Routes = [
-  { path : "" , component: HomepageComponent},
-  { path : "PP" , component: SidenavComponent, children: [
-    {path: "Start", component: ProgrammierProjekteHomeComponent},
-    {path: "Conway", component: ConwayComponent},
-    {path: "AStar", component: AStarPathfindingComponent},
-    {path: "Fractal", component: TreeFractalGeneratorComponent},
-    {path: "FractalExplorer", component: UnityFractalGeneratorComponent}
-  ]},
-  { path : "ML" , component: SidenavComponent,children: [
-    {path: "Start", component: MachineLearningHomeComponent},
-    {path: "mnistClas", component: MnistDetectionComponent},
-    {path: "mnistGen", component: MnistGeneratorComponent},
-  ]},
-  { path : "ETC" , component: SidenavComponent, children:[
-    {path: "Start" , component: SonstigesHomeComponent},
-    {path: "test" , component: TestpageComponent},
-    {path: "Blender" , component: BlenderBilderComponent},
-  ]},
-  {path : "404" , component : PageNotFoundComponent},
-  {path : "**" , redirectTo:"/404"}
+const appRoutes: Routes = [
+  { path: '', component: HomepageComponent },
+  {
+    path: 'PP',
+    component: SidenavComponent,
+    children: [
+      { path: 'Start', component: ProgrammierProjekteHomeComponent },
+      { path: 'Conway', component: ConwayComponent },
+      { path: 'AStar', component: AStarPathfindingComponent },
+      { path: 'Fractal', component: TreeFractalGeneratorComponent },
+      { path: 'FractalExplorer', component: UnityFractalGeneratorComponent },
+      { path: 'p5-noise', component: P5NoiseComponent },
+    ],
+  },
+  {
+    path: 'ML',
+    component: SidenavComponent,
+    children: [
+      { path: 'Start', component: MachineLearningHomeComponent },
+      { path: 'mnistClas', component: MnistDetectionComponent },
+      { path: 'sketchRNN', component: SketchRnnComponent },
+      { path: 'mnistGen', component: MnistGeneratorComponent },
+    ],
+  },
+  {
+    path: 'ETC',
+    component: SidenavComponent,
+    children: [
+      { path: 'Start', component: SonstigesHomeComponent },
+      { path: 'test', component: TestpageComponent },
+      { path: 'Blender', component: BlenderBilderComponent },
+    ],
+  },
+  { path: '404', component: PageNotFoundComponent },
+  { path: '**', redirectTo: '/404' },
 ];
-
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(appRoutes, {scrollPositionRestoration: 'enabled'}) //is being configured
+    RouterModule.forRoot(appRoutes, {
+      onSameUrlNavigation: 'reload',
+      scrollPositionRestoration: 'enabled',
+    }), //is being configured
   ],
-  exports: [
-    RouterModule
-  ]
+  exports: [RouterModule],
 })
-export class AppRoutingModule {
-
-}
+export class AppRoutingModule {}

@@ -12,6 +12,7 @@
 
 @import "./app/pages/homepage/hompage.component.cscc-theme.scss";
 @import "./app/app.component.scss-theme.scss";
+@import "./app/header/mainheader-colorful/mainheader-colorful.component.scss-theme.scss";
 @import "./app/header/mainheader/mainheader.component.scss-theme.scss";
 @import "./app/header/subheader/subheader.component.scss-theme.scss";
 @import "./app/shared/showcase-component/showcase-component.component.scss-theme.scss";
@@ -26,28 +27,28 @@
   @include app-theme($theme);
   @include app-header-theme($theme);
   @include app-sidenav-theme($theme);
+  @include app-mainheader-colorful-theme($theme);
 }
-
 
 @include mat-core($fontConfig);
 
 // define Theme
-.dark-theme{
+.dark-theme {
   @include angular-material-theme($my-second-theme);
   @include custom-components-theme($my-second-theme);
 }
 
-// .light-theme{
+// .light-theme {
 //   @include angular-material-theme($my-theme);
 //   @include custom-components-theme($my-theme);
 // }
 
-.alt-theme{
+.alt-theme {
   @include angular-material-theme($test-theme);
   @include custom-components-theme($test-theme);
 }
 
-.light-theme{
+.light-theme {
   @include angular-material-theme($material-theme);
   @include custom-components-theme($material-theme);
 }

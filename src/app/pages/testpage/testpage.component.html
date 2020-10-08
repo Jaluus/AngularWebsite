@@ -1,20 +1,7 @@
 <app-subheader> Testpage </app-subheader>
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <h1>Welcome to Noise testing</h1>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <p>Randomness is cute</p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <div class="sketch-container">
-        <div id="sketch-holder"></div>
-      </div>
-    </div>
-  </div>
+<div class="content-container">
+  <mat-card>
+    <div #CanvasRef2 class="canvas" id="NoiseHolder"></div>
+  </mat-card>
+  <button (click)="restartRNN()">ANOTHER!</button>
 </div>
