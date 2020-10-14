@@ -80,22 +80,65 @@
     </div>
   </mat-tab>
 
-  <mat-tab label="Walking through Simplex">
+  <mat-tab label="Visual Parametric Equation">
     <div class="content-container">
-      <p>Trippy</p>
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Parameters
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <mat-form-field class="inputfield">
+            <mat-label>A1</mat-label>
+            <input matInput type="number" [(ngModel)]="a1" />
+          </mat-form-field>
+          <mat-form-field class="inputfield">
+            <mat-label>A2</mat-label>
+            <input matInput type="number" [(ngModel)]="a2" />
+          </mat-form-field>
+          <mat-form-field class="inputfield">
+            <mat-label>B1</mat-label>
+            <input matInput type="number" [(ngModel)]="b1" />
+          </mat-form-field>
+          <mat-form-field class="inputfield">
+            <mat-label>B2</mat-label>
+            <input matInput type="number" [(ngModel)]="b2" />
+          </mat-form-field> <br>
+
+
+          <mat-checkbox class="checkbox" [(ngModel)]="shading"
+          >Shading</mat-checkbox
+          >
+          <mat-checkbox class="checkbox" [(ngModel)]="PI_OFFSET"
+          >Equidistant Lines</mat-checkbox
+          >
+
+        <br>
+
+        <mat-form-field class="inputfield">
+          <mat-label>Speed</mat-label>
+          <input matInput type="number" [(ngModel)]="titer" />
+        </mat-form-field>
+        <mat-form-field class="inputfield">
+          <mat-label>Lines</mat-label>
+          <input matInput type="number" [(ngModel)]="lines" />
+        </mat-form-field>
+        <mat-form-field class="inputfield">
+          <mat-label>Line Offset</mat-label>
+          <input matInput type="number" [(ngModel)]="toff" />
+        </mat-form-field>
+
+        </mat-expansion-panel>
+      </mat-accordion>
 
       <mat-card
-        style="margin: auto"
+        style="margin: auto; margin-top: 1em;"
         [ngStyle]="{ width: WSM.DesktopMode ? '50%' : '80%' }"
       >
-        <div #CanvasRef2 class="canvas" id="NoiseHolder"></div>
+        <div #CanvasRef2 class="canvas2" id="NoiseHolder"></div>
       </mat-card>
-      <div style="text-align: center">
-        <mat-form-field class="inputfield">
-          <mat-label>Scale</mat-label>
-          <input matInput type="number" [(ngModel)]="scale" />
-        </mat-form-field>
-      </div>
     </div>
   </mat-tab>
 </mat-tab-group>

@@ -1,0 +1,123 @@
+<app-subheader>Tensorflow Object Detection</app-subheader>
+
+<div class="content-container">
+
+  <mat-accordion [multi]="true">
+    <mat-expansion-panel
+      style="margin: auto; margin-top: 1em; margin-bottom: 1em"
+    >
+      <mat-expansion-panel-header>
+        <mat-panel-title> How to Download and Install </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>
+        Download the APK <a href="https://backend.uslu.tech/Downloads/TensorflowDetection/TensorflowDetection.apk" download>here</a>
+      </p>
+      <p>
+        Make sure you enabled "install from unknown sources" in the Android settings and give the App the right to access your camera.
+      </p>
+      <p>
+        Detect some Objects!
+      </p>
+    </mat-expansion-panel>
+
+  </mat-accordion>
+  <p>
+    For my App I used some code from <a href="https://github.com/tensorflow/examples">this</a> GitHub Repo, for example the layout code for the App.
+  </p>
+  <p>Some sample images from the App</p>
+
+<mat-grid-list
+[gutterSize]="2"
+cols="4">
+
+<mat-grid-tile
+*ngFor="let img of imgArr"
+[colspan]="img.cols"
+[rowspan]="img.rows"
+>
+  <img [src]="img.path" layout-fill style="height: 80%;">
+</mat-grid-tile>
+
+</mat-grid-list>
+</div>
+
+<!-- person
+bicycle
+car
+motorcycle
+airplane
+bus
+train
+truck
+boat
+traffic light
+fire hydrant
+stop sign
+parking meter
+bench
+bird
+cat
+dog
+horse
+sheep
+cow
+elephant
+bear
+zebra
+giraffe
+backpack
+umbrella
+handbag
+tie
+suitcase
+frisbee
+skis
+snowboard
+sports ball
+kite
+baseball bat
+baseball glove
+skateboard
+surfboard
+tennis racket
+bottle
+wine glass
+cup
+fork
+knife
+spoon
+bowl
+banana
+apple
+sandwich
+orange
+broccoli
+carrot
+hot dog
+pizza
+donut
+cake
+chair
+couch
+potted plant
+bed
+dining table
+toilet
+tv
+laptop
+mouse
+remote
+keyboard
+cell phone
+microwave
+oven
+toaster
+sink
+refrigerator
+book
+clock
+vase
+scissors
+teddy bear
+hair drier
+toothbrush -->

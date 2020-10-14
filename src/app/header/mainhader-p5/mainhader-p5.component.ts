@@ -28,8 +28,6 @@ export class MainhaderP5Component implements AfterViewInit, OnDestroy {
   starty = 0;
   startz = 0;
   fade = 0;
-  textstart = 10;
-  animationSpeed = 2;
   noise3D = makeNoise3D(Date.now());
 
   constructor(private route: ActivatedRoute, private TM: ThemeManager) {}
@@ -48,19 +46,24 @@ export class MainhaderP5Component implements AfterViewInit, OnDestroy {
           //blue #1832c5
           //indigo  '#3f51b5'
           this.themecolor = this.TM.alt ? '#f44336' : '#1832c5';
-          s.background(this.themecolor);
 
-          s.stroke(180);
+          if (this.TM.alt){
+            s.stroke(51)
+          } else{
+            s.stroke(180)
+          }
+
+          s.background(this.themecolor);
           s.noFill();
 
           for (let line = -10; line <= 10; line++) {
             s.beginShape();
             var xoff = this.startx;
             var yoff = this.starty;
-            for (let x = 0; x < divWidth; x++) {
+            for (let x = 0; x <= divWidth ; x += 4) {
               // var y =
               //   s.noise(xoff + line * 0.06, yoff + line * 0.03, this.startz) *
-              //   divHeight;
+              //   divHeight; //this.startz + line * 0.04
               var y =
                 ((this.noise3D(
                   xoff + line * 0.06,
@@ -71,13 +74,16 @@ export class MainhaderP5Component implements AfterViewInit, OnDestroy {
                   2) *
                 divHeight;
               s.vertex(x, y + line * 7);
-              xoff += this.inc;
+              xoff += this.inc * 4;
             }
             s.endShape();
           }
 
-          this.startx = s.mouseX / 2000;
-          this.starty = s.mouseY / 2000;
+          let deltaMouse = s.createVector(s.pmouseX-s.mouseX , s.pmouseY-s.mouseY).normalize()
+
+          this.startx -= deltaMouse.x / 100;
+          this.starty += deltaMouse.y / 100;
+          this.startz += 0.001
 
           //Text Stuff
           s.noStroke();
@@ -86,25 +92,21 @@ export class MainhaderP5Component implements AfterViewInit, OnDestroy {
           s.textAlign(s.CENTER, s.CENTER);
           s.textFont('Roboto');
           s.textStyle(s.BOLD);
-          s.text(this.heading, s.width / 2, s.height / 2 + this.textstart);
+          s.text(this.heading, s.width / 2 , s.height / 2 + s.min(0,s.millis()/4-20));
           s.fill(255, this.fade - 255);
           s.textSize(20);
           s.textStyle(s.NORMAL);
           s.text(
             this.subheading,
             s.width / 2,
-            s.height / 2 + 40 + this.textstart
+            s.height / 2 + 40
           );
-          if (this.fade < 600) {
-            this.fade += 5 * this.animationSpeed;
-          }
-          if (this.textstart > 0) {
-            this.textstart -= 0.5 * this.animationSpeed;
-          }
+
+          this.fade = s.millis()/3
         };
 
         s.mouseWheel = (event) => {
-          this.startz += event.delta / 2000;
+          this.startz += event.delta / 5000;
         };
 
         s.windowResized = () => {

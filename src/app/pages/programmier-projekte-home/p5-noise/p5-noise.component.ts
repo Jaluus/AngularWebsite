@@ -28,10 +28,16 @@ export class P5NoiseComponent implements OnDestroy, AfterViewInit {
   themecolor;
   selectedTabIndex = 0;
 
-  //Simplex
-  NoiseSpeed = 0.04;
-  scale = 10;
-  NoiseZ = 0;
+  //Parametric
+  shading = true
+  PI_OFFSET = true
+  a1 = 2
+  a2 = 2
+  b1 = 3
+  b2 = 2
+  toff = 0
+  titer = 0.001
+  lines = 100
 
   //Dancing Triangles
   cohesion = 1;
@@ -179,65 +185,60 @@ export class P5NoiseComponent implements OnDestroy, AfterViewInit {
       };
     };
     this.NoiseSketch = (s) => {
+      let radius = 140
+      let t = 0;
       let divWidth;
       let divHeight;
-      let pd;
       s.setup = () => {
         divWidth = this.NoiseRef.nativeElement.offsetWidth;
         divHeight = this.NoiseRef.nativeElement.offsetHeight;
         let canvas2 = s.createCanvas(divWidth, divHeight);
         canvas2.parent('NoiseHolder');
-        s.pixelDensity(0.5);
-        pd = s.pixelDensity();
+        s.pixelDensity(1);
+        s.background(51)
+        s.strokeWeight(2)
+        s.stroke(225)
+      };
+
+
+      s.calcX = (t) =>{
+      return Math.sin(t*this.a1) + Math.sin(t*this.a2)
+      };
+
+      s.calcY = (t) => {
+        return Math.cos(t*this.b1) + Math.cos(t*this.b2)
       };
 
       s.draw = () => {
-        s.loadPixels();
-        var yoff = this.start;
-        for (let y = 0; y < divHeight * pd; y++) {
-          var xoff = this.start;
-          for (let x = 0; x < divWidth * pd; x++) {
-            var idx = (x + y * divWidth * pd) * 4;
+        s.background(51)
 
-            var map =
-              (this.noise3D(xoff * this.scale, yoff * this.scale, this.NoiseZ) +
-                1) /
-                2 +
-              (this.noise3D(
-                xoff * 2 * this.scale,
-                yoff * 2 * this.scale,
-                this.NoiseZ
-              ) +
-                1) /
-                4 +
-              (this.noise3D(
-                xoff * 4 * this.scale,
-                yoff * 4 * this.scale,
-                this.NoiseZ
-              ) +
-                1) /
-                8;
-            //var map = s.noise(xoff, yoff, this.seed);
+        s.translate(s.width/2,s.height/2)
 
-            // var noise1 = Math.sin(map * this.scale) + 1;
-            // var noise2 = Math.cos(map * this.scale) + 1;
-            // var noise3 = noise2 + noise1;
+        for (let i= 0; i<this.lines;i++){
+          let t1 = 0
+          let t2 = 0
 
-            var noise1 = this.noise3D(map, map, this.NoiseZ) + 1;
-            var noise2 = this.noise3D(noise1, noise1, this.NoiseZ) + 1;
-            var noise3 = this.noise3D(noise2, noise2, this.NoiseZ) + 1;
-
-            s.pixels[idx + 0] = (noise1 / 2) * 255;
-            s.pixels[idx + 1] = (noise2 / 2) * 255;
-            s.pixels[idx + 2] = (noise3 / 2) * 255;
-            s.pixels[idx + 3] = 255;
-            xoff += this.inc;
+          if(this.PI_OFFSET){
+            t1 = t + i/this.lines * Math.PI *2
+            t2 = t + Math.PI+ this.toff + i/this.lines * Math.PI *2
+          } else {
+            t1 = t + i/10
+            t2 = t + i/10 + this.toff
           }
-          yoff += this.inc;
+
+          let x1 = s.calcX(t1) * radius
+          let y1 = s.calcY(t1) * radius
+          let x2 = s.calcX(t2) * radius
+          let y2 = s.calcY(t2) * radius
+          if (this.shading == true){
+            s.stroke((1-s.max(x1,x2)*2/s.width) * 255)
+          }
+          else{
+            s.stroke(225)
+          }
+          s.line(x1,y1,x2,y2)
         }
-        this.NoiseZ += this.NoiseSpeed;
-        s.updatePixels();
-        //s.noLoop();
+        t += this.titer
       };
 
       s.windowResized = () => {

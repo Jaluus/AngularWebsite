@@ -38,6 +38,15 @@ export class MachineLearningHomeComponent implements OnInit {
       You can choose what you want it to draw and it will finish your drawing!<br>
       Its actually magic.`,
     },
+    {
+      name: 'Object Detection with TF Lite',
+      subDesc: 'A modified Implementation of an Object Detecting Model on Android',
+      imagePath: 'https://backend.uslu.tech/pictures/ML/TFDetect.PNG',
+      link: this.links.MlNavArr[3].route,
+      description: `Modified code to run a custom object detection model with Tensorflow Lite.<br>
+      Realtime Object detection with bounding boxes and percentage shown!<br>
+      Works on nearly all Android phones.`,
+    },
   ];
 
   ngOnInit(): void {}

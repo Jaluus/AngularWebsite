@@ -13,6 +13,8 @@ export class LinkManager {
     new NavItem('MNIST Detection', 'mnistClas'),
     new NavItem('MNIST Generator', 'mnistGen'),
     new NavItem('Sketch RNN', 'sketchRNN'),
+    new NavItem('Object Detection', 'TensorflowDetection'),
+
     new NavItem('Learning Agents', '404', false),
     new NavItem('Deepdream', '404', false),
   ];

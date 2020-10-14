@@ -57,6 +57,7 @@ import { MainhaderP5Component } from './header/mainhader-p5/mainhader-p5.compone
 import { MainheaderColorfulComponent } from './header/mainheader-colorful/mainheader-colorful.component';
 import { P5NoiseComponent } from './pages/programmier-projekte-home/p5-noise/p5-noise.component';
 import { SketchRnnComponent } from './pages/machine-learning-home/sketch-rnn/sketch-rnn.component';
+import { TensorflowObjectdetectionComponent } from './pages/machine-learning-home/tensorflow-objectdetection/tensorflow-objectdetection.component';
 
 @NgModule({
   declarations: [
@@ -87,6 +88,7 @@ import { SketchRnnComponent } from './pages/machine-learning-home/sketch-rnn/ske
     MainheaderColorfulComponent,
     P5NoiseComponent,
     SketchRnnComponent,
+    TensorflowObjectdetectionComponent,
   ],
   imports: [
     BrowserModule,

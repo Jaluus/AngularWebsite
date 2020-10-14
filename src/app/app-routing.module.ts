@@ -18,6 +18,7 @@ import { MnistGeneratorComponent } from './pages/machine-learning-home/mnist-gen
 import { UnityFractalGeneratorComponent } from './pages/programmier-projekte-home/unity-fractal-generator/unity-fractal-generator.component';
 import { P5NoiseComponent } from './pages/programmier-projekte-home/p5-noise/p5-noise.component';
 import { SketchRnnComponent } from './pages/machine-learning-home/sketch-rnn/sketch-rnn.component';
+import { TensorflowObjectdetectionComponent } from './pages/machine-learning-home/tensorflow-objectdetection/tensorflow-objectdetection.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomepageComponent },
@@ -41,6 +42,8 @@ const appRoutes: Routes = [
       { path: 'mnistClas', component: MnistDetectionComponent },
       { path: 'sketchRNN', component: SketchRnnComponent },
       { path: 'mnistGen', component: MnistGeneratorComponent },
+      {path: 'TensorflowDetection', component: TensorflowObjectdetectionComponent }
+
     ],
   },
   {
