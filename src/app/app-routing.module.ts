@@ -17,8 +17,10 @@ import { MnistDetectionComponent } from './pages/machine-learning-home/mnist-det
 import { MnistGeneratorComponent } from './pages/machine-learning-home/mnist-generator/mnist-generator.component';
 import { UnityFractalGeneratorComponent } from './pages/programmier-projekte-home/unity-fractal-generator/unity-fractal-generator.component';
 import { P5NoiseComponent } from './pages/programmier-projekte-home/p5-noise/p5-noise.component';
-import { SketchRnnComponent } from './pages/machine-learning-home/sketch-rnn/sketch-rnn.component';
+//import { SketchRnnComponent } from './pages/machine-learning-home/sketch-rnn/sketch-rnn.component';
 import { TensorflowObjectdetectionComponent } from './pages/machine-learning-home/tensorflow-objectdetection/tensorflow-objectdetection.component';
+import { P5WebglComponent } from './pages/programmier-projekte-home/p5-webgl/p5-webgl.component';
+import { GeneticAlgorithmComponent } from './pages/machine-learning-home/genetic-algorithm/genetic-algorithm.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomepageComponent },
@@ -32,6 +34,7 @@ const appRoutes: Routes = [
       { path: 'Fractal', component: TreeFractalGeneratorComponent },
       { path: 'FractalExplorer', component: UnityFractalGeneratorComponent },
       { path: 'p5-noise', component: P5NoiseComponent },
+      { path: 'p5-webgl', component: P5WebglComponent },
     ],
   },
   {
@@ -40,9 +43,10 @@ const appRoutes: Routes = [
     children: [
       { path: 'Start', component: MachineLearningHomeComponent },
       { path: 'mnistClas', component: MnistDetectionComponent },
-      { path: 'sketchRNN', component: SketchRnnComponent },
+      //{ path: 'sketchRNN', component: SketchRnnComponent },
       { path: 'mnistGen', component: MnistGeneratorComponent },
-      {path: 'TensorflowDetection', component: TensorflowObjectdetectionComponent }
+      { path: 'TensorflowDetection', component: TensorflowObjectdetectionComponent },
+      { path: 'GeneticAlgorithm', component: GeneticAlgorithmComponent }
 
     ],
   },

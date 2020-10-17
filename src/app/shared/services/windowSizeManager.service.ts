@@ -7,7 +7,7 @@ export class WindowSizeManager {
   screenTransitionWidth = 800;
   DesktopMode = true;
 
-  DrawerToggle=false;
+  DrawerToggle = false;
 
   ToggleDrawer(){
     this.DrawerToggle = !this.DrawerToggle;

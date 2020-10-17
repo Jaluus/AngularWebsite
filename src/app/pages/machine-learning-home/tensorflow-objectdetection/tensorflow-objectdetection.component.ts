@@ -19,6 +19,8 @@ export class TensorflowObjectdetectionComponent implements OnInit {
     new Image(this.backendLink + 'PIC4.jpg', 'Green', 1, 1),
   ];
 
+  videoPath = this.backendLink + "InAction.mp4"
+
 
   ngOnInit(): void {
   }

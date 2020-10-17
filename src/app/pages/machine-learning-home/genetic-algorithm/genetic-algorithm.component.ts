@@ -10,11 +10,11 @@ import * as p5 from 'p5';
 import { WindowSizeManager } from 'src/app/shared/services/windowSizeManager.service';
 
 @Component({
-  selector: 'app-testpage',
-  templateUrl: './testpage.component.html',
-  styleUrls: ['./testpage.component.css'],
+  selector: 'app-genetic-algorithm',
+  templateUrl: './genetic-algorithm.component.html',
+  styleUrls: ['./genetic-algorithm.component.css']
 })
-export class TestpageComponent implements AfterViewInit, OnDestroy {
+export class GeneticAlgorithmComponent implements AfterViewInit, OnDestroy {
   @ViewChild('CanvasRef2') NoiseRef: ElementRef;
 
   canvas: any;
@@ -26,9 +26,10 @@ export class TestpageComponent implements AfterViewInit, OnDestroy {
   popsize = 100;
   dt = 1
   limitVel = 5
+  AdaptiveTiming = true
 
 
-  constructor(public WSM : WindowSizeManager) {}
+  constructor(public WSM: WindowSizeManager) {}
 
   ngAfterViewInit() {
     this.geneticSketch = (s) => {
@@ -44,16 +45,17 @@ export class TestpageComponent implements AfterViewInit, OnDestroy {
       var lifespan = 200;
       var mutationRate = 0.01;
       var maxForce = 1;
+      var AdaptiveTiming = true;
 
       var maxfitGlobal = 0;
       var fastestTime;
       var fastestRocketIndex = 0;
       var limitVel;
 
-      var rx = 100;
-      var ry = 200;
-      var rw = 200;
-      var rh = 10;
+      var obstacleArr = []
+
+      var start;
+      var end;
 
       var target;
 
@@ -78,18 +80,44 @@ export class TestpageComponent implements AfterViewInit, OnDestroy {
         maxForce = this.maxForce;
         dt = this.dt
         limitVel = this.limitVel
+        AdaptiveTiming = this.AdaptiveTiming;
 
         population = new s.Population();
-        rx = 100;
-        rw = s.width - 200;
 
+        obstacleArr.push([100,200,s.width - 200,20])
       };
+
+      s.restartAlgo = () =>{
+        cnt = 0
+        epoch = 0
+        maxfitGlobal = 0
+        fastestTime = lifespan;
+
+        popsize = this.popsize;
+        lifespan = this.lifespan;
+        mutationRate = this.mutationRate;
+        maxForce = this.maxForce;
+        dt = this.dt
+        limitVel = this.limitVel
+        AdaptiveTiming = this.AdaptiveTiming;
+        start = null;
+        end = null;
+
+        population = new s.Population();
+      }
+
+      s.deleteObstacles = () =>{
+        obstacleArr = [];
+      }
 
       s.mousePressed = () => {
         mouseDown = true;
+        end = null;
+        start = s.createVector(s.mouseX,s.mouseY)
       };
       s.mouseReleased = () => {
         mouseDown = false;
+        end = s.createVector(s.mouseX,s.mouseY)
       };
 
       s.draw = () => {
@@ -98,14 +126,39 @@ export class TestpageComponent implements AfterViewInit, OnDestroy {
         s.fill("black")
         s.ellipse(target.x, target.y, 8);
         s.fill('white');
-        s.text("Time: " + cnt, 20, 20);
-        s.text("Epoch: " + epoch, 20, 30);
-        s.text("Best Fitness: " + maxfitGlobal, 20, 40);
-        s.text("Fastest Time: " + fastestTime, 20, 50);
-        s.text("Framerate: " + s.floor(s.frameRate()), s.width - 100, 20);
+        s.text("Lifespan : " + lifespan,20,20)
+        s.text("Time: " + cnt, 20, 30);
+        s.text("Epoch: " + epoch, 20, 40);
+        s.text("Best Fitness: " + maxfitGlobal, 20, 50);
+        s.text("Fastest Time: " + fastestTime, 20, 60);
+        s.text("Framerate: " + s.ceil(s.frameRate()), s.width - 100, 20);
 
-        //Obstacle
-        s.rect(rx, ry, rw, rh);
+        if(start && !end){
+          s.push()
+          s.fill(255,100)
+          s.rect(start.x,start.y,s.mouseX-start.x,s.mouseY-start.y)
+          s.pop()
+        }
+
+        if(start && end){
+          let rx = s.min(start.x,end.x)
+          let ry = s.min(start.y,end.y)
+          let rw = s.max(start.x,end.x)-rx
+          let rh = s.max(start.y,end.y)-ry
+
+          obstacleArr.push([rx,ry,rw,rh])
+          lifespan = this.lifespan
+          fastestTime = lifespan
+          start = null;
+          end = null;
+        }
+
+        for(let i = 0; i<obstacleArr.length; i++){
+          s.rect(obstacleArr[i][0],
+                obstacleArr[i][1],
+                obstacleArr[i][2],
+                obstacleArr[i][3])
+        }
 
         cnt++;
 
@@ -149,7 +202,9 @@ export class TestpageComponent implements AfterViewInit, OnDestroy {
 
             if (this.rockets[i].timeToCompletion < fastestTime) {
               fastestTime = this.rockets[i].timeToCompletion;
-              lifespan = s.min(fastestTime + 3, lifespan);
+              if(AdaptiveTiming){
+                lifespan = s.min(fastestTime, lifespan);
+              }
             }
           }
           //this.rockets[fastestRocketIndex].fitness += 0.3;
@@ -165,7 +220,9 @@ export class TestpageComponent implements AfterViewInit, OnDestroy {
 
         this.selection = () => {
           //keep the best rocket from before
-          var newRockets = [new s.Rocket(this.rockets[fastestRocketIndex].dna)];
+          let LastBestRocket  = new s.Rocket(this.rockets[fastestRocketIndex].dna)
+          LastBestRocket.bestRocket = true
+          var newRockets = [LastBestRocket];
           for (let i = 0; i < this.rockets.length-1; i++) {
             var parentADNA = s.random(this.matingPool).dna;
             var parentBDNA = s.random(this.matingPool).dna;
@@ -229,6 +286,7 @@ export class TestpageComponent implements AfterViewInit, OnDestroy {
         } else {
           this.dna = new s.DNA();
         }
+        this.bestRocket = false
         this.fitness = 0;
         this.completed = false;
         this.timeToCompletion = lifespan;
@@ -247,7 +305,9 @@ export class TestpageComponent implements AfterViewInit, OnDestroy {
           //this.fitness /= this.timeToCompletion
 
           d = s.max(d, 10);
-          this.fitness = 1 / (d * this.timeToCompletion);
+          //this.fitness = 1 / (d * this.timeToCompletion);
+
+          this.fitness = s.pow(2,1 / (d * this.timeToCompletion)) - 1
 
           if (this.crashed) {
             this.fitness /= 10;
@@ -266,13 +326,20 @@ export class TestpageComponent implements AfterViewInit, OnDestroy {
             this.timeToCompletion = cnt;
           }
 
-          if (
-            this.pos.x > rx &&
-            this.pos.x < rx + rw &&
-            this.pos.y > ry &&
-            this.pos.y < ry + rh
-          ) {
-            this.crashed = true;
+
+          for (let i=0; i<obstacleArr.length;i++){
+            let rx = obstacleArr[i][0]
+            let ry = obstacleArr[i][1]
+            let rw = obstacleArr[i][2]
+            let rh = obstacleArr[i][3]
+            if (
+              this.pos.x > rx &&
+              this.pos.x < rx + rw &&
+              this.pos.y > ry &&
+              this.pos.y < ry + rh
+            ) {
+              this.crashed = true;
+            }
           }
           //wall check
           if (
@@ -301,22 +368,34 @@ export class TestpageComponent implements AfterViewInit, OnDestroy {
           s.fill(255, 150);
           s.ellipse(0, 0, 4);
           s.triangle(5, 0, -5, -5, -5, 5);
+          if(this.bestRocket){
+            s.fill(255,0,0,150)
+            s.ellipse(0,0,16)
+            s.fill(255)
+            s.triangle(5, 0, -5, -5, -5, 5);
+          }
           s.pop();
+          if(this.bestRocket){
+            s.line(this.pos.x,this.pos.y,target.x,target.y)
+          }
         };
       };
 
-      // s.windowResized = () => {
-      //   divWidth = this.NoiseRef.nativeElement.offsetWidth;
-      //   divHeight = this.NoiseRef.nativeElement.offsetHeight;
-      //   s.resizeCanvas(divWidth, divHeight);
-      // };
+      s.windowResized = () => {
+        divWidth = this.NoiseRef.nativeElement.offsetWidth;
+        divHeight = this.NoiseRef.nativeElement.offsetHeight;
+        s.resizeCanvas(divWidth, divHeight);
+      };
     };
     this.canvas = new p5(this.geneticSketch);
   }
 
   restartAlgo(){
-    this.canvas.remove();
-    this.canvas = new p5(this.geneticSketch);
+    this.canvas.restartAlgo()
+  }
+
+  clearObstacles(){
+    this.canvas.deleteObstacles();
   }
 
   ngOnDestroy() {

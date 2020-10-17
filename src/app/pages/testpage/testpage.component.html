@@ -1,7 +1,11 @@
-<app-subheader> Testpage </app-subheader>
+<app-subheader> Genetic Algorithm </app-subheader>
 <div class="content-container">
   <mat-card>
-    <div #CanvasRef2 class="canvas" id="NoiseHolder"></div>
+    <div #CanvasRef2 class="canvas" id="geneticCanvas"></div>
   </mat-card>
-  <button (click)="restartRNN()">ANOTHER!</button>
+  <mat-card>
+    <p>
+      {{WSM.screenWidth}}
+    </p>
+  </mat-card>
 </div>

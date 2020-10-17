@@ -1,0 +1,59 @@
+<app-subheader> Genetic Algorithm </app-subheader>
+<div class="content-container">
+    <div #CanvasRef2 class="canvas" [ngClass]="WSM.DesktopMode ? 'canvas' : 'canvasMobile'" id="geneticCanvas"></div>
+
+  <br>
+
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Parameters
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+    <mat-form-field class="inputfield">
+      <mat-label>Lifespan</mat-label>
+      <input matInput type="number" [(ngModel)]="lifespan" />
+    </mat-form-field>
+
+    <mat-form-field class="inputfield">
+      <mat-label>Population Size</mat-label>
+      <input matInput type="number" [(ngModel)]="popsize" />
+    </mat-form-field>
+
+    <mat-form-field class="inputfield">
+      <mat-label>Maximal Thrust</mat-label>
+      <input matInput type="number" [(ngModel)]="maxForce" />
+    </mat-form-field>
+
+    <br />
+
+    <mat-form-field class="inputfield">
+      <mat-label>Mutation Rate</mat-label>
+      <input matInput type="number" [(ngModel)]="mutationRate" />
+    </mat-form-field>
+
+    <mat-form-field class="inputfield">
+      <mat-label>Physics Timestep</mat-label>
+      <input matInput type="number" [(ngModel)]="dt" />
+    </mat-form-field>
+
+    <mat-form-field class="inputfield">
+      <mat-label>Velocity Limit</mat-label>
+      <input matInput type="number" [(ngModel)]="limitVel" />
+    </mat-form-field>
+    <br />
+      <mat-checkbox [(ngModel)]="AdaptiveTiming">Adaptive Timing</mat-checkbox>
+    <br />
+    <br />
+
+    <button style="margin: 1em" mat-raised-button color="primary" (click)="restartAlgo()">
+      Restart Algorithm with chosen Parameters
+    </button>
+
+    <button mat-raised-button color="warn" (click)="clearObstacles()">
+      Clear Obstacles
+    </button>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

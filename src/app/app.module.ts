@@ -56,8 +56,9 @@ import { UnityFractalGeneratorComponent } from './pages/programmier-projekte-hom
 import { MainhaderP5Component } from './header/mainhader-p5/mainhader-p5.component';
 import { MainheaderColorfulComponent } from './header/mainheader-colorful/mainheader-colorful.component';
 import { P5NoiseComponent } from './pages/programmier-projekte-home/p5-noise/p5-noise.component';
-import { SketchRnnComponent } from './pages/machine-learning-home/sketch-rnn/sketch-rnn.component';
 import { TensorflowObjectdetectionComponent } from './pages/machine-learning-home/tensorflow-objectdetection/tensorflow-objectdetection.component';
+import { P5WebglComponent } from './pages/programmier-projekte-home/p5-webgl/p5-webgl.component';
+import { GeneticAlgorithmComponent } from './pages/machine-learning-home/genetic-algorithm/genetic-algorithm.component';
 
 @NgModule({
   declarations: [
@@ -87,8 +88,9 @@ import { TensorflowObjectdetectionComponent } from './pages/machine-learning-hom
     MainhaderP5Component,
     MainheaderColorfulComponent,
     P5NoiseComponent,
-    SketchRnnComponent,
     TensorflowObjectdetectionComponent,
+    P5WebglComponent,
+    GeneticAlgorithmComponent,
   ],
   imports: [
     BrowserModule,

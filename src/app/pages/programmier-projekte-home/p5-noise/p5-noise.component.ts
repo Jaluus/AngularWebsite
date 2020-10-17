@@ -48,7 +48,7 @@ export class P5NoiseComponent implements OnDestroy, AfterViewInit {
 
   //Map generator
   selectedNoise = 'perlin';
-  inc = 0.01;
+  inc = 0.001;
   start = 0;
   seed = 0;
 

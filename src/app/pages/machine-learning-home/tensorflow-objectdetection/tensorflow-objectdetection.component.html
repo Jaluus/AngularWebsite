@@ -4,41 +4,131 @@
 
   <mat-accordion [multi]="true">
     <mat-expansion-panel
-      style="margin: auto; margin-top: 1em; margin-bottom: 1em"
+      style="margin: auto;"
     >
       <mat-expansion-panel-header>
         <mat-panel-title> How to Download and Install </mat-panel-title>
       </mat-expansion-panel-header>
-      <p>
-        Download the APK <a href="https://backend.uslu.tech/Downloads/TensorflowDetection/TensorflowDetection.apk" download>here</a>
-      </p>
-      <p>
-        Make sure you enabled "install from unknown sources" in the Android settings and give the App the right to access your camera.
-      </p>
-      <p>
-        Detect some Objects!
-      </p>
+
+      <ul >
+        <li>
+          Download the APK <a href="https://backend.uslu.tech/Downloads/TensorflowDetection/TensorflowDetection.apk" download>here</a>
+        </li>
+        <li>
+          Make sure you enabled "install from unknown sources" in the Android settings.
+        </li>
+        <li>
+          Give the App the right to access your camera.
+        </li>
+        <li>
+          You are ready to detect some Objects!
+        </li>
+      </ul>
     </mat-expansion-panel>
 
+    <mat-expansion-panel
+    style="margin: auto;"
+  >
+    <mat-expansion-panel-header>
+      <mat-panel-title> Additional Information </mat-panel-title>
+    </mat-expansion-panel-header>
+    <p>
+      This app is Android only, because Apple is quite strict on external apps and im not gonna put this app onto the Appstore, sorry!
+    </p>
+    <p>
+      For the App I used some code from <a href="https://github.com/tensorflow/examples">this</a> GitHub Repo, for example the layout code.
+    </p>
+    <p>
+      The model is trained on approx. 80 classes, these are:
+    </p>
+    <mat-expansion-panel
+    style="margin: auto;"
+  >
+      <mat-expansion-panel-header>
+        <mat-panel-title> All Classes </mat-panel-title>
+      </mat-expansion-panel-header>
+      person
+      bicycle
+      car
+      motorcycle
+      airplane
+      bus
+      train
+      truck
+      boat
+      trafficlight
+      firehydrant
+      stopsign
+      parkingmeter
+      bench
+      bird
+      cat
+      dog
+      horse
+      sheep
+      cow
+      elephant
+      bear
+      zebra
+      giraffe
+      backpack
+      umbrella
+      handbag
+      tie
+      suitcase
+      frisbee
+      skis
+      snowboard
+      sportsball
+      kite
+      baseballbat baseballglove skateboard
+      surfboard tennis racket
+      bottle wineglass
+      cup fork
+      knife spoon
+      bowl banana
+      apple sandwich
+      orange broccoli
+      carrot hotdog pizza
+      donut cake
+      chair couch
+      pottedplant bed
+      diningtable
+      toilet tv
+      laptop mouse
+      remote keyboard
+      cellphone microwave
+      oven toaster
+      sink refrigerator
+      book clock
+      vase scissors teddybear hairdrier toothbrush
+    </mat-expansion-panel>
+    <Table></Table>
+  </mat-expansion-panel>
   </mat-accordion>
-  <p>
-    For my App I used some code from <a href="https://github.com/tensorflow/examples">this</a> GitHub Repo, for example the layout code for the App.
-  </p>
-  <p>Some sample images from the App</p>
+  <br>
+  <mat-divider></mat-divider>
+  <br>
 
-<mat-grid-list
-[gutterSize]="2"
-cols="4">
+  <div style="display:flex;">
+    <div style="flex: 50%;">
+    <mat-grid-list
+    [gutterSize]="10"
+    cols="2">
 
-<mat-grid-tile
-*ngFor="let img of imgArr"
-[colspan]="img.cols"
-[rowspan]="img.rows"
->
-  <img [src]="img.path" layout-fill style="height: 80%;">
-</mat-grid-tile>
-
-</mat-grid-list>
+    <mat-grid-tile
+    *ngFor="let img of imgArr"
+    [colspan]="img.cols"
+    [rowspan]="img.rows"
+    >
+      <img [src]="img.path" layout-fill style="height: 100%;">
+    </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+  <div style="flex: 50%;">
+    <video style="width: 80%;" [src]="videoPath" type="video/mp4" autoplay muted loop></video>
+  </div>
+  </div>
 </div>
 
 <!-- person

@@ -1,0 +1,15 @@
+.canvas {
+  width: 500px;
+  height: 500px;
+  margin: auto;
+}
+
+.canvasMobile {
+  width: 260px;
+  height: 260px;
+  margin: auto;
+}
+
+.checkbox {
+  margin: 1em;
+}

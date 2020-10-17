@@ -10,22 +10,21 @@ export class LinkManager {
   ];
 
   MlNavArr: NavItem[] = [
-    new NavItem('MNIST Detection', 'mnistClas'),
-    new NavItem('MNIST Generator', 'mnistGen'),
-    new NavItem('Sketch RNN', 'sketchRNN'),
+    new NavItem('Genetic Algorithm', 'GeneticAlgorithm'),
     new NavItem('Object Detection', 'TensorflowDetection'),
-
-    new NavItem('Learning Agents', '404', false),
+    new NavItem('MNIST Generator', 'mnistGen'),
+    new NavItem('MNIST Detection', 'mnistClas'),
+    //new NavItem('Sketch RNN', 'sketchRNN'),
     new NavItem('Deepdream', '404', false),
   ];
 
   PpNavArr: NavItem[] = [
     new NavItem('Unity Fractal Explorer', 'FractalExplorer'),
-    new NavItem('Noise Art', 'p5-noise'),
+    new NavItem('p5 Noise Art', 'p5-noise'),
+    new NavItem('p5 WebGl', 'p5-webgl'),
     new NavItem('A* Pathfinder', 'AStar'),
     new NavItem('Game of Life', 'Conway'),
     new NavItem('Tree Fractal Generator', 'Fractal'),
-    new NavItem('Maze Generator', '404', false),
   ];
 
   SNavArr: NavItem[] = [
