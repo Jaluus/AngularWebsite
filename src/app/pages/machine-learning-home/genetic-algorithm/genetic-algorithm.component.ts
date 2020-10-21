@@ -43,6 +43,7 @@ export class GeneticAlgorithmComponent implements AfterViewInit, OnDestroy {
 
       var popsize = 100;
       var lifespan = 200;
+      var maxLifespan = 200;
       var mutationRate = 0.01;
       var maxForce = 1;
       var AdaptiveTiming = true;
@@ -76,6 +77,7 @@ export class GeneticAlgorithmComponent implements AfterViewInit, OnDestroy {
 
         popsize = this.popsize;
         lifespan = this.lifespan;
+        maxLifespan = this.lifespan
         mutationRate = this.mutationRate;
         maxForce = this.maxForce;
         dt = this.dt
@@ -94,7 +96,8 @@ export class GeneticAlgorithmComponent implements AfterViewInit, OnDestroy {
         fastestTime = lifespan;
 
         popsize = this.popsize;
-        lifespan = this.lifespan;
+        maxLifespan = this.lifespan;
+        lifespan = this.lifespan
         mutationRate = this.mutationRate;
         maxForce = this.maxForce;
         dt = this.dt
@@ -147,8 +150,8 @@ export class GeneticAlgorithmComponent implements AfterViewInit, OnDestroy {
           let rh = s.max(start.y,end.y)-ry
 
           obstacleArr.push([rx,ry,rw,rh])
-          lifespan = this.lifespan
-          fastestTime = lifespan
+          lifespan = maxLifespan
+          fastestTime = maxLifespan
           start = null;
           end = null;
         }
@@ -163,7 +166,6 @@ export class GeneticAlgorithmComponent implements AfterViewInit, OnDestroy {
         cnt++;
 
         if (cnt >= lifespan) {
-          //fastestTime = 999
           population.evaluate();
           population.selection();
           cnt = 0;
@@ -216,6 +218,7 @@ export class GeneticAlgorithmComponent implements AfterViewInit, OnDestroy {
               this.matingPool.push(this.rockets[i]);
             }
           }
+          console.log(this.matingPool)
         };
 
         this.selection = () => {
@@ -289,7 +292,7 @@ export class GeneticAlgorithmComponent implements AfterViewInit, OnDestroy {
         this.bestRocket = false
         this.fitness = 0;
         this.completed = false;
-        this.timeToCompletion = lifespan;
+        this.timeToCompletion = maxLifespan;
         this.crashed = false;
 
         this.applyForce = (force) => {

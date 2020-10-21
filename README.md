@@ -1,9 +1,9 @@
-# Eine neue Website mit Angular
+# A small experimental Website with Angular
 
-Ich wollte meine alte Website mal neu machen und habe jetzt angefangen mit Angular als Framework eine Neue zu schreiben, gibt jedoch noch viel zutun und zu lernen.
-
-z.B. diese Readme mal vervollständigen.
+I wanted to redo my old website with a Framework, so I picked Angular.
 
 ## Features
 
-Kommt noch
+I plan to implement a few more Machine learning algorithms and generally stuff Im interested in,
+this is just a passion project to learn to code better and more efficient.
+
