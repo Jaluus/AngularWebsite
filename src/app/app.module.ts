@@ -27,6 +27,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatRippleModule } from '@angular/material/core';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { AppComponent } from './app.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
@@ -59,6 +60,8 @@ import { P5NoiseComponent } from './pages/programmier-projekte-home/p5-noise/p5-
 import { TensorflowObjectdetectionComponent } from './pages/machine-learning-home/tensorflow-objectdetection/tensorflow-objectdetection.component';
 import { P5WebglComponent } from './pages/programmier-projekte-home/p5-webgl/p5-webgl.component';
 import { GeneticAlgorithmComponent } from './pages/machine-learning-home/genetic-algorithm/genetic-algorithm.component';
+import { HunterPreyComponent } from './pages/machine-learning-home/hunter-prey/hunter-prey.component';
+import { BlackWhiteComponent } from './pages/machine-learning-home/black-white/black-white.component';
 
 @NgModule({
   declarations: [
@@ -91,6 +94,8 @@ import { GeneticAlgorithmComponent } from './pages/machine-learning-home/genetic
     TensorflowObjectdetectionComponent,
     P5WebglComponent,
     GeneticAlgorithmComponent,
+    HunterPreyComponent,
+    BlackWhiteComponent,
   ],
   imports: [
     BrowserModule,
@@ -120,6 +125,7 @@ import { GeneticAlgorithmComponent } from './pages/machine-learning-home/genetic
     MatRippleModule,
     MatCheckboxModule,
     MatSelectModule,
+    MatTooltipModule,
   ],
   providers: [WindowSizeManager, LinkManager],
   bootstrap: [AppComponent],

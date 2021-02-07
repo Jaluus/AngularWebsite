@@ -21,6 +21,8 @@ import { P5NoiseComponent } from './pages/programmier-projekte-home/p5-noise/p5-
 import { TensorflowObjectdetectionComponent } from './pages/machine-learning-home/tensorflow-objectdetection/tensorflow-objectdetection.component';
 import { P5WebglComponent } from './pages/programmier-projekte-home/p5-webgl/p5-webgl.component';
 import { GeneticAlgorithmComponent } from './pages/machine-learning-home/genetic-algorithm/genetic-algorithm.component';
+import { HunterPreyComponent } from './pages/machine-learning-home/hunter-prey/hunter-prey.component';
+import { BlackWhiteComponent } from './pages/machine-learning-home/black-white/black-white.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomepageComponent },
@@ -45,9 +47,13 @@ const appRoutes: Routes = [
       { path: 'mnistClas', component: MnistDetectionComponent },
       //{ path: 'sketchRNN', component: SketchRnnComponent },
       { path: 'mnistGen', component: MnistGeneratorComponent },
-      { path: 'TensorflowDetection', component: TensorflowObjectdetectionComponent },
-      { path: 'GeneticAlgorithm', component: GeneticAlgorithmComponent }
-
+      {
+        path: 'TensorflowDetection',
+        component: TensorflowObjectdetectionComponent,
+      },
+      { path: 'GeneticAlgorithm', component: GeneticAlgorithmComponent },
+      { path: 'HunterPrey', component: HunterPreyComponent },
+      { path: 'BW', component: BlackWhiteComponent },
     ],
   },
   {

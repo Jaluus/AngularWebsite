@@ -11,7 +11,8 @@ export class LinkManager {
 
   MlNavArr: NavItem[] = [
     new NavItem('Genetic Algorithm', 'GeneticAlgorithm'),
-    new NavItem('Object Detection', 'TensorflowDetection'),
+    //new NavItem('Object Detection', 'TensorflowDetection'),
+    new NavItem('Hunter-Prey Simulation', 'HunterPrey'),
     new NavItem('MNIST Generator', 'mnistGen'),
     new NavItem('MNIST Detection', 'mnistClas'),
     //new NavItem('Sketch RNN', 'sketchRNN'),

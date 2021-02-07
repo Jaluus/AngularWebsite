@@ -15,28 +15,38 @@ export class MachineLearningHomeComponent implements OnInit {
       subDesc: 'Natural Selection in Action',
       imagePath: 'https://backend.uslu.tech/pictures/ML/GenAlgo.png',
       link: this.links.MlNavArr[0].route,
-      description: `A simple Genetic Algorithm which is teaching small rockets to maneuver to a small target.<br>
-      The underlying principle is that of Natural Selection, the caveat is that these Agents are not "Smart", they rather memorize the Course!<br>
+      description: `A simple genetic algorithm which is teaching small rockets to maneuver to a small target.<br>
+      The underlying principle is that of natural selection, the caveat is that these agents are not "smart", they rather memorize the course!<br>
       You can also add your own obstacles by dragging the mouse.<br>
-      The Code is Vanilla Javascript with p5.js as a Drawing Tool.`,
+      The code is vanilla Javascript with p5.js as a drawing tool.`,
     },
     {
-      name: 'Object Detection with TF Lite',
-      subDesc: 'A modified Implementation of an Object Detecting Model on Android',
-      imagePath: 'https://backend.uslu.tech/pictures/ML/TFDetect.PNG',
+      name: 'Hunter-Prey Simulation with a Machine Learning Approch',
+      subDesc: 'Natural Selection in an Ecologial Environment',
+      imagePath: 'https://backend.uslu.tech/pictures/ML/HPS.PNG',
       link: this.links.MlNavArr[1].route,
-      description: `Modified code to run a custom object detection model with Tensorflow Lite.<br>
-      Realtime Object detection with bounding boxes and percentage shown!<br>
-      Works on nearly all Android phones.`,
+      description: `A simulation meant to simulate the natural selection processes in nature.<br>
+      You are able to monitor the genes of the prey and hunters as they evolve and get better at fleeing and finding food as well as dodge poison!<br>
+      It is extremely unstable right now, as the hunters are hunting the prey to extinction most of the time.`,
     },
+    // {
+    //   name: 'Object Detection with TF Lite',
+    //   subDesc:
+    //     'A modified Implementation of an Object Detecting Model on Android',
+    //   imagePath: 'https://backend.uslu.tech/pictures/ML/TFDetect.PNG',
+    //   link: this.links.MlNavArr[1].route,
+    //   description: `Modified code to run a custom object detection model with Tensorflow Lite.<br>
+    //   Realtime Object detection with bounding boxes and percentage shown!<br>
+    //   Works on nearly all Android phones.`,
+    // },
     {
       name: 'MNIST Number Generator',
       subDesc: 'Deep Convolutional Generative Adversarial Networks in Action',
       imagePath: 'https://backend.uslu.tech/pictures/ML/mnistGAN.PNG',
       link: this.links.MlNavArr[2].route,
-      description: `A DCGAN and a GAN model that i've written to generate lifelike handwritten Numbers<br> by learing the characteristics of the MNIST dataset.<br>
-      The DCGAN is outperforming the GAN by reducing noise and sharening the image.<br>
-      I added sliders to be able to manipulate the Latent Space Vector which is being fed.<br>
+      description: `A DCGAN and a GAN model that i've written to generate lifelike handwritten numbers<br> by learing the characteristics of the MNIST dataset.<br>
+      The DCGAN is outperforming the GAN by reducing noise and sharpening the image.<br>
+      I added sliders to be able to manipulate the Latent Space Vector which is being fed to the GANs.<br>
       With this you can genererate your own numbers!`,
     },
     {
@@ -45,8 +55,8 @@ export class MachineLearningHomeComponent implements OnInit {
       imagePath: 'https://backend.uslu.tech/pictures/ML/mnist.PNG',
       link: this.links.MlNavArr[3].route,
       description: `A CNN and DNN Model i've trained to detect handwritten numbers.<br>
-      The submitted data is being sent to the Backend and gets evaluated there.<br>
-      Still a bit wonky on Mobile, because you have to place each pixel individually.`,
+      The submitted data is being sent to the backend and gets evaluated there.<br>
+      Still a bit wonky on mobile, because you have to place each pixel individually.`,
     },
     // {
     //   name: 'Sketch RNN',

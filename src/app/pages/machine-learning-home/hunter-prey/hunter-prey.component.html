@@ -1,0 +1,152 @@
+<app-subheader> Hunter-Prey Simulation </app-subheader>
+<div class="content-container">
+  <br />
+  <div
+    #EcoRef
+    class="canvas"
+    [ngClass]="WSM.DesktopMode ? 'canvas' : 'canvasMobile'"
+    id="EcoSys"
+  ></div>
+
+  <br />
+  <mat-accordion [multi]="true">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>Starting Parameters</mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-form-field class="inputfield">
+        <mat-label>Mutation Rate</mat-label>
+        <input matInput type="number" [(ngModel)]="mr" />
+      </mat-form-field>
+
+      <mat-form-field class="inputfield">
+        <mat-label>Food Nutrition</mat-label>
+        <input matInput type="number" [(ngModel)]="fnut" />
+      </mat-form-field>
+
+      <mat-form-field class="inputfield">
+        <mat-label>Prey Nutrition</mat-label>
+        <input matInput type="number" [(ngModel)]="vnut" />
+      </mat-form-field>
+
+      <mat-form-field class="inputfield">
+        <mat-label>Starting Food</mat-label>
+        <input matInput type="number" [(ngModel)]="maxFood" />
+      </mat-form-field>
+
+      <mat-form-field class="inputfield">
+        <mat-label>Starting Poison</mat-label>
+        <input matInput type="number" [(ngModel)]="maxPoision" />
+      </mat-form-field>
+
+      <mat-form-field class="inputfield">
+        <mat-label>Starting Prey</mat-label>
+        <input matInput type="number" [(ngModel)]="numV" />
+      </mat-form-field>
+
+      <mat-form-field class="inputfield">
+        <mat-label>Starting Hunters</mat-label>
+        <input matInput type="number" [(ngModel)]="numH" />
+      </mat-form-field>
+
+      <mat-form-field class="inputfield">
+        <mat-label>Reproductionrate Hunters</mat-label>
+        <input matInput type="number" [(ngModel)]="HreproductionRate" />
+      </mat-form-field>
+
+      <mat-form-field class="inputfield">
+        <mat-label>Reproductionrate Vehicles</mat-label>
+        <input matInput type="number" [(ngModel)]="VreproductionRate" />
+      </mat-form-field>
+
+      <br />
+      <mat-checkbox class="boxes" [(ngModel)]="dropFoodOnDeath"
+        >Drop Food on Death</mat-checkbox
+      >
+      <mat-checkbox
+        class="boxes"
+        matTooltip="The faster the Vehicle the faster its health decays"
+        [matTooltipPosition]="'above'"
+        [(ngModel)]="SpeedDecay"
+        >Speed Decay</mat-checkbox
+      >
+      <!-- <mat-checkbox class="boxes" [(ngModel)]="debug">Debug</mat-checkbox> -->
+      <br />
+
+      <button
+        style="margin: 1em"
+        mat-raised-button
+        color="primary"
+        (click)="restartSim()"
+      >
+        Restart with Params
+      </button>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>Selected Vehicle Stats</mat-panel-title>
+      </mat-expansion-panel-header>
+      <div *ngIf="canvas && canvas.selectedVehicle">
+        <p>
+          Time alive:
+          {{ canvas.selectedVehicle.lifetime }}
+        </p>
+        <p>
+          Health:
+          {{ canvas.selectedVehicle.getHealth() }} %
+        </p>
+        <p>
+          Ancestors:
+          {{ canvas.selectedVehicle.ancestors }}
+        </p>
+        <p>
+          Number of Children:
+          {{ canvas.selectedVehicle.numChildren }}
+        </p>
+        <p>
+          Pieces of Food eaten:
+          {{ canvas.selectedVehicle.eatenFood }}
+        </p>
+      </div>
+      <div *ngIf="canvas && !canvas.selectedVehicle">No Vehicle selected</div>
+    </mat-expansion-panel>
+
+    <!-- <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>Mean Vehicle Stats</mat-panel-title>
+      </mat-expansion-panel-header>
+      <div *ngIf="canvas">
+        <p>
+          Time alive:
+          {{ canvas.meanDNA }}
+        </p>
+      </div>
+    </mat-expansion-panel> -->
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>How does it work?</mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>
+        A little Predator-Prey Simulation I have written in Javascript with a
+        Machine Learning approach. The prey and predators are modelled as
+        <a
+          href="https://books.google.de/books/?id=7KkUAT_q_sQC&redir_esc=y&hl=en"
+        >
+          "Vehicles" </a
+        >which have a detection radius around them to detect if food is nearby.
+      </p>
+      <p class="text">
+        Each vehicle has a chance of reproduction if it is healthy enough, the
+        longer a certain vehicle stays alive, the more probable its reproduction
+        chances are. The genetic algorithm kicks in as the Vehicle is
+        reproducing, the offspring have a small chance to have one of its genes
+        altered slightly. As time progresses the genes will converge to a
+        desirable state, which maximizes the survival chances of the vehicle and
+        its offspring, as Vehicles with undesirable genes die quicker.
+      </p>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <br />
+</div>
