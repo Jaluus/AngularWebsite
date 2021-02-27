@@ -19,4 +19,8 @@ export class UnityFractalGeneratorComponent implements OnInit {
   constructor(public WSM: WindowSizeManager) {}
 
   ngOnInit(): void {}
+
+  showImg(img) {
+    img.loaded = true;
+  }
 }

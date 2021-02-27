@@ -1,23 +1,26 @@
 <app-subheader>Blender Gallery</app-subheader>
 <div class="content-container">
   <div class="text-container">
+    <br />
 
-    <br>
-
-    <mat-grid-list
-    [gutterSize]="getGSize()"
-    cols="3">
-
-    <mat-grid-tile
-    *ngFor="let img of imgArr"
-    [colspan]="img.cols"
-    [rowspan]="img.rows"
-    >
-      <img [src]="img.path" layout-fill [ngClass]="{'img-desktop': WSM.DesktopMode , 'img-mobile': !WSM.DesktopMode}">
-    </mat-grid-tile>
-
-  </mat-grid-list>
-
-
+    <mat-grid-list [gutterSize]="getGSize()" cols="3">
+      <mat-grid-tile
+        *ngFor="let img of imgArr"
+        [colspan]="img.cols"
+        [rowspan]="img.rows"
+      >
+        <mat-spinner *ngIf="!img.loaded"></mat-spinner>
+        <img
+          [hidden]="!img.loaded"
+          (load)="showImg(img)"
+          [src]="img.path"
+          layout-fill
+          [ngClass]="{
+            'img-desktop': WSM.DesktopMode,
+            'img-mobile': !WSM.DesktopMode
+          }"
+        />
+      </mat-grid-tile>
+    </mat-grid-list>
   </div>
 </div>

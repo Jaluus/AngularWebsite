@@ -4,7 +4,13 @@
     <mat-card-subtitle>{{ subDesc }}</mat-card-subtitle>
   </mat-card-header>
   <div class="card-content">
-    <img class="image" [src]="imagePath" />
+    <mat-spinner class="image" *ngIf="!imgLoad"></mat-spinner>
+    <img
+      [hidden]="!imgLoad"
+      class="image"
+      [src]="imagePath"
+      (load)="showImg()"
+    />
     <p class="text" [innerHTML]="description"></p>
   </div>
 </mat-card>
