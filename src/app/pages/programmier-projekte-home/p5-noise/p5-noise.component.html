@@ -6,6 +6,49 @@
   mat-align-tabs="start"
   backgroundColor="primary"
 >
+  <mat-tab label="Truchet Tiles">
+    <div class="content-container">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title> Parameters </mat-card-title>
+        </mat-card-header>
+
+        Tile Distance:
+        <mat-slider
+          [min]="5"
+          [max]="80"
+          [step]="1"
+          [thumbLabel]="true"
+          [(ngModel)]="tileStep"
+          (input)="tileStep = $event.value"
+        >
+          Tile Distance
+        </mat-slider>
+        <br />
+        <button
+          class="button"
+          mat-raised-button
+          color="primary"
+          (click)="canvas.toggleMovement()"
+        >
+          Toggle Movement
+        </button>
+        <!-- <mat-checkbox class="checkbox" [(ngModel)]="PI_OFFSET"
+            >Equidistant Lines</mat-checkbox
+          > -->
+
+        <br />
+      </mat-card>
+
+      <mat-card
+        style="margin: auto; margin-top: 1em"
+        [ngStyle]="{ width: WSM.DesktopMode ? '50%' : '80%' }"
+      >
+        <div #TruchetRef class="canvas" id="Truchet"></div>
+      </mat-card>
+      <br />
+    </div>
+  </mat-tab>
   <mat-tab label="Gradient Generator">
     <div class="content-container">
       <mat-card
@@ -79,15 +122,12 @@
       </div>
     </div>
   </mat-tab>
-
   <mat-tab label="Visual Parametric Equation">
     <div class="content-container">
       <mat-accordion>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
-            <mat-panel-title>
-              Parameters
-            </mat-panel-title>
+            <mat-panel-title> Parameters </mat-panel-title>
           </mat-expansion-panel-header>
 
           <mat-form-field class="inputfield">
@@ -105,36 +145,43 @@
           <mat-form-field class="inputfield">
             <mat-label>B2</mat-label>
             <input matInput type="number" [(ngModel)]="b2" />
-          </mat-form-field> <br>
-
+          </mat-form-field>
+          <br />
 
           <mat-checkbox class="checkbox" [(ngModel)]="shading"
-          >Shading</mat-checkbox
+            >Shading</mat-checkbox
           >
           <mat-checkbox class="checkbox" [(ngModel)]="PI_OFFSET"
-          >Equidistant Lines</mat-checkbox
+            >Equidistant Lines</mat-checkbox
           >
+          <button
+            class="button"
+            mat-raised-button
+            color="primary"
+            (click)="randomizeParametric()"
+          >
+            Randomize
+          </button>
 
-        <br>
+          <br />
 
-        <mat-form-field class="inputfield">
-          <mat-label>Speed</mat-label>
-          <input matInput type="number" [(ngModel)]="titer" />
-        </mat-form-field>
-        <mat-form-field class="inputfield">
-          <mat-label>Lines</mat-label>
-          <input matInput type="number" [(ngModel)]="lines" />
-        </mat-form-field>
-        <mat-form-field class="inputfield">
-          <mat-label>Line Offset</mat-label>
-          <input matInput type="number" [(ngModel)]="toff" />
-        </mat-form-field>
-
+          <mat-form-field class="inputfield">
+            <mat-label>Speed</mat-label>
+            <input matInput type="number" [(ngModel)]="titer" />
+          </mat-form-field>
+          <mat-form-field class="inputfield">
+            <mat-label>Lines</mat-label>
+            <input matInput type="number" [(ngModel)]="lines" />
+          </mat-form-field>
+          <mat-form-field class="inputfield">
+            <mat-label>Line Offset</mat-label>
+            <input matInput type="number" [(ngModel)]="toff" />
+          </mat-form-field>
         </mat-expansion-panel>
       </mat-accordion>
 
       <mat-card
-        style="margin: auto; margin-top: 1em;"
+        style="margin: auto; margin-top: 1em"
         [ngStyle]="{ width: WSM.DesktopMode ? '50%' : '80%' }"
       >
         <div #CanvasRef2 class="canvas2" id="NoiseHolder"></div>

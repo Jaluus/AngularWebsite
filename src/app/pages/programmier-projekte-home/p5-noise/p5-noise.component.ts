@@ -22,22 +22,26 @@ export class P5NoiseComponent implements OnDestroy, AfterViewInit {
   @ViewChild('Banner') myBanner: ElementRef;
   @ViewChild('DancingTrianglesRef') DancingTriangles: ElementRef;
   @ViewChild('CanvasRef2') NoiseRef: ElementRef;
+  @ViewChild('TruchetRef') TruchetRef: ElementRef;
 
   //Imporant
   canvas: any;
   themecolor;
   selectedTabIndex = 0;
 
+  //truchet
+  tileStep = 40;
+
   //Parametric
-  shading = true
-  PI_OFFSET = true
-  a1 = 2
-  a2 = 2
-  b1 = 3
-  b2 = 2
-  toff = 0
-  titer = 0.001
-  lines = 100
+  shading = true;
+  PI_OFFSET = true;
+  a1 = 2;
+  a2 = 2;
+  b1 = 3;
+  b2 = 2;
+  toff = 0;
+  titer = 0.001;
+  lines = 100;
 
   //Dancing Triangles
   cohesion = 1;
@@ -53,6 +57,7 @@ export class P5NoiseComponent implements OnDestroy, AfterViewInit {
   seed = 0;
 
   //sketches
+  Truchet;
   DancingTrianglesSketch;
   NoiseSketch;
   MapGenerator;
@@ -63,6 +68,73 @@ export class P5NoiseComponent implements OnDestroy, AfterViewInit {
   constructor(private TM: ThemeManager, public WSM: WindowSizeManager) {}
 
   ngAfterViewInit() {
+    this.Truchet = (s) => {
+      let divWidth = 200;
+      let divHeight = 200;
+      let step = this.tileStep;
+      let pause = false;
+
+      let frame = 0;
+
+      let num_tiles_x = 100;
+      let num_tiles_y = 100;
+
+      s.setup = () => {
+        divWidth = this.TruchetRef.nativeElement.offsetWidth;
+        divHeight = this.TruchetRef.nativeElement.offsetHeight;
+        let canvas2 = s.createCanvas(divWidth, divHeight);
+        canvas2.parent('Truchet');
+        s.noFill();
+
+        num_tiles_x = s.width / step;
+        num_tiles_y = s.height / step;
+
+        //s.noSmooth();
+      };
+
+      s.toggleMovement = () => {
+        pause = !pause;
+      };
+
+      s.draw = () => {
+        s.background(255);
+        s.stroke(0);
+        s.strokeWeight(4);
+
+        if (!pause) {
+          frame = frame + 1;
+        }
+
+        step = this.tileStep;
+        num_tiles_x = s.width / step;
+        num_tiles_y = s.height / step;
+
+        for (let i = 0; i < num_tiles_x; i++) {
+          for (let j = 0; j < num_tiles_y; j++) {
+            let x = i * step;
+            let y = j * step;
+
+            //s.rect(x, y, step);
+
+            let r = s.noise(x, y, frame * 0.002);
+
+            if (r < 0.5) {
+              s.line(x, y, x + step, y + step);
+            } else {
+              s.line(x + step, y, x, y + step);
+            }
+          }
+        }
+
+        //s.noLoop();
+      };
+
+      s.windowResized = () => {
+        divWidth = this.TruchetRef.nativeElement.offsetWidth;
+        divHeight = this.TruchetRef.nativeElement.offsetHeight;
+        s.resizeCanvas(divWidth, divHeight);
+      };
+    };
     this.DancingTrianglesSketch = (s) => {
       let divWidth = 200;
       let divHeight = 200;
@@ -185,7 +257,7 @@ export class P5NoiseComponent implements OnDestroy, AfterViewInit {
       };
     };
     this.NoiseSketch = (s) => {
-      let radius = 140
+      let radius = 140;
       let t = 0;
       let divWidth;
       let divHeight;
@@ -195,50 +267,49 @@ export class P5NoiseComponent implements OnDestroy, AfterViewInit {
         let canvas2 = s.createCanvas(divWidth, divHeight);
         canvas2.parent('NoiseHolder');
         s.pixelDensity(1);
-        s.background(51)
-        s.strokeWeight(2)
-        s.stroke(225)
+        s.background(51);
+        s.strokeWeight(2);
+        s.stroke(225);
       };
 
-
-      s.calcX = (t) =>{
-      return Math.sin(t*this.a1) + Math.sin(t*this.a2)
+      s.calcX = (t) => {
+        return Math.sin(t * this.a1) + Math.sin(t * this.a2);
       };
 
       s.calcY = (t) => {
-        return Math.cos(t*this.b1) + Math.cos(t*this.b2)
+        return Math.cos(t * this.b1) + Math.cos(t * this.b2);
       };
 
       s.draw = () => {
-        s.background(51)
+        s.background(51);
+        radius = (s.width ** 2 + s.height ** 2) ** (1 / 2) / 10;
 
-        s.translate(s.width/2,s.height/2)
+        s.translate(s.width / 2, s.height / 2);
 
-        for (let i= 0; i<this.lines;i++){
-          let t1 = 0
-          let t2 = 0
+        for (let i = 0; i < this.lines; i++) {
+          let t1 = 0;
+          let t2 = 0;
 
-          if(this.PI_OFFSET){
-            t1 = t + i/this.lines * Math.PI *2
-            t2 = t + Math.PI+ this.toff + i/this.lines * Math.PI *2
+          if (this.PI_OFFSET) {
+            t1 = t + (i / this.lines) * Math.PI * 2;
+            t2 = t + Math.PI + this.toff + (i / this.lines) * Math.PI * 2;
           } else {
-            t1 = t + i/10
-            t2 = t + i/10 + this.toff
+            t1 = t + i / 10;
+            t2 = t + i / 10 + this.toff;
           }
 
-          let x1 = s.calcX(t1) * radius
-          let y1 = s.calcY(t1) * radius
-          let x2 = s.calcX(t2) * radius
-          let y2 = s.calcY(t2) * radius
-          if (this.shading == true){
-            s.stroke((1-s.max(x1,x2)*2/s.width) * 255)
+          let x1 = s.calcX(t1) * radius;
+          let y1 = s.calcY(t1) * radius;
+          let x2 = s.calcX(t2) * radius;
+          let y2 = s.calcY(t2) * radius;
+          if (this.shading == true) {
+            s.stroke((1 - (s.max(x1, x2) * 2) / s.width) * 255);
+          } else {
+            s.stroke(225);
           }
-          else{
-            s.stroke(225)
-          }
-          s.line(x1,y1,x2,y2)
+          s.line(x1, y1, x2, y2);
         }
-        t += this.titer
+        t += this.titer;
       };
 
       s.windowResized = () => {
@@ -303,7 +374,17 @@ export class P5NoiseComponent implements OnDestroy, AfterViewInit {
       };
     };
 
-    this.canvas = new p5(this.MapGenerator);
+    this.canvas = new p5(this.Truchet);
+  }
+
+  randomizeParametric() {
+    this.a1 = Math.random() * 10;
+    this.a2 = Math.random() * 10;
+    this.b1 = Math.random() * 10;
+    this.b2 = Math.random() * 10;
+    this.toff = Math.random() * 0.01;
+    this.titer = Math.random() * 0.002;
+    this.lines = Math.random() * 200;
   }
 
   redraw() {
@@ -321,12 +402,15 @@ export class P5NoiseComponent implements OnDestroy, AfterViewInit {
     this.canvas.remove();
     switch (this.selectedTabIndex) {
       case 0:
-        this.canvas = new p5(this.MapGenerator);
+        this.canvas = new p5(this.Truchet);
         break;
       case 1:
-        this.canvas = new p5(this.DancingTrianglesSketch);
+        this.canvas = new p5(this.MapGenerator);
         break;
       case 2:
+        this.canvas = new p5(this.DancingTrianglesSketch);
+        break;
+      case 3:
         this.canvas = new p5(this.NoiseSketch);
         break;
     }
