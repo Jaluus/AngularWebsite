@@ -167,13 +167,6 @@ export class P5WebglComponent implements OnDestroy, AfterViewInit {
         }
 
         if (s.mouseIsPressed) {
-          if (s.mouseButton === s.LEFT) {
-            let deltaX = s.mouseX - s.pmouseX;
-            let deltaY = s.mouseY - s.pmouseY;
-            let mouseDelta = s.createVector(deltaX, deltaY).rotate(-rotateAng);
-            offsetX -= mouseDelta.x;
-            offsetY -= mouseDelta.y;
-          }
           if (s.mouseButton === s.RIGHT) {
             let deltaX = s.mouseX - s.pmouseX;
             let deltaY = s.mouseY - s.pmouseY;
@@ -181,6 +174,12 @@ export class P5WebglComponent implements OnDestroy, AfterViewInit {
             offsetAngleX -= deltaY / 100;
 
             console.log(offsetAngleX);
+          } else {
+            let deltaX = s.mouseX - s.pmouseX;
+            let deltaY = s.mouseY - s.pmouseY;
+            let mouseDelta = s.createVector(deltaX, deltaY).rotate(-rotateAng);
+            offsetX -= mouseDelta.x;
+            offsetY -= mouseDelta.y;
           }
         }
       };
